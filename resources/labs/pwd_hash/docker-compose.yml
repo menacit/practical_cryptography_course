@@ -1,0 +1,44 @@
+---
+# SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+# X-Context: Practical cryptography course - Password hashing lab
+
+version: "3.9"
+services:
+  # Container running a web server that provides secret gift advice
+  "sensitive-web-server.example.test":
+    build:
+      dockerfile: "server.dockerfile"
+      context: "."
+    networks:
+      - "lab-pwd_hash"
+    volumes:
+      # Text file containing password for access to the web service
+      - "./server_password.txt:/etc/server_password.txt:ro"
+    environment:
+      # Runtime settings for the server
+      "LOG_LEVEL": "INFO"
+
+  # Container running a client application that continuously tries to fetch
+  # secret gift advice from a remote web server
+  "client":
+    build:
+      dockerfile: "client.dockerfile"
+      context: "."
+    networks:
+      - "lab-pwd_hash"
+    depends_on:
+      "sensitive-web-server.example.test":
+        condition: "service_healthy"
+    environment:
+      # Runtime settings for the client
+      "TARGET_SERVER_ADDRESS": "sensitive-web-server.example.test"
+      "REQUEST_DELAY_SECONDS": "15"
+      "SERVER_PASSWORD": "Tuff3-Uff3"
+      "LOG_LEVEL": "INFO"
+
+# Configuration of networks
+networks:
+  "lab-pwd_hash":
+    driver_opts:
+      "com.docker.network.bridge.name": "lab-pwd_hash"

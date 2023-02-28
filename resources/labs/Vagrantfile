@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+# X-Context: Practical cryptography course
+
+# Vagrant configuration for setting up lab system VM
+Vagrant.configure("2") do |config|
+  config.vm.hostname = "crypto-lab-system"
+  # Base lab system on Ubuntu 22.04 LTS
+  config.vm.box = "ubuntu/jammy64"
+  # Expose course resources (labs, quizzes, etc.) on "/course_data" in lab VM
+  config.vm.synced_folder "..", "/course_data"
+
+  # Provision VM using Ansible playbook
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "setup_lab_system.yml"
+  end
+
+  # Configure VirtualBox ensure that sufficient system resources are available, that the VM has a
+  # USB controller enabled and that any Yubikey plugged into the host gets automatically forwarded
+  # into the guest (requires membership in "vboxusers" group on Linux). If you are using a provider
+  # other than VirtualBox, comment out the section below or modify it to fit your needs.
+  config.vm.provider "virtualbox" do |vb|
+    vb.cpus = 2
+    vb.memory = 2500
+    vb.customize ["modifyvm", :id, "--usbohci", "on"]
+    vb.customize [
+      "usbfilter", "add", "99", "--target", :id,
+      "--name", "Forward YubiKeys to lab system", "--manufacturer", "Yubico"]
+  end
+end

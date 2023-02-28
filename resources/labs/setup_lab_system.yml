@@ -1,0 +1,90 @@
+---
+- hosts: "all"
+  vars:
+    "verify_os_version": true
+  become: true
+  tasks:
+    # ---------------------------------------------------------------------------------------------
+    - name: "Fail if operating system ain't Ubuntu 22.04 LTS"
+      ansible.builtin.fail:
+        msg: >-
+          This playbook and labs in the practical cryptography course have only been tested on
+          Ubuntu 22.04 LTS. If you desire to use another Linux distribution, know what you're doing
+          and can live with limited teacher support, set the Ansible variable "verify_os_version"
+          to false. If you manage to get the playbook and course labs working on another operating
+          system/version/distribution, please submit a pull request to
+          https://github.com/menacit/practical_cryptography_course
+      when:
+        - "verify_os_version | bool"
+        - "ansible_lsb.codename != 'jammy'"
+    # ---------------------------------------------------------------------------------------------
+    - name: "Install dependency packages for adding Docker APT repository"
+      ansible.builtin.apt:
+        name:
+          - "ca-certificates"
+          - "gpg"
+        force_apt_get: true
+        install_recommends: false
+        cache_valid_time: 900
+        state: "present"
+    # ---------------------------------------------------------------------------------------------
+    - name: "Configure GPG signing key for Docker APT repository"
+      ansible.builtin.apt_key:
+        url: "https://download.docker.com/linux/ubuntu/gpg"
+        id: "9DC858229FC7DD38854AE2D88D81803C0EBFCD88"
+        keyring: "/usr/share/keyrings/docker_inc.gpg"
+        state: "present"
+    # ---------------------------------------------------------------------------------------------
+    - name: "Configure Docker APT repository"
+      ansible.builtin.apt_repository:
+        repo: >-
+          deb [signed-by=/usr/share/keyrings/docker_inc.gpg]
+          https://download.docker.com/linux/ubuntu jammy stable
+        state: "present"
+    # ---------------------------------------------------------------------------------------------
+    - name: "Install required and supporting packages for labs"
+      ansible.builtin.apt:
+        name:
+          - "ccrypt"
+          - "containerd.io"
+          - "cryptsetup"
+          - "dirmngr"
+          - "docker-buildx-plugin"
+          - "docker-ce"
+          - "docker-ce-cli"
+          - "docker-compose-plugin"
+          - "easy-rsa"
+          - "fscrypt"
+          - "golang-cfssl"
+          - "gpg-agent"
+          - "haveged"
+          - "hcxtools"
+          - "hopenpgp-tools"
+          - "john"
+          - "opensc"
+          - "opensc-pkcs11"
+          - "openssl"
+          - "p7zip-full"
+          - "pcscd"
+          - "pinentry-curses"
+          - "pollinate"
+          - "scdaemon"
+          - "ssss"
+          - "stegosuite"
+          - "tcpdump"
+          - "tshark"
+          - "yamllint"
+          - "ykcs11"
+          - "yubikey-manager"
+        force_apt_get: true
+        install_recommends: false
+        cache_valid_time: 900
+        state: "present"
+    # ---------------------------------------------------------------------------------------------
+    - name: "Configure GPG to use TTY as default input"
+      ansible.builtin.copy:
+        content: "export GPG_TTY=$(tty)"
+        dest: "/etc/profile.d/99-gpg_tty.sh"
+        owner: "root"
+        group: "root"
+        mode: 0755

@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+# X-Context: Practical cryptography course
+
+# These directories are used for output/debugging/lab data and should not be tracked in VCS
+output
+_tmp
+resources/labs/sym_crypt/backups/*
+resources/labs/sym_crypt/backup_source/*
+resources/labs/sym_crypt/restore_target/*

@@ -1,0 +1,54 @@
+---
+# SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+# X-Context: Practical cryptography course - X.509/TLS lab
+
+version: "3.9"
+services:
+  # Container generating silly quotes that serve as the "top-secret information" used in this lab.
+  # Feel free to change it if you like to, but it's no requirement for the lab
+  "content-generator":
+    build:
+      dockerfile: "content-generator.dockerfile"
+      context: "."
+    volumes:
+      - "sensitive-content:/output"
+
+  # Container running an instance of the NGINX web server that exposes the "top-secret information"
+  "sensitive-web-server.example.test":
+    image: "docker.io/library/nginx:1.23"
+    networks:
+      - "lab-x509_tls"
+    volumes:
+      - "sensitive-content:/input:ro"
+      # The NGINX configuration file is bind-mounted into the container
+      - "./server.conf:/etc/nginx/nginx.conf:ro"
+    healthcheck:
+      test: "stat /input/secret.txt"
+      interval: "3s"
+      retries: 10
+
+  # Container running a client application that continuously tries to fetch
+  # "top-secret" information from a remote web server
+  "client":
+    build:
+      dockerfile: "client.dockerfile"
+      context: "."
+    networks:
+      - "lab-x509_tls"
+    depends_on:
+      "sensitive-web-server.example.test":
+        condition: "service_healthy"
+    environment:
+      # Runtime settings for the client
+      "TARGET_SERVER_ADDRESS": "sensitive-web-server.example.test"
+      "REQUEST_DELAY_SECONDS": "15"
+
+# Configuration of volumes and networks
+volumes:
+  sensitive-content: {}
+
+networks:
+  "lab-x509_tls":
+    driver_opts:
+      "com.docker.network.bridge.name": "lab-x509_tls"
