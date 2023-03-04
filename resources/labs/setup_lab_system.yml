@@ -1,4 +1,8 @@
 ---
+# SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+# X-Context: Practical cryptography course
+
 - hosts: "all"
   vars:
     "verify_os_version": true

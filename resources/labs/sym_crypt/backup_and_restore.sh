@@ -78,7 +78,7 @@ if [[ -z "${LOG_LEVEL}" ]]; then
 	LOG_LEVEL='INFO'
 elif [[ "${LOG_LEVEL}" != "INFO" ]] && [[ "${LOG_LEVEL}" != "DEBUG" ]]; then
 	LOG_LEVEL='INFO'
-	log ERROR "Environment variable \"${LOG_LEVEL}\" must contain either \"INFO\" or \"DEBUG\""
+	log ERROR "Environment variable \"LOG_LEVEL\" must contain either \"INFO\" or \"DEBUG\""
 fi
 
 # Generate script usage description

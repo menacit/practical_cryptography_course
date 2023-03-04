@@ -1,0 +1,23 @@
+---
+# SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+# X-Context: Practical cryptography course - PGP and HSM lab
+
+version: "3.9"
+services:
+  # Container running....
+  "recipient-bot":
+    build:
+      dockerfile: "recipient_bot.dockerfile"
+      context: "."
+    network_mode: "none"
+    volumes:
+      - "./recipient_certificates:/lab/recipient_certificates:rw"
+      - "./student_data:/lab/student_data:ro"
+    environment:
+      # Runtime settings for the bot
+      "LOG_LEVEL": "INFO"
+      "VERIFY_SIGNATURE": "true"
+      "VERIFY_ATTESTATION": "true"
+      "RECIPIENTS": |
+        alice

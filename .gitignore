@@ -5,6 +5,10 @@
 # These directories are used for output/debugging/lab data and should not be tracked in VCS
 output
 _tmp
+
+# Lab related files
 resources/labs/sym_crypt/backups/*
 resources/labs/sym_crypt/backup_source/*
 resources/labs/sym_crypt/restore_target/*
+resources/labs/pgp/recipient_certificates/*
+resources/labs/pgp/student_data/*
