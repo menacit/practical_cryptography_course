@@ -17,12 +17,11 @@ if ! [[ -d "${TARGET_DIRECTORY}" ]]; then
 	exit 1
 fi
 
-echo "INFO: Copying system manual pages as example files to target directory"
-cp -pr -- /usr/share/man "${TARGET_DIRECTORY}/manual_pages"
-
-for SIZE in 10M 50M 200M; do
+for SIZE in 10M 50M 100M; do
+	DATA_DIRECTORY="${TARGET_DIRECTORY}/files_${SIZE}"
+	mkdir -p "${DATA_DIRECTORY}"
 	echo "INFO: Creating easily compressable example file of size ${SIZE}"
-	head --bytes "${SIZE}" /dev/zero > "${TARGET_DIRECTORY}/easily_compressable-${SIZE}.data"
+	head --bytes "${SIZE}" /dev/zero > "${DATA_DIRECTORY}/easily_compressable-${SIZE}.data"
 	echo "INFO: Creating very random example file of size ${SIZE}"
-	head --bytes "${SIZE}" /dev/urandom > "${TARGET_DIRECTORY}/very_random-${SIZE}.data"
+	head --bytes "${SIZE}" /dev/urandom > "${DATA_DIRECTORY}/very_random-${SIZE}.data"
 done

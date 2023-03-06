@@ -58,16 +58,6 @@ elif [[ "${VERIFY_SIGNATURE}" != 'true' ]] && [[ "${VERIFY_SIGNATURE}" != 'false
 	log ERROR 'Environment variable "VERIFY_SIGNATURE" must contain either true or false'
 fi
 
-if [[ -z "${VERIFY_ATTESTATION}" ]]; then
-	VERIFY_ATTESTATION='false'
-elif [[ "${VERIFY_ATTESTATION}" != "true" ]] && [[ "${VERIFY_ATTESTATION}" != "false" ]]; then
-	log ERROR 'Environment variable "VERIFY_ATTESTATION" must contain either true or false'
-fi
-
-if ! ${VERIFY_SIGNATURE} && ${VERIFY_ATTESTATION}; then
-	log ERROR 'Option "VERIFY_ATTESTATION" cannot be true when "VERIFY_SIGNATURE" is false'
-fi
-
 if [[ -z "${RECIPIENTS}" ]]; then
 	log ERROR 'Environment variable "RECIPIENTS" must contain list with names of recipients'
 fi
@@ -113,18 +103,6 @@ for RECIPIENT in ${RECIPIENTS}; do
 
 	log DEBUG "Generated decryption base command: \"${COMMAND}\""
 	DECRYPT_COMMAND="$(echo "${DECRYPT_COMMAND}" | tr ' ' '\n')"
-	
-	ATTESTATION_CERTIFICATE_PATH="${BASE_PATH}/student_data/student.attest.crt"
-	if ! ${VERIFY_ATTESTATION}; then
-		log WARN 'Validation of attestation certificate for signer key is disabled'
-	elif ${VERIFY_ATTESTATION} && ! [[ -f "${SIGNER_CERTIFICATE_PATH}" ]]; then
-		log ERROR "Couldn't find signer certificate at \"${SIGNER_CERTIFICATE_PATH}\""
-	else
-		log INFO 'Validating signer certificate against attestation certificate'
-		yk-attest-verify \
-			pgp --allowed-keysources generated \
-			"${ATTESTATION_CERTIFICATE_PATH}" "${SIGNER_CERTIFICATE_PATH}"
-	fi
 
 	for MESSAGE_FILE in ${BASE_PATH}/student_data/messages/*.txt; do
 		log INFO "Printing plain-text message \"${MESSAGE_FILE}\" as \"${RECIPIENT}\""

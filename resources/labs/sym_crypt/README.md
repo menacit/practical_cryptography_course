@@ -61,6 +61,12 @@ Usage of the debug logging level is recommended if sensitive information, such a
 keys, needs to be included in log messages for problem analysis/investigation.
 
 
+### Avoid hard-coding passwords
+It is generally consider a bad/unsafe practice to store credentials, such as a passwords and API
+keys, as hard-coded values in scripts/application source code. These should instead be provided
+through runtime configuration options, such as environment variables or a settings file.
+
+
 ### Links
 - [Man page: "tar" command](https://linux.die.net/man/1/tar)
 - [Man page: "7z" command](https://linux.die.net/man/1/7z)

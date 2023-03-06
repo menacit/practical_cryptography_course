@@ -5,7 +5,10 @@
 
 - hosts: "all"
   vars:
+    "default_user_id": 1000
     "verify_os_version": true
+    "att_utility_version": "0.0.9"
+    "att_utility_checksum": "24d08e59c62dee8d42f8853719d1e7bb1496239e0de030b4a0bfab9dde90955b"
   become: true
   tasks:
     # ---------------------------------------------------------------------------------------------
@@ -46,6 +49,17 @@
           https://download.docker.com/linux/ubuntu jammy stable
         state: "present"
     # ---------------------------------------------------------------------------------------------
+    - name: "Download package file for yk-attest-verify utility"
+      ansible.builtin.get_url:
+        url: >-
+          https://github.com/joemiller/yk-attest-verify/releases/download/v{{
+          att_utility_version }}/yk-attest-verify_{{ att_utility_version }}_linux_amd64.deb
+        checksum: "sha256:{{ att_utility_checksum }}"
+        dest: "/tmp/yk-attest-verify.deb"
+        owner: "root"
+        group: "root"
+        mode: 0644
+    # ---------------------------------------------------------------------------------------------
     - name: "Install required and supporting packages for labs"
       ansible.builtin.apt:
         name:
@@ -75,15 +89,23 @@
           - "scdaemon"
           - "ssss"
           - "stegosuite"
+          - "sq"
           - "tcpdump"
           - "tshark"
           - "yamllint"
           - "ykcs11"
           - "yubikey-manager"
+          - "./tmp/yk-attest-verify.deb"
         force_apt_get: true
         install_recommends: false
         cache_valid_time: 900
         state: "present"
+    # ---------------------------------------------------------------------------------------------
+    - name: "Adding default user to Docker group"
+      ansible.builtin.user:
+        uid: "{{ default_user_id }}"
+        groups: "docker"
+        append: true
     # ---------------------------------------------------------------------------------------------
     - name: "Configure GPG to use TTY as default input"
       ansible.builtin.copy:

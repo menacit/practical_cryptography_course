@@ -3,6 +3,7 @@
 # X-Context: Practical cryptography course
 
 # These directories are used for output/debugging/lab data and should not be tracked in VCS
+variables
 output
 _tmp
 

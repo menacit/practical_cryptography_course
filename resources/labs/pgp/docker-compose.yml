@@ -5,7 +5,7 @@
 
 version: "3.9"
 services:
-  # Container running....
+  # Container running script to decrypt/verify PGP messages
   "recipient-bot":
     build:
       dockerfile: "recipient_bot.dockerfile"
@@ -17,7 +17,7 @@ services:
     environment:
       # Runtime settings for the bot
       "LOG_LEVEL": "INFO"
-      "VERIFY_SIGNATURE": "true"
-      "VERIFY_ATTESTATION": "true"
+      "VERIFY_SIGNATURE": "false"
       "RECIPIENTS": |
         alice
+        bob

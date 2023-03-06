@@ -31,17 +31,17 @@ function backup {
 	SOURCE_FILE="${1}"
 	TARGET_DIRECTORY="${2}"
 
-	log INFO "Backing up file/directory \"${SOURCE_FILE}\" to ${TARGET_DIRECTORY}"
+	log INFO "Backing up file/directory \"${SOURCE_FILE}\" to \"${TARGET_DIRECTORY}\""
 
 	# Generate file name/path for backup archive (forward slash is replaced with underscore)
-	BACKUP_ARCHIVE_NAME="$(echo "${SOURCE_FILE}" | sed 's|/|_|g')-$(date --iso-8601=s).tar.gz"
+	BACKUP_ARCHIVE_NAME="$(echo "${SOURCE_FILE}")-$(date --iso-8601=seconds | tr : _).tar.gz"
 	BACKUP_ARCHIVE_FILE="${TARGET_DIRECTORY}/${BACKUP_ARCHIVE_NAME}"
 	log DEBUG "Generate backup archive file path: \"${BACKUP_ARCHIVE_FILE}\""
 
 	# Use the tar utility to create compressed archive of source file/directory
 	tar --create --auto-compress --file "${BACKUP_ARCHIVE_FILE}" -- "${SOURCE_FILE}"
 
-	if [[ "${?}" == "0" ]]; then
+	if [[ "${?}" == '0' ]]; then
 		log INFO "Successfully backed up \"${SOURCE_FILE}\" to \"${BACKUP_ARCHIVE_FILE}\""
 	else
 		log ERROR "Failed to backup up \"${SOURCE_FILE}\" to \"${BACKUP_ARCHIVE_FILE}\""
@@ -54,7 +54,7 @@ function restore {
 	TARGET_DIRECTORY="${2}"
 
 	# Validate that specified backup archive file is actually an archive
-	if [[ "${BACKUP_ARCHIVE_FILE: -7}" != ".tar.gz" ]]; then
+	if [[ "${BACKUP_ARCHIVE_FILE: -7}" != '.tar.gz' ]]; then
 		log ERROR "Specified source file \"${BACKUP_ARCHIVE_FILE}\" isn't a tar.gz archive"
 	fi
 
@@ -66,7 +66,7 @@ function restore {
 		--file "${BACKUP_ARCHIVE_FILE}" \
 		--directory "${TARGET_DIRECTORY}"
 
-	if [[ "${?}" == "0" ]]; then
+	if [[ "${?}" == '0' ]]; then
 		log INFO "Restored archive \"${BACKUP_ARCHIVE_FILE}\" to \"${TARGET_DIRECTORY}\""
 	else
 		log ERROR "Failed to restore \"${BACKUP_ARCHIVE_FILE}\" to \"${TARGET_DIRECTORY}\""
@@ -76,9 +76,9 @@ function restore {
 # Read log level setting from environment variable or set "INFO" as default if not specified
 if [[ -z "${LOG_LEVEL}" ]]; then
 	LOG_LEVEL='INFO'
-elif [[ "${LOG_LEVEL}" != "INFO" ]] && [[ "${LOG_LEVEL}" != "DEBUG" ]]; then
+elif [[ "${LOG_LEVEL}" != 'INFO' ]] && [[ "${LOG_LEVEL}" != 'DEBUG' ]]; then
 	LOG_LEVEL='INFO'
-	log ERROR "Environment variable \"LOG_LEVEL\" must contain either \"INFO\" or \"DEBUG\""
+	log ERROR 'Environment variable "LOG_LEVEL" must contain either "INFO" or "DEBUG"'
 fi
 
 # Generate script usage description
@@ -97,9 +97,9 @@ EOF
 
 # First command line argument should specify operation mode for script
 SCRIPT_MODE="${1}"
-if [[ "${SCRIPT_MODE}" != "backup" ]] && [[ "${SCRIPT_MODE}" != "restore" ]]; then
+if [[ "${SCRIPT_MODE}" != 'backup' ]] && [[ "${SCRIPT_MODE}" != 'restore' ]]; then
 	echo "${USAGE_DESCRIPTION}"
-	log ERROR "First command line argument must be either \"backup\" or \"restore\""
+	log ERROR 'First command line argument must be either "backup" or "restore"'
 fi
 
 # Source and target directory for backup/restore specified as second and third argument

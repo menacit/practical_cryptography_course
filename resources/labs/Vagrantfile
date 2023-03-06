@@ -8,7 +8,8 @@ Vagrant.configure("2") do |config|
   # Base lab system on Ubuntu 22.04 LTS
   config.vm.box = "ubuntu/jammy64"
   # Expose course resources (labs, quizzes, etc.) on "/course_data" in lab VM
-  config.vm.synced_folder "..", "/course_data"
+  config.vm.synced_folder "..", "/course_data", SharedFoldersEnableSymlinksCreate: true
+  config.vm.synced_folder ".", "/vagrant", SharedFoldersEnableSymlinksCreate: true
 
   # Provision VM using Ansible playbook
   config.vm.provision "ansible_local" do |ansible|
