@@ -5,7 +5,7 @@
 
 - hosts: "all"
   vars:
-    "default_user_id": 1000
+    "default_user": "vagrant"
     "verify_os_version": true
     "att_utility_version": "0.0.9"
     "att_utility_checksum": "24d08e59c62dee8d42f8853719d1e7bb1496239e0de030b4a0bfab9dde90955b"
@@ -60,6 +60,11 @@
         group: "root"
         mode: 0644
     # ---------------------------------------------------------------------------------------------
+    - name: "Install package file for yk-attest-verify utility"
+      ansible.builtin.apt:
+        deb: "/tmp/yk-attest-verify.deb"
+        state: "present"
+    # ---------------------------------------------------------------------------------------------
     - name: "Install required and supporting packages for labs"
       ansible.builtin.apt:
         name:
@@ -103,7 +108,7 @@
     # ---------------------------------------------------------------------------------------------
     - name: "Adding default user to Docker group"
       ansible.builtin.user:
-        uid: "{{ default_user_id }}"
+        name: "{{ default_user }}"
         groups: "docker"
         append: true
     # ---------------------------------------------------------------------------------------------
