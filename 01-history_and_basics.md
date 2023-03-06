@@ -71,7 +71,7 @@ Enables conversions and relaying of detailed information/instructions over vast 
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX%  (CC BY 2.0)" -->
-**Perhaps you want to keep some things a secret?**
+Perhaps you want to keep some things a secret?
 
 ![bg right:30%](images/)
 
@@ -156,7 +156,7 @@ Ciphertext: QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX%  (CC BY 2.0)" -->
-Probably quiet confusing at first, but easily broken.  
+Probably confusing at first, but easily broken.  
   
 Largely security through obscurity.
 
@@ -290,7 +290,7 @@ Different keys are used for encryption and decryption.
 <!-- _footer: "%ATTRIBUTION_PREFIX%  (CC BY 2.0)" -->
 Also enables **"digital signatures"**.
 
-Quite a complex topic that we will dig more into later.
+Quite a complex topic that we'll cover later.
 
 ![bg right:30%](images/)
 
