@@ -34,7 +34,7 @@ function backup {
 	log INFO "Backing up file/directory \"${SOURCE_FILE}\" to \"${TARGET_DIRECTORY}\""
 
 	# Generate file name/path for backup archive (forward slash is replaced with underscore)
-	BACKUP_ARCHIVE_NAME="$(echo "${SOURCE_FILE}")-$(date --iso-8601=seconds | tr : _).tar.gz"
+	BACKUP_ARCHIVE_NAME="$(echo "${SOURCE_FILE}" | tr / _)-$(date --iso-8601=seconds | tr : _).tar.gz"
 	BACKUP_ARCHIVE_FILE="${TARGET_DIRECTORY}/${BACKUP_ARCHIVE_NAME}"
 	log DEBUG "Generate backup archive file path: \"${BACKUP_ARCHIVE_FILE}\""
 

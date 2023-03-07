@@ -50,10 +50,11 @@ execute the following commands:
 $ md "C:\vagrant_data"
 $ setx VAGRANT_HOME "C:/vagrant_data"
 $ setx GEM_HOME "C:/vagrant_data"
-$ takeown /a /r "C:\vagrant_data"
+$ takeown /a /r /f "C:\vagrant_data"
+$ "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" setproperty machinefolder "C:\vagrant_data"
 ```
 
-Reboot the computer, copy the course "resources" directory to "C:\\vagrant\_data" and try again.
+Copy the "resources" directory into "C:\\vagrant\_data" and re-execute "vagrant up".
 
 
 ### USB forwarding on Linux

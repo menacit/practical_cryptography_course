@@ -22,22 +22,22 @@ style: |
   }
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Pelle Sten (CC BY 2.0)" -->
 ## History/Basics exercise
 
-![bg right:30%](images/)
+![bg right:30%](images/05-locks.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Pelle Sten (CC BY 2.0)" -->
 ## Exercise
 Participants are split into two or more groups.  
   
 Group members should discuss:
-- How they have relied on cryptography during the day
-- What cryptographic tools/technologies/software they are familiar with/use
-- What they are most interested in learning about
+- How they have relied on cryptography during the day (brainstorming) 
+- What cryptographic tools/technologies/software they are familiar with/have knowingly used
+- What areas they are most interested in learning about
   
 After presentation, send notes to
 **[courses+crypto_010501@%EMAIL_DOMAIN%](mailto:courses+crypto_010501@%EMAIL_DOMAIN%)**
 
-![bg right:30%](images/)
+![bg right:30%](images/05-locks.jpg)

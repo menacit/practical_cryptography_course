@@ -21,11 +21,11 @@ style: |
   }
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX%  (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Robert Jemimus (CC BY 2.0)" -->
 # Symmetric encryption
 ### An introduction to it's uses
 
-![bg right:30%](images/)
+![bg right:30%](images/03-server_rack.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX%  (CC BY 2.0)" -->

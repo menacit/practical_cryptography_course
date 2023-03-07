@@ -100,7 +100,6 @@
           - "yamllint"
           - "ykcs11"
           - "yubikey-manager"
-          - "/tmp/yk-attest-verify.deb"
         force_apt_get: true
         install_recommends: false
         cache_valid_time: 900

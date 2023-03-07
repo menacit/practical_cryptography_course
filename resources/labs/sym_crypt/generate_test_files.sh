@@ -17,7 +17,7 @@ if ! [[ -d "${TARGET_DIRECTORY}" ]]; then
 	exit 1
 fi
 
-for SIZE in 10M 50M 100M; do
+for SIZE in 1M 10M 20M; do
 	DATA_DIRECTORY="${TARGET_DIRECTORY}/files_${SIZE}"
 	mkdir -p "${DATA_DIRECTORY}"
 	echo "INFO: Creating easily compressable example file of size ${SIZE}"
