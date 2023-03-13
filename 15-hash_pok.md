@@ -94,6 +94,9 @@ login($username, $one_time_code)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% David Revoy (CC BY 3.0)" -->
-**Many other use-cases exist - this is just an appetizer.**
+**Many other use-cases exist - this is just an appetizer.**  
+  
+If you wanna play around and got the time,
+check out ["resources/labs/extras/otp\_auth/README.md"](%RESOURCES_ARCHIVE%).  
 
 ![bg right:30%](images/15-airship.jpg)
