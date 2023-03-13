@@ -57,8 +57,7 @@ The lab report should be provided as a plain text file (".txt"), Markdown docume
 In addition to the report, all lab files that have been changed (scripts, configuration sets, etc.)
 should be provided as a ZIP or GZIP archive.  
   
-Send lab report and archive of changed files in an email to:  
-[courses+crypto-pwd\_hash\_lab@%EMAIL_DOMAIN%](mailto:courses+pwd_hash_lab@%EMAIL_DOMAIN%)
+Upload lab report and archive of changed files to %REPORT_TARGET%.
 
 
 ## Guidance and resources

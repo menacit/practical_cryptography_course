@@ -49,7 +49,7 @@ In addition to the report, all lab files that have been changed (scripts, config
 should be provided as a ZIP or GZIP archive. **Example backup files should not be included**.
   
 Send lab report and archive of changed files in an email to:  
-[courses+crypto-sym\_crypt\_lab@%EMAIL_DOMAIN%](mailto:courses+sym_crypt_lab@%EMAIL_DOMAIN%)
+[courses+crypto-sym\_crypt\_lab@%EMAIL_DOMAIN%](mailto:courses+crypto-sym_crypt_lab@%EMAIL_DOMAIN%)
 
 
 ## Guidance and resources
