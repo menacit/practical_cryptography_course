@@ -56,11 +56,20 @@ The lab report should be provided as a plain text file (".txt"), Markdown docume
 In addition to the report, all lab files that have been changed (scripts, configuration sets, etc.)
 should be provided as a ZIP or GZIP archive.  
   
-Send lab report and archive of changed files in an email to:  
-[courses+crypto-x509_tls_lab@%EMAIL_DOMAIN%](mailto:courses+crypto-x509_tls_lab@%EMAIL_DOMAIN%)
+Upload lab report and archive of changed files to %REPORT_TARGET%.
 
 
 ## Guidance and resources
+
+### "easy-rsa" not included in path
+The certificate authority utility "easy-rsa" should be pre-installed on the student's lab system.
+It may however not be automatically included in the shell executable path. The utility can be used
+by specifying the full script path, as seen in the example below:
+
+```
+$ /usr/share/easy-rsa/easyrsa help
+```
+
 
 ### Testing changes with Docker Compose
 The content generator, web server and client script are packaged as containers and executed using

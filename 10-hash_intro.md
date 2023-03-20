@@ -152,7 +152,6 @@ $ head --bytes 5G /dev/zero | sha256sum
 
 ....
 
-
 ![bg right:30%](images/10-eye.jpg)
 
 ---
