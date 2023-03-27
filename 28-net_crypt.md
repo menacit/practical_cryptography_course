@@ -69,11 +69,11 @@ We've talked about TLS, let's have a look at the other network layers.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
 ## Alternative: "TCP/IP model"
-1. Physical layer
-2. Data link layer
+1. Application layer
+2. Transport layer
 3. Internet layer 
-4. Transport layer
-5. Application layer
+4. Data link layer
+5. Physical layer
 
 **OCI model still acts as Interlingua.**
 
