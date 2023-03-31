@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+# X-Context: Practical cryptography course - Password cracking lab
+root:$1$yG0gxZm8$PGFsqFnBE8uYMwyV3LHCA0:19446:0::::: 
+bin:!::0:::::                                        
+halt:!::0:::::
+mail:!::0:::::
+news:!::0:::::
+uucp:!::0:::::
+guest:!::0:::::
+nobody:!::0:::::
+bob:$5$l4nu1mJdQ0DnGN/d$kxwjjvqLPz0ZOy88SoDNXRR1E.3oKDgWr.47kQpnAG2:19446:0:99999:7:::
+oscar:$6$3VNkreGOf5ORys4H$4/WhvPT0tMVY3qDe/HuF53p87OmaoXcWuxj57spEw1xQoWVYP0FmqUNS5ap0ctw9klnpZ5CADp4PhXeWy1LI1.:19446:0:99999:7:::
