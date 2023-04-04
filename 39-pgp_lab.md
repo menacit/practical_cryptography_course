@@ -30,7 +30,7 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% David Revoy (CC BY 4.0)" -->
 ## Lab description
-Graded exercise covering usage of OpenPGP and private key storage on a HSM.
+Non-graded exercise covering usage of OpenPGP and private key storage/generation on a HSM.
   
 For detailed instructions, see:  
 ["resources/labs/pgp/README.md"](%RESOURCES_ARCHIVE%).  
