@@ -8,7 +8,11 @@ RUN apt-get update \
 	&& apt-get install --assume-yes --no-install-recommends sq \
 	&& rm -rf /var/lib/apt-get/lists/* \
 	&& apt-get autoremove --assume-yes
-RUN mkdir -p /lab/recipient_private_keys /lab/recipient_certificates /lab/student_data/messages
+RUN mkdir -p \
+	/lab/recipient_private_keys \
+	/lab/recipient_certificates \
+	/lab/student_data/messages \
+	/lab/responses
 VOLUME ["/lab/recipient_private_keys"]
 COPY recipient_bot.sh /usr/local/bin
 CMD ["/usr/bin/bash", "/usr/local/bin/recipient_bot.sh"]

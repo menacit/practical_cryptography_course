@@ -14,10 +14,12 @@ services:
     volumes:
       - "./recipient_certificates:/lab/recipient_certificates:rw"
       - "./student_data:/lab/student_data:ro"
+      - "./responses:/lab/responses:rw"
     environment:
       # Runtime settings for the bot
       "LOG_LEVEL": "INFO"
       "VERIFY_SIGNATURE": "false"
+      "RESPOND_TO_MESSAGES": "false"
       "RECIPIENTS": |
         alice
         bob

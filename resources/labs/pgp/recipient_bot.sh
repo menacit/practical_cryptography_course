@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: CC-BY-SA-4.0
 # X-Context: Practical cryptography course - PGP and HSM lab
 
-# Lab program to...
+# Lab program to act as a conversation partner (chat bot) for OpenPGP encrypted/signed messages
 
 # If one command fails in a shell pipline, return its error code instead that of the last command
 set -o pipefail -o errexit
@@ -42,7 +42,7 @@ if [[ -z "${BASE_PATH}" ]]; then
 	log DEBUG "Setting default bot data base path to \"${BASE_PATH}\""
 fi
 
-for SUB_PATH in recipient_private_keys recipient_certificates student_data/messages; do
+for SUB_PATH in recipient_private_keys recipient_certificates student_data/messages responses; do
 	FULL_PATH="${BASE_PATH}/${SUB_PATH}"
 	log DEBUG "Checking if required bot path \"${FULL_PATH}\" exist"
 
@@ -56,6 +56,12 @@ if [[ -z "${VERIFY_SIGNATURE}" ]]; then
 	VERIFY_SIGNATURE='true'
 elif [[ "${VERIFY_SIGNATURE}" != 'true' ]] && [[ "${VERIFY_SIGNATURE}" != 'false' ]]; then
 	log ERROR 'Environment variable "VERIFY_SIGNATURE" must contain either true or false'
+fi
+
+if [[ -z "${RESPOND_TO_MESSAGES}" ]]; then
+	RESPOND_TO_MESSAGES='true'
+elif [[ "${RESPOND_TO_MESSAGES}" != 'true' ]] && [[ "${RESPOND_TO_MESSAGES}" != 'false' ]]; then
+	log ERROR 'Environment variable "RESPOND_TO_MESSAGES" must contain either true or false'
 fi
 
 if [[ -z "${RECIPIENTS}" ]]; then
@@ -101,7 +107,7 @@ for RECIPIENT in ${RECIPIENTS}; do
 		DECRYPT_COMMAND="${DECRYPT_COMMAND} --signer-cert ${SIGNER_CERTIFICATE_PATH}"
 	fi
 
-	log DEBUG "Generated decryption base command: \"${COMMAND}\""
+	log DEBUG "Generated decryption base command: \"${DECRYPT_COMMAND}\""
 	DECRYPT_COMMAND="$(echo "${DECRYPT_COMMAND}" | tr ' ' '\n')"
 
 	for MESSAGE_FILE in ${BASE_PATH}/student_data/messages/*.txt; do
@@ -112,5 +118,26 @@ for RECIPIENT in ${RECIPIENTS}; do
 	for MESSAGE_FILE in ${BASE_PATH}/student_data/messages/*.pgp; do
 		log INFO "Decrypting and printing message \"${MESSAGE_FILE}\" as \"${RECIPIENT}\""
 		${DECRYPT_COMMAND} "${MESSAGE_FILE}"
+	done
+
+	if ! ${RESPOND_TO_MESSAGES}; then
+		log WARN 'Encrypted/Signed message response is disabled'
+		continue
+	elif ${RESPOND_TO_MESSAGES} && ! [[ -f "${SIGNER_CERTIFICATE_PATH}" ]]; then
+		log ERROR "Couldn't find certificate for response: \"${SIGNER_CERTIFICATE_PATH}\""
+	fi
+
+	for MESSAGE_FILE in ${BASE_PATH}/student_data/messages/*.pgp; do
+		log INFO "Responding to message \"${MESSAGE_FILE}\" as \"${RECIPIENT}\""
+		MESSAGE="$(${DECRYPT_COMMAND} "${MESSAGE_FILE}")"
+		REPLY_PATH="${BASE_PATH}/responses/${RECIPIENT}_re_$(basename "${MESSAGE_FILE}")"
+
+		echo -e "I'll meditate upon this. Br, ${RECIPIENT}\n\nIn reply to:\n${MESSAGE}" | \
+			sq encrypt \
+				--recipient-cert "${SIGNER_CERTIFICATE_PATH}" \
+				--signer-key "${RECIPIENT_PRIVATE_KEY_PATH}" \
+			> "${REPLY_PATH}"
+
+		log INFO "Saved encrypted/signed response to \"${REPLY_PATH}\" as \"${RECIPIENT}\""
 	done
 done
