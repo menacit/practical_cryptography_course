@@ -90,7 +90,7 @@ $stored_password_hash) {
 <!-- _footer: "%ATTRIBUTION_PREFIX% Lord Jaraxxus (CC BY-SA 4.0)" -->
 Boom! Let's call it day, shall we?  
   
-Not quiet.
+Not quite.
 
 ![bg right:30%](images/13-neon_sign.jpg)
 

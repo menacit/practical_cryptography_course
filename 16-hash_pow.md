@@ -63,7 +63,7 @@ Hardware and electricity ain't free!
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% ORNL (CC BY 2.0)" -->
-Cryptographic hash functions require quiet a bit of CPU cycles.  
+Cryptographic hash functions require quite a bit of CPU cycles.  
   
 How can we prove that the user has wasted processing power on hashing?
 

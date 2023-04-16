@@ -105,6 +105,12 @@
         cache_valid_time: 900
         state: "present"
     # ---------------------------------------------------------------------------------------------
+    - name: "Start/Enable pcscd service"
+      ansible.builtin.systemd:
+        name: "pcscd.service"
+        enabled: true
+        state: "started"
+    # ---------------------------------------------------------------------------------------------
     - name: "Adding default user to Docker group"
       ansible.builtin.user:
         name: "{{ default_user }}"
