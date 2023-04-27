@@ -21,6 +21,12 @@ style: |
   section.center {
     text-align: center;
   }
+  table strong {
+    color: #d63030;
+  }
+  table em {
+    color: #2ce172;
+  }
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Bret Bernhoft (CC0 1.0)" -->
