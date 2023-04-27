@@ -84,7 +84,7 @@ on the most relevant areas
 - Linux
 - Shell scripting and Python programming
 - Networking
-- Virtualisation
+- Virtualisation and Docker
 
 ![bg right:30%](images/00-chip_closeup.jpg)
 
@@ -136,7 +136,9 @@ These resources should be seen as a complement to an instructor lead course, not
 ## Acknowledgements
 Thanks to [IT-Högskolan](https://www.iths.se/) and Särimner for enabling development of the course.
   
-Thanks to [Yubico](https://www.yubico.com/) for providing YubiKeys to in-class students for labs!  
+Thanks to [Yubico](https://www.yubico.com/) for providing YubiKeys to in-class students for labs!    
+  
+Thanks to [Mullvad VPN](https://mullvad.net/) for providing voucher codes a lab rewards.  
   
 Hats off to all FOSS developers and free culture contributors making it possible.
 
@@ -144,6 +146,19 @@ Hats off to all FOSS developers and free culture contributors making it possible
 
 <!--
 The course wouldn't be available if it wasn't for financial support - Thanks!
+-->
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Sergio Delgado (CC BY 2.0)" -->
+## Contributors <3
+- [Joel Rangsmo](https://github.com/doctor-love)
+- Kristin Karlsson
+- [Patrik Gäfvert](https://github.com/patrikgafvert)
+
+![bg right:30%](images/00-sloth.jpg)
+
+<!--
+People who have contributed to the course
 -->
 
 ---
