@@ -66,7 +66,8 @@ information secret, but as we'll see throughout the course there are many other 
 <!-- _footer: "%ATTRIBUTION_PREFIX% Damien McMahon (CC BY 2.0)" -->
 **This isn't a math course.**  
   
-**You won't become an expert, but hopefully a power-user!**
+**You won't become an expert,
+but hopefully a power-user!**
 
 ![bg right:30%](images/00-satellite_dish.jpg)
 
@@ -144,7 +145,7 @@ Thanks to [IT-Högskolan](https://www.iths.se/) and Särimner for enabling devel
   
 Thanks to [Yubico](https://www.yubico.com/) for providing YubiKeys to in-class students for labs!    
   
-Thanks to [Mullvad VPN](https://mullvad.net/) for providing voucher codes a lab rewards.  
+Thanks to [Mullvad VPN](https://mullvad.net/) for providing voucher codes as lab rewards.  
   
 Hats off to all FOSS developers and free culture contributors making it possible.
 
