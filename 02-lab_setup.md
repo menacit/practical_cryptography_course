@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Lab setup"
@@ -53,7 +53,6 @@ Connect YubiKey via USB, open a terminal in ["resources/labs"](%RESOURCES_ARCHIV
 
 ```
 $ vagrant up
-$ vagrant ssh
 $ vagrant ssh -- ykman info
 ```
   

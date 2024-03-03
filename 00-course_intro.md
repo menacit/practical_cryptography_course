@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Introduction"
@@ -89,7 +89,7 @@ on the most relevant areas
 ## Requires basic knowledge of...
 - Linux
 - Shell scripting and Python programming
-- Networking
+- Basic networking
 - Virtualisation and Docker
 
 ![bg right:30%](images/00-chip_closeup.jpg)
@@ -173,7 +173,7 @@ People who have contributed to the course
 Is anything unclear? Got ideas for improvements? Don't fancy the animals in the slides?  
   
 Create an issue or submit a pull request to
-[the repository on Github](https://github.com/menacit/practical\_cryptography\__course)!
+[the repository on Github](https://github.com/menacit/practical\_cryptography\_course)!
 
 ![bg right:30%](images/00-forest.jpg)
 

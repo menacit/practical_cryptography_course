@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+# SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 # SPDX-License-Identifier: CC-BY-SA-4.0
 # X-Context: Practical cryptography course - Symmetric file encryption lab
 
@@ -17,7 +17,7 @@ if ! [[ -d "${TARGET_DIRECTORY}" ]]; then
 	exit 1
 fi
 
-for SIZE in 1M 10M 20M; do
+for SIZE in 1M 5M 10M; do
 	DATA_DIRECTORY="${TARGET_DIRECTORY}/files_${SIZE}"
 	mkdir -p "${DATA_DIRECTORY}"
 	echo "INFO: Creating easily compressable example file of size ${SIZE}"

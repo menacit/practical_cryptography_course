@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 X-Context: Practical cryptography course
 -->
@@ -10,7 +10,7 @@ X-Context: Practical cryptography course
 
 ### Automated setup
 In order to get started with the course labs, the following software components must be installed
-on the user's host computer:
+on the user's host/physical computer:
 
 - [HashiCorp Vagrant](https://developer.hashicorp.com/vagrant/downloads)
 - [Virtualbox](https://www.virtualbox.org/)
@@ -19,9 +19,10 @@ Connect YubiKey via USB, open a command prompt in ["resources/labs"](%RESOURCES_
 
 ```
 $ vagrant up
-$ vagrant ssh
 $ vagrant ssh -- ykman info
 ```
+
+If successful, information such as the model and serial of the YubiKey should be outputted.
 
 
 ## Manual setup
@@ -36,6 +37,15 @@ For manual setup, install [Ansible](https://www.ansible.com/) and run the Ansibl
 
 
 ## Common issues
+
+### Enabling virtualisation support
+Virtualisation software like VirtualBox relies on hardware features included in most processors.
+These features are typically enabled by default, but some computer manufacturers require that they
+are explicitly enabled.  
+  
+If the student is experiencing issues creating virtual machines, review "step one" and "step two"
+in [Microsoft's virtualisation support documentation](https://support.microsoft.com/en-us/windows/enable-virtualization-on-windows-11-pcs-c5578302-6e43-4b4b-a449-8ced115f58e1).
+
 
 ### "Incompatible character encodings"
 Vagrant doesn't handle file system paths well with non-ASCII character/mixed character encoding.  
