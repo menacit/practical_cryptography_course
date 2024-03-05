@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Symmetric encryption tools"
@@ -21,11 +21,11 @@ style: |
   }
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Kristina Hoeppner (CC BY-SA 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
 ## Symmetric encryption tools
 ### Let there be demos!
 
-![bg right:30%](images/07-llama.jpg)
+![bg right:30%](images/07-chip.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
@@ -71,13 +71,13 @@ I didn't shoot the sheriff...
 ![bg center 70%](images/07-gnome_unlock_disk.png)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
 ## BitLocker
 - Introduced in Windows Vista (2007)
 - Not available in "Home" editions\*
 - Supports encryption of boot and data drives
 
-![bg right:30%](images/07-train.jpg)
+![bg right:30%](images/07-red_windows.jpg)
 
 ---
 ![bg center 70%](images/07-bitlocker_start.png)
@@ -101,20 +101,14 @@ I didn't shoot the sheriff...
 ![bg center 55%](images/07-bitlocker_backup_key_internal.png)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
-## But what about a password?
-
-![bg right:30%](images/07-abstract_chip.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Jonathan Torres (CC BY 4.0)" -->
 ## VeraCrypt
 - Fork of ["TrueCrypt"](https://en.wikipedia.org/wiki/TrueCrypt)
 - FOSS and publicly audited
 - Cross-platform
 - Supports encryption of boot\*, data drives and "virtual devices"
 
-![bg right:30%](images/07-train.jpg)
+![bg right:30%](images/07-cyborg.jpg)
 
 ---
 ![bg center 55%](images/07-veracrypt_home.png)
@@ -177,19 +171,19 @@ I didn't shoot the sheriff...
 ![bg center 65%](images/07-veracrypt_inner_content_list.png)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Helsinki Hacklab (CC BY 2.0)" -->
 # [XKCD: 538](https://xkcd.com/538/)
 
-![bg right:30%](images/07-abstract_chip.jpg)
+![bg right:30%](images/07-led_smile.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% George N (CC BY 2.0)" -->
 ## KeePassXC
 - Offline password/secrets manager
 - FOSS and cross-platform
 - Compatible with other KeePass variants\*
 
-![bg right:30%](images/07-train.jpg)
+![bg right:30%](images/07-laser.jpg)
 
 ---
 ![bg center 65%](images/07-keepass_home.png)
@@ -216,14 +210,14 @@ I didn't shoot the sheriff...
 ![bg center 65%](images/07-keepass_list_entries.png)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
 ## Up1
-- File hosting service
-- FOSS
-- Try it at [Riseup Share](https://share.riseup.net/)
+- Web-based file hosting service
+- FOSS!
+- Try it at ["Riseup Share"](https://share.riseup.net/)
 - Performs cryptography tasks in the browser ("client-side")
 
-![bg right:30%](images/07-train.jpg)
+![bg right:30%](images/07-full_moon.jpg)
 
 ---
 ![bg center 65%](images/07-up1_home.png)
@@ -241,16 +235,16 @@ I didn't shoot the sheriff...
 ![bg center 65%](images/07-up1_downloaded_content.png)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
 share.riseup.net/**#6nV4VONZwLr7nhBkd5gML**
 
-![bg right:30%](images/07-abstract_chip.jpg)
+![bg right:30%](images/07-full_moon.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% RoboticSpider (CC BY 4.0)" -->
 ## Bonus tip! ("fulhack")
 
-![bg right:30%](images/07-train.jpg)
+![bg right:30%](images/07-sad_robot.jpg)
 
 ---
 ![bg center 60%](images/07-yubikey_manager_home.png)
