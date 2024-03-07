@@ -37,3 +37,18 @@ style: |
 **[courses+crypto_010901@%EMAIL_DOMAIN%](mailto:courses+crypto_010901@%EMAIL_DOMAIN%)**
 
 ![bg right:30%](images/09-jellyfish.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Sbmeaper1 (CC0 1.0)" -->
+## Bonus task
+Already finished all other labs/tasks?  
+
+Attach an additional (virtual) disk to
+your lab system and utilize **cryptsetup**
+to setup **F**ull **D**isk **E**ncryption
+with keyslots for a password and a "key file".  
+  
+Format volume as EXT4 and send lab notes to
+**[courses+crypto_010902@%EMAIL_DOMAIN%](mailto:courses+crypto_010902@%EMAIL_DOMAIN%)**
+
+![bg right:30%](images/09-pines.jpg)
