@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Hashing introduction"
@@ -31,23 +31,6 @@ style: |
 # Cryptographic hashing
 
 ![bg right:30%](images/10-cyberpunk.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Martin Fisch (CC BY 2.0)" -->
-## Today's agenda
-- Presentations about hashing and its uses
-- Symmetric encryption exercise
-- Lab review: Symmetric file encryption
-- Lab / Q&A time
-- Quiz!
-
-![bg right:30%](images/10-otter.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Martin Fisch (CC BY 2.0)" -->
-**Don't forget to use the breaks!**
-
-![bg right:30%](images/10-otter.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Gytis B (CC BY-SA 2.0)" -->

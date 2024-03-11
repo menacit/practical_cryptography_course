@@ -30,9 +30,17 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jan Hrdina (CC BY-SA 2.0)" -->
 ## [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
-Manually decrypt ciphertext **WAPNTWECOACEG**
-using the key **PANDA**
+Manually decrypt ciphertext **"DACFDBBDEFEC"**
+using the key **"BAD"**
   
+|     |     |     |     |     |     |     |
+|-----|-----|-----|-----|-----|-----|-----|
+|     |  A  |  B  |  C  |  D  |  E  |  F  |
+|  A  |  A  |  B  |  C  |  D  |  E  |  F  |
+|  B  |  B  |  C  |  D  |  E  |  F  |  A  |
+|  C  |  C  |  D  |  E  |  F  |  A  |  B  |
+|  D  |  D  |  E  |  F  |  A  |  B  |  C  |
+
 **[courses+crypto_011201@%EMAIL_DOMAIN%](mailto:courses+crypto_011201@%EMAIL_DOMAIN%)**
 
 ![bg right:30%](images/12-optics.jpg)
