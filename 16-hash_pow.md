@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Proof of Work"
@@ -35,57 +35,82 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% ORNL (CC BY 2.0)" -->
-Why is email spam a problem?  
-  
-Anyone can send anyone a message at (almost) zero cost.
+What enables email spam,
+and how could we solve it?
 
 ![bg right:30%](images/16-server_rack.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% ORNL (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Nicholas A. Tonelli (CC BY 2.0)" -->
+Anyone can send anyone a message
+at (almost) zero cost.
+
+![bg right:30%](images/16-abandoned_pipe.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Jason Thibault (CC BY 2.0)" -->
 Couldn't we just charge a tiny fee per message?  
   
 How would you even implement that?  
   
 Any other ways we could introduce cost?
 
-![bg right:30%](images/16-server_rack.jpg)
+![bg right:30%](images/16-payphone.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% ORNL (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% OLCF at ORNL (CC BY 2.0)" -->
 Computations require processing.  
   
-Processing requires harwdare and electricity.  
+Processing requires hardware and electricity.  
   
 Hardware and electricity ain't free!
 
-![bg right:30%](images/16-server_rack.jpg)
+![bg right:30%](images/16-data_center.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% ORNL (CC BY 2.0)" -->
-Cryptographic hash functions require quite a bit of CPU cycles.  
+<!-- _footer: "%ATTRIBUTION_PREFIX% Roy Luck (CC BY 2.0)" -->
+Calculating a hash requires
+quite many CPU cycles.  
   
-How can we prove that the user has wasted processing power on hashing?
+How can we prove that the user has
+wasted processing power on hashing?
 
-![bg right:30%](images/16-server_rack.jpg)
+![bg right:30%](images/16-oil_refinery.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% ORNL (CC BY 2.0)" -->
-Let's steal a few tricks from hash-based authentication!
+<!-- _footer: "%ATTRIBUTION_PREFIX% Kuhnmi (CC BY 2.0)" -->
+Let's steal a few tricks from
+hash-based authentication!
 
-![bg right:30%](images/16-server_rack.jpg)
+![bg right:30%](images/16-bird.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% ORNL (CC BY 2.0)" -->
-**Sender:** I got some email for you!  
+<!-- _footer: "%ATTRIBUTION_PREFIX% Rob Hurson (CC BY-SA 2.0)" -->
+**Sender:**
+I got some email for you!  
   
-**Receiver:** Hmm, hash some text prefixed with "fiskburk" that results in a hash ending with "ff".
+**Receiver:**
+Stop right there! Before I accept your email,
+I want you to provide a hash of some data
+prefixed with "fiskburk" that ends with "ff".
   
-**Sender:** If I hash "fiskburk24077-29047-32326" I get a hash ending with "ff".  
+**Sender:**
+Okay - hold on a second... _\*crunching\*_...
+If I hash "fiskburk24077-29047-32326"
+I get a hash ending with "ff"!  
 
-**Receiver:** I get the same result - handover that email, will you?
+**Receiver:**
+I get the same result -
+handover that email, will you?
 
-![bg right:30%](images/16-server_rack.jpg)
+![bg right:30%](images/16-radio_outpost.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Martin Fisch (CC BY 2.0)" -->
+**Costly to find proof,
+but cheap to very!\***
+
+![bg right:30%](images/16-otter.jpg)
 
 ---
 ### resources/misc/pow.sh
@@ -140,13 +165,27 @@ real	1m23.770s
 ```
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% ORNL (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Marco Verch (CC BY 2.0)" -->
 ## Other use-cases
-- Online bruteforce prevention
+- Online rate-limiting 
 - Alternative to captcha
-- Crypto currencies
+- Anti-scraping
+- "Mining" in cryptocurrencies
 
 Whatever you can imagine!
 
-![bg right:30%](images/16-server_rack.jpg)
+![bg right:30%](images/16-bitcoin.jpg)
 
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
+Done with your other tasks
+and wanna try implementing PoW?  
+
+Modify the client and server
+from "pwd\_hash" lab to utilize
+PoW instead of/in addition to
+password-based authentication.  
+  
+**[courses+crypto_011601@%EMAIL_DOMAIN%](mailto:courses+crypto_011601@%EMAIL_DOMAIN%)**
+
+![bg right:30%](images/16-broken_cpu.jpg)

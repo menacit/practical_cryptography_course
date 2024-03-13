@@ -143,7 +143,7 @@ $stored_password_hash) {
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
 ## Salt should be...
-- Quiet random
+- Quite random
 - Unique per user
 - Accessible to application in plaintext
 
