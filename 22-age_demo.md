@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: age tool demo"
@@ -30,7 +30,7 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jonathan Miske (CC BY-SA 2.0)" -->
 ## What is ["age"](https://age-encryption.org/)?
-- FOSS tool (and format) for symmetric and asymmetric file (d)encryption
+- FOSS tool (and format) for symmetric and asymmetric file encryption
 - Fast and modern!
 - Compatible with SSH keys
 - Support for [key storage on hardware token](https://github.com/str4d/age-plugin-yubikey)
@@ -112,6 +112,9 @@ cat secret.txt.age | \
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jonathan Miske (CC BY-SA 2.0)" -->
 ## Wanna give it a spin?
-Try replacing 7-Zip in the "sym\_crypt" lab backup script with age!
+Try replacing tar/7-Zip in the
+"sym\_crypt" lab backup script with age!
+  
+**[courses+crypto_012201@%EMAIL_DOMAIN%](mailto:courses+crypto_012201@%EMAIL_DOMAIN%)**
 
 ![bg right:30%](images/22-silo.jpg)

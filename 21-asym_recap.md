@@ -34,32 +34,6 @@ style: |
 ![bg right:30%](images/21-sphere.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% David Revoy (CC BY 4.0)" -->
-## Today's agenda
-- Asymmetric cryptography recap
-- Tool demo: age
-- PGP basics
-- Lab review: Password hashing
-- Quiz!
-- Introduction to X.509 and TLS
-- Lab / Q&A time
-
-![bg right:30%](images/21-animals.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% David Revoy (CC BY 4.0)" -->
-### Remember to use the breaks!
-(and re-watch recordings...)
-
-![bg right:30%](images/21-animals.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% David Revoy (CC BY 4.0)" -->
-### Nice work on the first test <3
-
-![bg right:30%](images/21-animals.jpg)
-
----
 <!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
 ## Symmetric
 Same key is used for encryption and decryption.

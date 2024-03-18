@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: PGP basics"
@@ -36,9 +36,12 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
 ## What is PGP?
-Tool suite for strong asymmetric cryptography developed by Phil Zimmermann in the early 90s.  
+Tool suite for asymmetric cryptography
+developed by Phil Zimmermann
+in the early 90s.  
   
-"OpenPGP" acts as the umbrella for attempts standardise PGP.
+"OpenPGP" acts as the umbrella for
+attempts to standardize PGP.
 
 ![bg right:30%](images/23-lamps.jpg)
 
@@ -317,8 +320,9 @@ $ sq keyring list alice.keyring
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
-But wait a minute, how do I know that a key for test@example.com belongs to
-the real **Test Labsson**?
+But wait a minute, how do I know
+that a key for test@example.com
+belongs to the real **Test Labsson**?
 
 ![bg right:30%](images/23-lamps.jpg)
 
@@ -384,3 +388,14 @@ FOSS with [professional support available](https://gnupg.com/gnupg-desktop.html)
 
 ---
 ![bg center 55%](images/23-gpg4win_encrypt_options.png)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+Hope this piqued your interest.  
+
+All tools (_except the original PGP_) described
+are freely available for you to play with.  
+
+Grab a few classmates and set up a WoT.
+
+![bg right:30%](images/23-lamps.jpg)

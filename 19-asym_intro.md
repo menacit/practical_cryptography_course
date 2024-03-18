@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Asymmetric introduction"
@@ -35,7 +35,12 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% RoboticSpider (CC BY 4.0)" -->
-**This is not a math course.**
+This is not a math course.  
+
+We won't cover how the
+algorithms actually works.  
+
+Neither do we need to, thankfully!
 
 ![bg right:30%](images/19-robot.jpg)
 
@@ -43,9 +48,11 @@ style: |
 <!-- _footer: "%ATTRIBUTION_PREFIX% Greg Lloy (CC BY 2.0)" -->
 Also known as "**public-key cryptography**".  
   
-Spooks and researches have been using it since the late 70s.  
+Spooks and researches have been
+using it since the late 70s.  
   
-Requires usage of electronic computers (sorry, humans).
+Requires usage of electronic computers
+(sorry, humans!).
 
 ![bg right:30%](images/19-computer.jpg)
 
@@ -61,9 +68,33 @@ The corresponding **public key** can be used to encrypt and verify authenticity 
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Greg Lloy (CC BY 2.0)" -->
-[RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) is a solution that is still in-use today.  
+[**RSA**](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) is a
+commonly used cryptosystem.  
+
+Rivest, Shamir and Adleman.  
   
-Typically 2048, 3072 or 4096 bits large keys.
+~~Not to be~~ confused with
+the company "RSA Security".
+
+Patented in 1983,
+freely usable since 2000.
+  
+Typically 512, 1024... 4096 bits large keys.
+
+![bg right:30%](images/19-computer.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Greg Lloy (CC BY 2.0)" -->
+**D**igital **S**ignature **A**lgorithm.  
+
+Standardized by NIST in 1994,
+usable without license trouble.  
+
+Focused on signatures/authentication,
+not encryption.  
+
+Several design flaws and
+insufficient key size - avoid it!
 
 ![bg right:30%](images/19-computer.jpg)
 
@@ -72,9 +103,12 @@ Typically 2048, 3072 or 4096 bits large keys.
 [Elliptic-curve cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography) (**ECC**)
 is replacing RSA.  
   
-It's faster, requires smaller keys and is generally considered easier to safely implement.  
+It's faster, requires smaller keys and
+is generally considered easier
+to safely implement.  
   
-RSA still has better software/hardware support.
+RSA still has better
+software/hardware support.
 
 ![bg right:30%](images/19-arch.jpg)
 
@@ -91,7 +125,6 @@ real	0m0.008s
 ![bg right:30%](images/19-arch.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Steve Jurvetson (CC BY 2.0)" -->
 ```
 $ cat /tmp/key_rsa.pub | cut -d ' ' -f 2 
 AAAAB3NzaC1yc2EAAAADAQABAAABgQC0KDu1jlpyMbqGNAU5NEPmN8LXNeybJHRHiLHg
@@ -107,13 +140,14 @@ $ cat /tmp/key_ed.pub | cut -d ' ' -f 2
 AAAAC3NzaC1lZDI1NTE5AAAAIFmgY7uVLZqx/tOLPJ22JBi7TAJwmmClu66+mb2sOfUA
 ```
 
-![bg right:30%](images/19-arch.jpg)
-
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Steve Jurvetson (CC BY 2.0)" -->
-Several different "**curves**" can be used ECC.  
+Several different "**curves**" can be utilized.  
+(\~think different ciphers).  
   
-Common examples are **NIST P-256/P-384** and **Curve25519**.  
+Common examples are
+**NIST P-256/P-384** and
+**Curve25519**.  
   
 For guidance, checkout the ["SafeCurves" project](https://safecurves.cr.yp.to/).
 
@@ -121,8 +155,15 @@ For guidance, checkout the ["SafeCurves" project](https://safecurves.cr.yp.to/).
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% RoboticSpider (CC BY 4.0)" -->
-Asymmetric cryptography is relatively slow.  
+Asymmetric cryptography
+is relatively slow.  
   
-Most often combined with hashing and symmetric cryptography.
+Most often combined with
+hashing (digital signatures) and
+symmetric cryptography (key exchange).  
+
+Curious about how these type of
+algorithms actually work?
+Check out ["KidRSA"](https://macs4200.org/chapters/11/1/kidrsa.html).
 
 ![bg right:30%](images/19-robot.jpg)

@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Introduction to TLS"
@@ -37,21 +37,50 @@ style: |
 <!-- _footer: "%ATTRIBUTION_PREFIX% Bret Bernhoft (CC0 1.0)" -->
 Network traffic may be intercepted.  
   
-Malicious actors can manipulate and spy on sensitive communication.  
+Malicious actors can manipulate and
+spy on sensitive communication.  
 
 ![bg right:30%](images/25-cyberpunk.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Bret Bernhoft (CC0 1.0)" -->
-SSL was introduced by Netscape to enable e-commerce.  
+SSL was introduced by Netscape
+to enable e-commerce.  
   
-Replaced by properly standardised TLS after SSLv3.  
+Replaced by properly standardised TLS
+after SSL version 3.  
   
 Ensures confidentiality and integrity of network communication at the "session layer".  
   
-Used to secure cleartext protocols such as HTTP, SMTP, FTP, etc.
+Commonly used to secure cleartext protocols such as HTTP, SMTP, FTP, etc.
 
 ![bg right:30%](images/25-cyberpunk.jpg)
+
+---
+## Configuring a web server
+```
+$ cat /etc/caddy/Caddyfile 
+
+https://localhost {
+  tls /etc/caddy/my_server.pem /etc/caddy/my_server-key.pem
+  respond "Let me tell you a secret, friend!"
+}
+```
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Kristoffer Trolle (CC BY 2.0)" -->
+## Configuring a client
+```python
+#!/usr/bin/env python3
+import requests
+
+response = requests.get(
+    'https://localhost',
+    verify='ca.pem'
+)
+
+print(response.text)
+```
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Bret Bernhoft (CC0 1.0)" -->
@@ -61,28 +90,39 @@ Used to secure cleartext protocols such as HTTP, SMTP, FTP, etc.
 - Symmetric encryption for confidentiality
 - Hashing for integrity protection
 
-Different combinations of these are known as "cipher suites".
+Different combinations of these are
+known as "**cipher suites**".  
+
+TLS 1.2 supports 37 different ones,
+TLS 1.3 merely 5.
 
 ![bg right:30%](images/25-cyberpunk.jpg)
 
 ---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Bret Bernhoft (CC0 1.0)" -->
 ## Example cipher suites
 ```
-TLS_RSA_WITH_AES_128_CBC_SHA256
+TLS_RSA_EXPORT_WITH_RC4_40_MD5
 
-TLS_RSA_WITH_AES_256_GCM_SHA384
+TLS_DHE_RSA_WITH_AES_128_CBC_SHA256
 
-SSL_CK_DES_192_EDE3_CBC_WITH_SHA
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
+
 ```
+
+![bg right:30%](images/25-cyberpunk.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Bret Bernhoft (CC0 1.0)" -->
 ## What is "mTLS"?
 Mutual TLS.  
 
-Both connection peers (client and server) may present certificates.  
+Both connection peers
+(client and server) may
+present certificates.  
   
-Sloppily called "client certificate authentication".
+Sloppily called
+"client-certificate authentication".
 
 ![bg right:30%](images/25-cyberpunk.jpg)
 
@@ -117,9 +157,6 @@ Sloppily called "client certificate authentication".
 ---
 ### Reconfigure Caddy for mTLS
 ```
-$ ls /etc/caddy
-Caddyfile  ca.pem  my_server-key.pem  my_server.pem
-
 $ cat /etc/caddy/Caddyfile 
 
 https://localhost {
@@ -131,8 +168,6 @@ https://localhost {
   }
   respond "Let me tell you a secret, {tls_client_subject}!"
 }
-
-$ sudo systemctl restart caddy.service
 ```
 
 ---
