@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 X-Context: Practical cryptography course - X.509/TLS lab
 -->
@@ -37,13 +37,13 @@ required to complete the assignment should be pre-installed on the student's lab
 - Generate and sign a "server certificate" for the web server
 - Generate and sign a "client certificate" for the client script
 - Configure web server to support HTTPS, trust the CA and require client certificate authentication
-- Configure client script to use HTTPS and authenticate using the client certificate
+- Configure client script to use HTTPS, trust the CA and authenticate using the client certificate
 
 
 ### Meritorious ("VG")
 - Generate and configure usage of a certificate revocation list for the client/server
 - Configure client and server to enforce usage of TLS version 1.2 or later
-- Configure web server to log which client certificate is used to request resources
+- Configure web server to log which client certificate ("CN") is used to request resources
 
 
 ## Lab report/documentation
@@ -69,6 +69,13 @@ by specifying the full script path, as seen in the example below:
 ```
 $ /usr/share/easy-rsa/easyrsa help
 ```
+
+
+### Sharing certificate files with containers
+In order to enable sharing of files, like certificates and keys, with the client/server containers,
+the directories "server\_share" and "client\_share" exist in the lab directory. These are
+bind-mounted to "/share" in the containers, were they can be utilized by curl/nginx. For details,
+check the "docker-compose.yml"-file.
 
 
 ### Testing changes with Docker Compose

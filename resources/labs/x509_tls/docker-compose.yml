@@ -23,6 +23,8 @@ services:
       - "sensitive-content:/input:ro"
       # The NGINX configuration file is bind-mounted into the container
       - "./server.conf:/etc/nginx/nginx.conf:ro"
+      # Files placed in the directory "./server_share" can be access at "/share" in the container
+      - "./server_share:/share:ro"
     healthcheck:
       test: "stat /input/secret.txt"
       interval: "3s"
@@ -39,6 +41,9 @@ services:
     depends_on:
       "sensitive-web-server.example.test":
         condition: "service_healthy"
+    volumes:
+      # Files placed in the directory "./client_share" can be access at "/share" in the container
+      - "./client_share:/share:ro"
     environment:
       # Runtime settings for the client
       "TARGET_SERVER_ADDRESS": "sensitive-web-server.example.test"
