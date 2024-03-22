@@ -206,6 +206,23 @@ Built-in support in Linux and \*BSD kernels.
 ![bg right:30%](images/28-minerals.jpg)
 
 ---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Bixentro (CC BY 2.0)" -->
+## Enterprise VPN appliances
+Physical and virtual appliances
+providing VPN functionality.  
+
+Easy setup and lots of
+management tools.  
+
+Often decent cryptography,
+but riddled with other vulnerabilities.  
+  
+You don't want your
+edge security products to be broken.
+
+![bg right:30%](images/28-business_man_graffiti.jpg)
+
+---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
 Which option should I choose?  
 
