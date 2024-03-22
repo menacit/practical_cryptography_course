@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Network encryption tools"
@@ -35,7 +35,9 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
-Traffic can be intercepted anywhere between the laptop in your couch and the server in a DC.
+Network traffic can be intercepted
+anywhere between your phone in a café
+and TikTok's fancy data center in Shenzhen.
 
 ![bg right:30%](images/28-face.jpg)
 
@@ -123,7 +125,7 @@ Performant alternative to TCP initially developed by Google.
   
 Uses UDP and a subset of TLS version 1.3.  
   
-Used by HTTP version 3.
+\~Used by HTTP version 3.
 
 ![bg right:30%](images/28-chip.jpg)
 
@@ -182,11 +184,13 @@ Oldie but goldie!
   
 Supports tunneling of L2 and L3 traffic.  
   
-PSK or X.509 for device authentication.  
+PSK or X.509 for peer authentication.  
   
-Store client credentials on HW token such as the YubiKey.  
+Supports storing client credentials
+on HW token such as the YubiKey.  
   
-Tons of configuration options, for better or worse.
+Tons of configuration options,
+for better or worse.
 
 ![bg right:30%](images/28-panda.jpg)
 
@@ -200,3 +204,12 @@ Only L3.
 Built-in support in Linux and \*BSD kernels.  
 
 ![bg right:30%](images/28-minerals.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+Which option should I choose?  
+
+Well, that depends on your use-case -
+likely more than one!
+
+![bg right:30%](images/28-face.jpg)

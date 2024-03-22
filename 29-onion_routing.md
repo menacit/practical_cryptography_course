@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Onion routing"
@@ -51,17 +51,19 @@ inside another VPN tunnel?
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Dan Revoy (CC BY 4.0)" -->
 ## Onion routing
-Technique for anonymous messaging/communication over a network.  
+Technique for anonymous
+messaging/communication over a network.  
   
 Protects the source address of the sender.  
   
-Relies on asymmetric cryptography.
+Relies on heavily on asymmetric cryptography.
 
 ![bg right:30%](images/29-adventure.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Quinn Dombrowski (CC BY-SA 2.0)" -->
-Ada wants to send a message to Dan without revealing her identity (source IP address).
+Ada wants to send a message to Dan without
+revealing her identity (source IP address).
 
 ![bg right:30%](images/29-skeleton.jpg)
 

@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Reflections exercise"
@@ -37,6 +37,6 @@ style: |
   
 Take the chance to be a bit --verbose!  
   
-**[courses+crypto_013001@%EMAIL_DOMAIN%](mailto:courses+crypto_011301@%EMAIL_DOMAIN%)**
+**[courses+crypto_013001@%EMAIL_DOMAIN%](mailto:courses+crypto_013001@%EMAIL_DOMAIN%)**
 
 ![bg right:30%](images/30-pyramid.jpg)
