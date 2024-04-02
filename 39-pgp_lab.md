@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: OpenPGP/HSM lab"
@@ -34,7 +34,5 @@ Non-graded exercise covering usage of OpenPGP and private key storage/generation
   
 For detailed instructions, see:  
 ["resources/labs/pgp/README.md"](%RESOURCES_ARCHIVE%).  
-  
-**Remember to download latest version of resources archive! ("crypto.zip")**
 
 ![bg right:30%](images/39-mechanic.jpg)

@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Key management and HSM"
@@ -154,7 +154,7 @@ Built to survive on your keyring.
 
 Manufactured in Sweden and USA.  
   
-Well supported by applications and community.
+Well-supported by applications and community.
 
 ![bg right:30%](images/36-yubikey.jpg)
 
@@ -270,6 +270,11 @@ Slot 9a:
   Not before:	2023-04-01 13:37:42
   Not after:	2025-07-01 13:37:42
 ```
+
+![bg right:30%](images/36-crypto_keys.jpg)
+
+---
+## What just happened?
 
 ![bg right:30%](images/36-crypto_keys.jpg)
 

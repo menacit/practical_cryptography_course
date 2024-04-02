@@ -48,7 +48,7 @@ Constantly worrying about where you write it.
 <!-- _footer: "%ATTRIBUTION_PREFIX% Quinn Dombrowski (CC BY-SA 2.0)" -->
 Let's throw in some 2FA, you may say.  
   
-One-time codes doesn't provide bulletproof protection against phishing.
+One-time codes don't provide bulletproof protection against phishing.
 
 ![bg right:30%](images/38-pillars.jpg)
 
@@ -90,7 +90,8 @@ external authentication devices.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Austin Design (CC BY-SA 2.0)" -->
 ## The promise 
-Phishing-resistant authentication based on hardware-backed cryptography **for everyone**!
+Phishing-resistant authentication based on
+hardware-backed cryptography **for everyone**!
 
 ![bg right:30%](images/38-cyberpunk.jpg)
 
@@ -123,7 +124,7 @@ Unique key for each site/origin.
 Browser/application includes origin in authentication request against (hardware) token.  
   
 You may not be able to tell the different,
-but "g00geI.com" isn't "google.com".
+but "g00Ige.com" isn't "google.com".
 
 ![bg right:30%](images/38-cyberpunk.jpg)
 
@@ -142,5 +143,19 @@ to authorize key generation.
 Enter passphrase (empty for no passphrase): ****
 Enter same passphrase again: ****
 ```
+
+![bg right:30%](images/38-cyberpunk.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Austin Design (CC BY-SA 2.0)" -->
+### A note about "passkeys"
+Marketing term used by companies
+like Google and Apple.  
+
+Prioritizes multi-device synchronization
+instead of the "HSM approach"
+("the key may never leave!").  
+  
+Utilizes Webauthn under the hood.
 
 ![bg right:30%](images/38-cyberpunk.jpg)

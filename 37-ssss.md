@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: SSSS"
@@ -73,9 +73,12 @@ Hmmm, yes - but there is another option...
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Steve Jurvetson (CC BY 2.0)" -->
 ## Shamir got you covered!
-With _SSS_, a secret (such as a password) can be encrypted and split into several **shares**.  
+With _SSS_, a secret (such as a password)
+can be encrypted and split into
+several **shares**.  
   
-In order to decrypt the secret, a configurable number of shares must be known.  
+In order to decrypt the secret,
+a configurable number of shares must be known.  
   
 An analogy would be RAID5/6.
 
@@ -88,15 +91,19 @@ You have four children and a lawyer.
 You use _SSS_ to encrypt a passphrase
 into five shares.  
 
-You set a requirement that three shares are required to decrypt the passphrase.  
+You set a requirement that three shares
+are required to decrypt the passphrase.  
   
-In order to decrypt the passphrase/will, at least/any three of the share holders must collaborate.
+In order to decrypt the passphrase/will,
+at least/any three of the shareholders
+must collaborate.
 
 ![bg right:30%](images/37-drones.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Steve Jurvetson (CC BY 2.0)" -->
-Sounds like a neat trick, but does anyone use it?  
+Sounds like a neat trick,
+but does anyone use it?  
   
 [HashiCorp Vault](https://www.hashicorp.com/products/vault) is one example.  
   
