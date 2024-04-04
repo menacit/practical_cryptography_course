@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Key attestation"
@@ -36,7 +36,7 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Pelle Sten (CC BY 2.0)" -->
 On an otherwise boring day, a new co-worker
-ask you to sign a CSR.  
+asks you to sign a CSR.  
   
 The certificate/key will be used for mTLS to
 restrict access to The Super Sensitive Database.
@@ -59,7 +59,9 @@ How can you be sure that another copy of the private key hasn't been saved/leake
 Method to validate that a (non-exportable)
 key has been generated on the HSM.  
   
-Vendor typically injects a key into HSM during manufacturing for signing of user generated keys.  
+Vendor typically injects a key into HSM
+during manufacturing for signing
+of user generated keys.  
   
 Third-parties can validate the
 "attestation certificate"
