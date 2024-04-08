@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Hash chains"
@@ -35,7 +35,22 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
-Cryptographic hashes can be used to detect changes ("tampering") in a file.
+You got a fancy suite and
+work with IT security at a bank.  
+
+Protecting the customers'
+transaction history against
+manipulation would be greeeeat.  
+
+Can cryptography help us?
+
+![bg right:30%](images/41-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+Cryptographic hashes can be used to
+detect changes ("tampering")
+in data/a file.
 
 ![bg right:30%](images/41-locks.jpg)
 
@@ -43,17 +58,57 @@ Cryptographic hashes can be used to detect changes ("tampering") in a file.
 <!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
 It doesn't tell us what has changed.  
   
-Every time a single bit changes, the hash does too.  
+Every time a single bit changes,
+the hash changes completely
+(as it should).  
   
-Quite a lot of overhead for frequently changing data, such as log files and transaction history.
+Quite a lot of overhead for
+frequently changing data,
+such as log files.
 
 ![bg right:30%](images/41-locks.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
-Wouldn't it be nice if there was an efficient way
-to protect and validate (historical) integrity of
-append-only data structures?  
+Can't we just split the data into
+multiple parts (for example, lines)
+and hash each independently?
+
+![bg right:30%](images/41-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+Sure, but what about ordering?
+
+![bg right:30%](images/41-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+Let's just throw the
+transaction data hashes
+in a file, append new hashes
+and store the file's own digest!
+
+Anyone who wants to validate the
+history could just compute hashes
+and check for themselves, right?! 
+
+![bg right:30%](images/41-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+How do you cryptographically prove
+that you only appended a transaction
+and didn't manipulate any historic ones?
+
+![bg right:30%](images/41-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+Wouldn't it be nice if there was
+an efficient way to protect and
+validate (historical) integrity
+of append-only data structures?  
   
 **Hash chains to the rescue!**
 
@@ -61,7 +116,19 @@ append-only data structures?
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
-### Data we want to protect
+We're talking about links in a chain,
+not hyperlinks.  
+  
+Each link in the chain consists of 
+_hash(\$PREVIOUS\_LINK\_HASH \+ \$DATA)_.  
+
+Confusing? Let's look at an example.
+
+![bg right:30%](images/41-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+### Transaction data we want to protect
 ```
 $ ls
 
@@ -117,17 +184,87 @@ $ echo ${HASH_CHAIN}
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
-Validation of a single entry only requires its data and the chain hashes.
+7dfa6b8a\[...\]9aef0f6 is the last
+link of the hash chain.  
 
-Can we make it more efficient?
+Manipulation of historic data
+can be detected, as it will change
+the hash for all following links
+and thereby also the last.
 
 ![bg right:30%](images/41-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+Validation of a single entry
+only requires its data and
+the chain hashes.  
+
+The last link hash can be
+publicly documented, as it doesn't
+reveal the actual data (transaction).
+
+![bg right:30%](images/41-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+Any limitations?  
+
+Can only prevent manipulation of
+previous links in the chain,
+a fraudulent transaction
+could be appended.  
+  
+Requires the latest link digest
+for proper validation.
+
+![bg right:30%](images/41-locks.jpg)
+
+<!-- https://dl.acm.org/cms/attachment/53f3a0fa-d90c-49e5-82bd-09e2ca003487/f3.jpg -->
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+Can we make it more efficient?  
+  
+Yes, using a [**Merkle tree**](https://en.wikipedia.org/wiki/Merkle_tree).
+
+![bg right:30%](images/41-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% © David Göthberg (CC0 1.0)" -->
+
+![bg center 70%](images/41-merkle_tree.png)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+Sounds neat,
+but is anyone using it?  
+  
+Guardtime digests in newspapers
+are one example.  
+  
+The chain part of blockchain.
+
+![bg right:30%](images/41-locks.jpg)
+
+<!-- https://dl.acm.org/cms/attachment/53f3a0fa-d90c-49e5-82bd-09e2ca003487/f3.jpg -->
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
 ## Other use-cases
 Efficient error detection and data replication.  
   
-Cornerstone of the [BitTorrent protocol](https://en.wikipedia.org/wiki/BitTorrent).
+Cornerstone of [Git repositories](https://git-scm.com/).  
+
+Used by TPMs to provide
+["measured/trusted boot"](https://opensource.com/article/20/10/measured-trusted-boot).
+
+![bg right:30%](images/41-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+If you see the term
+"trusted timestamping service/authority",
+some type of hash chaining is likely used.
 
 ![bg right:30%](images/41-locks.jpg)

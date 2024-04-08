@@ -38,6 +38,16 @@ For manual setup, install [Ansible](https://www.ansible.com/) and run the Ansibl
 
 ## Common issues
 
+### Problems starting Vagrant VM
+The most common issue type student experience is problems accessing their VM when executing the
+command "vagrant up". This typically occurs when the command is not executed in the correct
+directory. Before issuing any Vagrant commands, ensure that the current working directory is the
+course "labs" folder:
+
+```
+$ cd /my/path/to/practical_cryptography_course/resources/labs
+```
+
 ### Enabling virtualisation support
 Virtualisation software like VirtualBox relies on hardware features included in most processors.
 These features are typically enabled by default, but some computer manufacturers require that they
@@ -65,6 +75,12 @@ $ "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" setproperty machinefolder 
 ```
 
 Copy the "resources" directory into "C:\\vagrant\_data" and re-execute "vagrant up".
+
+
+### "Permission denied" when using Gitbash
+On a Windows system, Vagrant commands should not be executed in a "Gitbash" shell as it has known
+compatibility issues, especially related to SSH authentication to the guest VM. If possible,
+utilize a PowerShell prompt or the ["Windows Terminal" app](https://aka.ms/terminal) instead.
 
 
 ### USB forwarding on Linux
