@@ -27,7 +27,7 @@ style: |
 # Course outro
 ### Wrap-up and summary
 
-![bg right:30%](images/44-beer_tap.jpg)
+![bg right:30%](images/46-beer_tap.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Helsinki Hacklab (CC BY 2.0)" -->
@@ -38,14 +38,14 @@ Large field with lots of exciting applications.
   
 Some suggestions for further explorations.
 
-![bg right:30%](images/44-beer_tap.jpg)
+![bg right:30%](images/46-beer_tap.jpg)
 
 ---
 Wanna learn more about the history of cryptography and how it actually works?  
   
 Checkout [Simon Singh's "The Code Book"](https://simonsingh.net/books/the-code-book/).
 
-![bg right:30%](images/44-the_code_book.jpg)
+![bg right:30%](images/46-the_code_book.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Marco Verch (CC BY 2.0)" -->
@@ -54,7 +54,7 @@ Interested in how cryptography can be used to solve problems?
 Read/Listen to
 [Phil Champagne's "The Book Of Satoshi"](https://www.bookofsatoshi.com).
 
-![bg right:30%](images/44-bitcoin.jpg)
+![bg right:30%](images/46-bitcoin.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kenny Cole (CC BY 2.0)" -->
@@ -62,7 +62,7 @@ Want to try implementing and attacking cryptography?
   
 Checkout [NCC's "cryptopals"](https://www.cryptopals.com/)!
 
-![bg right:30%](images/44-satellites.jpg)
+![bg right:30%](images/46-satellites.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Helsinki Hacklab (CC BY 2.0)" -->
@@ -78,10 +78,10 @@ Take the chance to be a bit --verbose!
   
 **[courses+crypto_014401@%EMAIL_DOMAIN%](mailto:courses+crypto_014401@%EMAIL_DOMAIN%)**
 
-![bg right:30%](images/44-beer_tap.jpg)
+![bg right:30%](images/46-beer_tap.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Helsinki Hacklab (CC BY 2.0)" -->
 # DE\_END
 
-![bg right:30%](images/44-beer_tap.jpg)
+![bg right:30%](images/46-beer_tap.jpg)
