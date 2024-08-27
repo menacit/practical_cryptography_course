@@ -76,7 +76,7 @@ Checkout [NCC's "cryptopals"](https://www.cryptopals.com/)!
   
 Take the chance to be a bit --verbose!  
   
-**[courses+crypto_014401@%EMAIL_DOMAIN%](mailto:courses+crypto_014401@%EMAIL_DOMAIN%)**
+**[courses+crypto_014601@%EMAIL_DOMAIN%](mailto:courses+crypto_014601@%EMAIL_DOMAIN%)**
 
 ![bg right:30%](images/46-beer_tap.jpg)
 

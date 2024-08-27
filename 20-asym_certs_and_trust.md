@@ -86,7 +86,7 @@ and "key fingerprints" (hash of public key).
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
 ## TOFU
 ```
-$ ssh -o StrictHostKeyChecking=accept 141.95.102.166
+$ ssh -o StrictHostKeyChecking=accept-new 141.95.102.166
 ```
 
 ![bg right:30%](images/20-dummy.jpg)
