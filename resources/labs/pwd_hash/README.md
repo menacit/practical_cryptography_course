@@ -39,6 +39,7 @@ All tools required to complete the assignment should be pre-installed on the stu
 
 ### Mandatory ("G")
 - Modify the web server code to use SHA384 for protection of the stored password
+- Replace the plain-text password in "server\_share/server\_password.txt" with a hashed version
 
 
 ### Meritorious ("VG")
@@ -51,7 +52,7 @@ Each student should submit a lab report containing **at least** the following in
 - Documentation of changes made in the web server's source code to implement password hashing
 - Demonstration of how the implemented changes improve security of the service ("before and after")
 
-Optionally, describe the security benefits of password salting in 500 characters or more ("VG)".  
+For "VG", describe the security benefits of password salting in 500 characters or more.  
   
 The lab report should be provided as a plain text file (".txt"), Markdown document or PDF file.
 In addition to the report, all lab files that have been changed (scripts, configuration sets, etc.)

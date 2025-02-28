@@ -33,7 +33,7 @@ else:
 log.getLogger().setLevel(log_level)
 
 # Load and configure password used to protect server
-log.info('Reading password from "/etc/server_password.txt"')
+log.info('Reading password from "/share/server_password.txt"')
 try:
     with open('/etc/server_password.txt', 'r') as file_handle:
         # If there are white-space characters before or after the password string, remove them
@@ -41,10 +41,10 @@ try:
     if not password:
         raise Exception('Password file/first line is empty')
 
-    log.debug(f'Password read from "/etc/server_password.txt" was "{password}"')
+    log.debug(f'Password read from "/share/server_password.txt" was "{password}"')
 
 except Exception as error_message:
-    log.error(f'Failed to read password from "/etc/server_password.txt": {error_message}')
+    log.error(f'Failed to read password from "/share/server_password.txt": {error_message}')
     exit(1)
 
 

@@ -1,29 +1,29 @@
 ---
-# SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+# SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 # SPDX-License-Identifier: CC-BY-SA-4.0
 # X-Context: Practical cryptography course
 
-- hosts: "all"
+- hosts: "all:localhost"
   vars:
     "default_user": "vagrant"
     "verify_os_version": true
-    "att_utility_version": "0.0.9"
-    "att_utility_checksum": "24d08e59c62dee8d42f8853719d1e7bb1496239e0de030b4a0bfab9dde90955b"
+    "att_utility_version": "0.2.18"
+    "att_utility_checksum": "b67e4ae7955cc036bbca7fefb2335f4a1e662427e3a12905d4bcdb05411717f7"
   become: true
   tasks:
     # ---------------------------------------------------------------------------------------------
-    - name: "Fail if operating system ain't Ubuntu 22.04 LTS"
+    - name: "Fail if operating system ain't Ubuntu 24.04 LTS"
       ansible.builtin.fail:
         msg: >-
           This playbook and labs in the practical cryptography course have only been tested on
-          Ubuntu 22.04 LTS. If you desire to use another Linux distribution, know what you're doing
+          Ubuntu 24.04 LTS. If you desire to use another Linux distribution, know what you're doing
           and can live with limited teacher support, set the Ansible variable "verify_os_version"
           to false. If you manage to get the playbook and course labs working on another operating
           system/version/distribution, please submit a pull request to
           https://github.com/menacit/practical_cryptography_course
       when:
         - "verify_os_version | bool"
-        - "ansible_lsb.codename != 'jammy'"
+        - "ansible_lsb.codename != 'noble'"
     # ---------------------------------------------------------------------------------------------
     - name: "Install dependency packages for adding Docker APT repository"
       ansible.builtin.apt:
@@ -46,7 +46,7 @@
       ansible.builtin.apt_repository:
         repo: >-
           deb [signed-by=/usr/share/keyrings/docker_inc.gpg]
-          https://download.docker.com/linux/ubuntu jammy stable
+          https://download.docker.com/linux/ubuntu noble stable
         state: "present"
     # ---------------------------------------------------------------------------------------------
     - name: "Download package file for yk-attest-verify utility"

@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Lab setup"
@@ -31,7 +31,8 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Yubinerd (CC BY-SA 4.0)" -->
-**You'll need a [YubiKey in the "5 Series"](https://www.yubico.com/products/yubikey-5-overview/).**
+**You'll need a [YubiKey 5](https://www.yubico.com/products/yubikey-5-overview/) for
+some of the non-graded exercises.**
 
 ![bg right:30%](images/02-yubikey.jpg)
 
@@ -45,18 +46,14 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
-## You need to setup...
-- [HashiCorp Vagrant](https://developer.hashicorp.com/vagrant/downloads) on your host machine
-- [Virtualbox](https://www.virtualbox.org/) or other Vagrant provider
+To install/configure tools required for the
+course labs, several options are available:
 
-Connect YubiKey via USB, open a terminal in ["resources/labs"](%RESOURCES_ARCHIVE%) and run:
+1. Native setup:<br>Recommended for students running Ubuntu 24.04 LTS on a physical/virtual machine
+2. Non-native setup:<br>Recommend for students running Windows/MacOS on their physical machine
+3. Manual setup:<br>Available for students running other Linux distributions/operating systems
 
-```
-$ vagrant up
-$ vagrant ssh -- ykman info
-```
-  
-See "resources/labs/README.md" for details!
+See ["resources/labs/README.md"](%RESOURCES_ARCHIVE%) for details!
 
 ![bg right:30%](images/02-owl.jpg)
 

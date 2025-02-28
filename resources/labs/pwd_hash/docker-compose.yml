@@ -1,5 +1,5 @@
 ---
-# SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+# SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 # SPDX-License-Identifier: CC-BY-SA-4.0
 # X-Context: Practical cryptography course - Password hashing lab
 
@@ -13,8 +13,8 @@ services:
     networks:
       - "lab-pwd_hash"
     volumes:
-      # Text file containing password for access to the web service
-      - "./server_password.txt:/etc/server_password.txt:ro"
+      # Directory with text file containing password for access to the service
+      - "./server_share:/etc/:rw"
     environment:
       # Runtime settings for the server
       "LOG_LEVEL": "INFO"

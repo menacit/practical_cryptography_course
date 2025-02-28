@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+# SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 # SPDX-License-Identifier: CC-BY-SA-4.0
 # X-Context: Practical cryptography course
 
 # Vagrant configuration for setting up lab system VM
 Vagrant.configure("2") do |config|
   config.vm.hostname = "crypto-lab-system"
-  # Base lab system on Ubuntu 22.04 LTS
-  config.vm.box = "ubuntu/jammy64"
+  # Base lab system on Ubuntu 24.04 LTS
+  config.vm.box = "bento/ubuntu-24.04"
   config.vm.box_check_update = false
   # Expose course resources (labs, quizzes, etc.) on "/course_data" in lab VM
   config.vm.synced_folder "..", "/course_data", SharedFoldersEnableSymlinksCreate: true
