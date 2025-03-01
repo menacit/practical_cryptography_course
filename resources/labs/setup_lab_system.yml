@@ -97,6 +97,7 @@
           - "sq"
           - "tcpdump"
           - "tshark"
+          - "usbutils"
           - "yamllint"
           - "ykcs11"
           - "yubikey-manager"
@@ -110,6 +111,29 @@
         name: "pcscd.service"
         enabled: true
         state: "started"
+    # ---------------------------------------------------------------------------------------------
+    - name: "Configuring unprivileged access to pcscd service"
+      ansible.builtin.copy:
+        content: |
+          polkit.addRule(function(action, subject) {
+            if (action.id == "org.debian.pcsc-lite.access_card" &&
+                subject.user == "{{ default_user }}") {
+
+              return polkit.Result.YES;
+            }
+          });
+          
+          polkit.addRule(function(action, subject) {
+            if (action.id == "org.debian.pcsc-lite.access_pcsc" &&
+                subject.user == "{{ default_user }}") {
+
+              return polkit.Result.YES;
+            }
+          });
+        dest: "/etc/polkit-1/rules.d/99-pcsd.rules"
+        owner: "root"
+        group: "root"
+        mode: 0640
     # ---------------------------------------------------------------------------------------------
     - name: "Adding default user to Docker group"
       ansible.builtin.user:

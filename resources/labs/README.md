@@ -28,7 +28,7 @@ To automate the installation/configuration of tools required to complete the cou
 
 ```
 $ sudo apt update && sudo apt install ansible --no-install-recommends 
-$ ansible-playbook -v -c local resources/labs/setup_lab_system.yml 
+$ ansible-playbook -v -e default_user="${USER}" resources/labs/setup_lab_system.yml 
 ```
 
 
@@ -84,6 +84,17 @@ course "labs" folder:
 ```
 $ cd /my/path/to/practical_cryptography_course/resources/labs
 ```
+
+
+### Errors during "vagrant up"
+Students experiencing error when running the "vagrant up" command may have an outdated version of
+VirtualBox or Vagrant installed. Ensure that these components are updated to the latest stable
+version available.  
+  
+If the error message contains "The box 'bento/ubuntu-24.04' could not be found", the student may
+be connecting to Vagrant Cloud from an IP address that is blocked/throttled. If an anonymizing
+VPN client or proxy service is used, disconnect it and try executing "vagrant up" again.
+
 
 
 ### Enabling virtualisation support

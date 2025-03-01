@@ -41,15 +41,15 @@ style: |
 > HAAAWER NE NE!
 > FEVA.
 
-— *Your average caveman*
+— *Your average caveperson*
 
 ![bg right:30%](images/01-minerals.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Reid Campbell (CC0 1.0)" -->
-> Greetings! I'm an excellent hunter. You see this fancy fireplace I got here? Let's make babies!
+> Greetings! I'm an excellent hunter. See this fancy fireplace I got here? Let's make some babies!
 
-— *Your average caveman*
+— *Your average caveperson*
 
 ![bg right:30%](images/01-minerals.jpg)
 
@@ -60,7 +60,7 @@ Allows preservation of complex information.
   
 Enables conversions and relaying of detailed information/instructions over vast distances.  
   
-*(Kinda necessary for ruling an empire)*
+_(Kinda necessary for ruling an empire)_
 
 ![bg right:30%](images/01-contrails.jpg)
 
@@ -70,6 +70,11 @@ Perhaps you want to keep some things a secret?
 
 ![bg right:30%](images/01-contrails.jpg)
 
+<!--
+Histiaeus (Greece, 500 BC):
+https://www.tattoolife.com/wp-content/uploads/2021/11/Detail-of-an-illustration-by-Giorgio-De-Gaspari.jpeg
+-->
+
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Miguel Discart (CC BY-SA 2.0)" -->
 Let's hide the information!  
@@ -78,28 +83,39 @@ We call this practice [**steganography**](https://en.wikipedia.org/wiki/Steganog
 
 ![bg right:30%](images/01-tree_woman.jpg)
 
+
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Miguel Discart (CC BY-SA 2.0)" -->
 ## Other notable examples
-- Lemon juice ink
-- Image file EXIF data
+- [Lemon juice ink](https://www.wikihow.com/Make-an-Invisible-Ink-Message)
+- [Image file EXIF data](https://securelist.com/vpnfilter-exif-to-c2-mechanism-analysed/85721/)
 - [Printer tracking dots](https://en.wikipedia.org/wiki/Machine_Identification_Code)
-- [Songs by Aphex Twin](https://twistedsifter.com/2013/01/hidden-images)
+- [Songs by Aphex Twin](http://www.bastwood.com/?page_id=10)
 
 ![bg right:30%](images/01-tree_woman.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Miguel Discart (CC BY-SA 2.0)" -->
 ## The downsides
-Requires **trust** in courier(s) of the message.  
+Often requires **trust** in
+courier(s) of the message.  
   
-Mayhaps someone is a bit mad since you ruined their haircut?  
+Mayhaps someone is a bit mad
+since you ruined their haircut?  
 
 ![bg right:30%](images/01-tree_woman.jpg)
 
 ---
+![bg center 80%](images/01-scytale.png)
+
+<!--
+- Used by ancient Greeks/Spartans
+- Requires rod with the same diameter for "decryption"
+-->
+
+---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jeena Paradies (CC BY 2.0)" -->
-**Enter the ["Caesar cipher"](https://en.wikipedia.org/wiki/Caesar_cipher):**
+Enter the [**"Caesar cipher"**](https://en.wikipedia.org/wiki/Caesar_cipher):
 
 ```
 F  T F I I  Y X H B  X  Z X H B
@@ -187,10 +203,18 @@ codes/ciphers are called
 < J X H B  F Q  P L L K  M I B X P B
 ```
 
-- **F** and **X** appear on their own, probably **a** and **i**
-- Four words begin with a different letter but end with **XHB**
-- **B** appears five times in the message, probably **e**, **o** or **t**
-.... 
+**F** and **X** appear on their own,
+probably **a** and **i**.  
+
+**FQ** is a two-letter word, limited options.
+  
+Four words begin with a different letter
+but end with **XHB**.  
+
+**B** appears five times in the messages,
+probably **e**, **o** or **t**.
+
+Method is known as **frequency analysis**.
 
 ![bg right:30%](images/01-book.jpg)
 
@@ -201,7 +225,7 @@ Everyone can remember the
 secret word "**bad**", right?  
 
 Let's try using the **Vigenère cipher**
-to encrypt "**cafebabe**".
+(anno 1553) to encrypt "**cafebabe**".
 
 ![bg right:30%](images/01-bubbles.jpg)
 
@@ -492,15 +516,18 @@ Ciphertext:  D  A  C >F< B  D  C  E
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Tero Karppinen (CC BY 2.0)" -->
-**The cat and mouse game goes on.**
+The cat and mouse game went on,
+more or less the same way...
 
 ![bg right:30%](images/01-pixel_forest.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
-Technologies such as the telegraph and radio revolutionized everything.  
+Technologies such as the telegraph
+and radio really shook things up.  
   
-That included warfare.
+Even commercial enterprises found
+the need for encryption.
 
 ![bg right:30%](images/01-phone.jpg)
 
@@ -516,17 +543,23 @@ We call this **metadata**.
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Raphaël Vinot (CC BY 2.0)" -->
-Cryptography became too complex
-for _most_ humans.  
+Cryptography became too
+complex for _most_ humans.  
   
-If machines maketh, let machine breaketh.
+If machines maketh,
+let machine breaketh.
 
 ![bg right:30%](images/01-observatory_instruments.jpg)
 
+<!--
+https://en.wikipedia.org/wiki/Enigma_machine
+-->
+
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Pyntofmyld (CC BY 2.0)" -->
-Things were more or less the same
-until the 1970s.  
+While it had evolved significantly,
+encryption algorithms worked more
+or less the same until the 1970s.  
   
 Let me introduce you to
 **asymmetric cryptography**.
@@ -539,7 +572,8 @@ Let me introduce you to
 Same key is used for encryption and decryption.
 
 ## Asymmetric
-Different keys are used for encryption and decryption.
+Different keys are used for encryption and decryption
+("public key" and "private key").
 
 ![bg right:30%](images/01-led_triangles.jpg)
 
@@ -553,20 +587,40 @@ Different keys are used for encryption and decryption.
 <!-- _footer: "%ATTRIBUTION_PREFIX% A Loves DC (CC BY 2.0)" -->
 Also enables **"digital signatures"**.
 
-Quite a complex topic that we'll cover later.
+That's right - cryptography can help us
+protect the authenticity of messages from
+an author, not only their confidentiality.
 
 ![bg right:30%](images/01-steel_w.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Edenpictures (CC BY 2.0)" -->
-Did I mention **"one-way hash functions"**?  
+Did I mention **"cryptographic hash functions"**?  
   
 Wide range of use-cases, including:
 - Integrity validation
-- Password storage
+- "One-way encryption"
 - Proof-of-Work
 
+\+ a lot of other exciting things we
+shall learn about throughout the course!
+
 ![bg right:30%](images/01-abstract_house.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Elly Jonez (CC BY 2.0)" -->
+So, my dear modern human -
+have you relied on cryptography today?
+
+![bg right:30%](images/01-city_night.jpg)
+
+<!--
+- Sent a private message to anyone?
+- Logged in to a sensitive service over the big bad Internet?
+- Signed something with BankID?
+- Took the bus or subway?
+....
+-->
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Gobi (CC BY 2.0)" -->
@@ -577,7 +631,7 @@ of information.
 Should be **infeasible** to break,
 but it's never **impossible**.  
 
-Modern cryptography operates on
-bits, not letters.
+Modern cryptography operates
+on bits, not letters.
 
 ![bg right:30%](images/01-cyborg.jpg)

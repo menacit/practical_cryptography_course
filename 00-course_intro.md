@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Introduction"
@@ -45,7 +45,7 @@ Segue: In this part of the course we'll talk about cryptography...
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% ESA (CC BY-SA 3.0 IGO)" -->
 ## What we will cover
-Why cryptography makes the modern world go round and how **you** can practically utilize it.
+How cryptography makes the modern world go round and how you can practically utilize it.
 
 ![bg right:30%](images/00-satellite_photo.jpg)
 
@@ -64,10 +64,10 @@ information secret, but as we'll see throughout the course there are many other 
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Damien McMahon (CC BY 2.0)" -->
-**This isn't a math course.**  
+This isn't a math course.  
   
-**You won't become an expert,
-but hopefully a power-user!**
+You won't become an expert cryptologist,
+but hopefully a power-user!
 
 ![bg right:30%](images/00-satellite_dish.jpg)
 
@@ -88,10 +88,10 @@ on the most relevant areas
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
 ## Requires basic knowledge of...
-- Linux
-- Shell scripting and Python programming
-- Basic networking
-- Virtualisation and Docker
+- Linux shell scripting
+- Python programming
+- Networking
+- Docker and Docker Compose
 
 ![bg right:30%](images/00-chip_closeup.jpg)
 
@@ -120,7 +120,7 @@ on the most relevant areas
 
 ---
 For detailed notes, glossary, labs and similar, see:   
-**[%RESOURCES_DOMAIN%/crypto.zip](https://%RESOURCES_DOMAIN%/crypto.zip)**.  
+**[%RESOURCES_DOMAIN%/crypto.zip](%RESOURCES_ARCHIVE%)**.  
   
 These resources should be seen as a complement to an instructor lead course, not a replacement.
 
@@ -145,27 +145,12 @@ Thanks to [IT-Högskolan](https://www.iths.se/) and Särimner for enabling devel
   
 Thanks to [Yubico](https://www.yubico.com/) for providing YubiKeys to in-class students for labs!    
   
-Thanks to [Mullvad VPN](https://mullvad.net/) for providing voucher codes as lab rewards.  
-  
 Hats off to all FOSS developers and free culture contributors making it possible.
 
 ![bg right:30%](images/00-sloth.jpg)
 
 <!--
 The course wouldn't be available if it wasn't for financial support - Thanks!
--->
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Sergio Delgado (CC BY 2.0)" -->
-## Contributors <3
-- [Joel Rangsmo](https://github.com/doctor-love)
-- Kristin Karlsson
-- [Patrik Gäfvert](https://github.com/patrikgafvert)
-
-![bg right:30%](images/00-sloth.jpg)
-
-<!--
-People who have contributed to the course
 -->
 
 ---
@@ -186,6 +171,19 @@ Create an issue or submit a pull request to
 - No cats or dogs allowed!
 
 - Feel free to share it with friends or use it yourself later in your career
+-->
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Sergio Delgado (CC BY 2.0)" -->
+## Contributors <3
+- [Joel Rangsmo](https://github.com/doctor-love)
+- Kristin Karlsson
+- [Patrik Gäfvert](https://github.com/patrikgafvert)
+
+![bg right:30%](images/00-sloth.jpg)
+
+<!--
+People who have contributed to the course
 -->
 
 ---
