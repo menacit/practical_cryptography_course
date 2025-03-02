@@ -132,7 +132,7 @@
           });
         dest: "/etc/polkit-1/rules.d/99-pcsd.rules"
         owner: "root"
-        group: "root"
+        group: "polkitd"
         mode: 0640
     # ---------------------------------------------------------------------------------------------
     - name: "Adding default user to Docker group"
