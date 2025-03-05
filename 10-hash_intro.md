@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Hashing introduction"
@@ -29,12 +29,14 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% David Revoy (CC BY 3.0)" -->
 # Cryptographic hashing
+### AKA "one-way encryption"
 
 ![bg right:30%](images/10-cyberpunk.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Gytis B (CC BY-SA 2.0)" -->
-Before we dig into cryptographic hashing, let's talk about **check digits** and **checksums**.
+Before we dig into cryptographic hashing,
+let's talk about **check digits** and **checksums**.
 
 ![bg right:30%](images/10-vechicle_graveyard.jpg)
 
@@ -45,6 +47,11 @@ Before we dig into cryptographic hashing, let's talk about **check digits** and 
 Used for credit card numbers, Bitcoin addresses, patient identifiers, social security numbers...
   
 The [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) is a common solution.
+
+<!--
+https://simplycalc.com/luhn-calculate.php
+https://simplycalc.com/luhn-validate.php
+-->
 
 ![bg right:30%](images/10-vechicle_graveyard.jpg)
 
@@ -125,7 +132,7 @@ $ head --bytes 5G /dev/zero | sha256sum
 <!-- _footer: "%ATTRIBUTION_PREFIX% Mauricio Snap (CC BY 2.0)" -->
 ## Use-cases for hashing
 - Data integrity checking
-- Password storage
+- Password storage/validation
 - Authentication
 - Fingerprinting
 - Pseudo-random number generators
@@ -148,7 +155,7 @@ $ head --bytes 5G /dev/zero | sha256sum
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Mauricio Snap (CC BY 2.0)" -->
-Like other cryptography methods, hashing algorithms have a best before date.  
+Like other cryptography methods, hashing algorithms have a best-before date.  
   
 Check out ["SHAttered"](https://shattered.io/):
 
@@ -162,5 +169,19 @@ $ shasum shattered-2.pdf
 
 If you wanna learn more about collision techniques and play with them, have a look at:
 [github.com/corkami/collisions](https://github.com/corkami/collisions).
+
+![bg right:30%](images/10-eye.jpg)
+
+<!--
+https://shattered.io/static/shattered.png
+-->
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Mauricio Snap (CC BY 2.0)" -->
+## TL;DR
+Avoid MD4, MD5 and SHA-1.
+
+SHA-2, SHA-3 and BLAKE\* are fine!
+
 
 ![bg right:30%](images/10-eye.jpg)

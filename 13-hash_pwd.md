@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Hashing for password storage"
@@ -51,9 +51,12 @@ Can't we just symmetrically encrypt them?
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Nicholas A. Tonelli (CC BY 2.0)" -->
-Server needs plaintext of passwords to enable comparison.  
+Server needs plaintext passwords
+to enable comparison.  
   
-Encrypted data must be "unlocked", which means that the key is typically stored in memory.  
+Encrypted data must be "unlocked",
+which means that the key is typically
+stored on disk or in memory.  
   
 Sounds scary.
 

@@ -324,7 +324,7 @@ as **block ciphers** or **stream ciphers**.
 <!-- _footer: "%ATTRIBUTION_PREFIX% Mike Grauer Jr (CC BY 2.0)" -->
 Block ciphers split plaintext data into
 parts of a fixed size and encrypts
-each part/block independently.
+each part/block separately.
 
 Most commonly used for
 "at rest" encryption.  
@@ -349,7 +349,6 @@ Most commonly used for
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kristina Hoeppner (CC BY-SA 2.0)" -->
-## Cryptography standardization
 The US government entity
 **N**ational **I**nstitute of
 **S**tandards and **T**echnology
