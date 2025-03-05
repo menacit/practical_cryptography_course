@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Basics recap"
@@ -35,7 +35,8 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Wolfgang Stief (CC0 1.0)" -->
 **Cryptography** helps us ensure
-**confidentiality** and **integrity** of information.  
+**confidentiality**, **authenticity** and **integrity**
+of sensitive information.  
   
 **Steganography** is a related practice in which information is **hidden/obscured**.  
   
@@ -297,10 +298,11 @@ Different keys are used for
 encryption and decryption.
 Can also be used for "digital signatures".
 
-### One-way hash functions
+### Cryptographic hash functions
 The same plaintext always result in
 the same ciphertext, but the ciphertext
-should not be reversable to plaintext.
+should not be reversable to plaintext
+(AKA "One-way encryption").
 
 ![bg right:30%](images/06-toolbox.jpg)
 
@@ -309,6 +311,9 @@ should not be reversable to plaintext.
 ## Symmetric cryptography  
 Used primarily for protecting **confidentiality**
 of information **at rest** and **in transit**.
+
+Modern ciphers operators on bits,
+not letters (typically using **XOR operator**).
 
 Most symmetric ciphers are categorized
 as **block ciphers** or **stream ciphers**.  

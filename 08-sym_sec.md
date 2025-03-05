@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Symmetric security"
@@ -155,12 +155,21 @@ practice only provides 112 bits.
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Marcin Wichary (CC BY 2.0)" -->
-But isn't AES
-_MILITARY GRADE ENCRYPTION_?  
+But AES is fine right?
+Isn't it _MILITARY GRADE ENCRYPTION_?  
   
 Let me introduce you to block cipher modes.
 
 ![bg right:30%](images/08-missile_computer.jpg)
+
+<!--
+https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg
+https://upload.wikimedia.org/wikipedia/commons/d/d6/ECB_encryption.svg
+https://upload.wikimedia.org/wikipedia/commons/9/96/Tux_encrypted_ecb.png
+https://upload.wikimedia.org/wikipedia/commons/8/80/CBC_encryption.svg
+https://upload.wikimedia.org/wikipedia/commons/0/00/Tux_encrypted_ctr.png
+https://upload.wikimedia.org/wikipedia/commons/e/ef/BlockCipherModesofOperation.svg
+-->
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kevin Dooley (CC BY 2.0)" -->
@@ -180,10 +189,11 @@ Let me introduce you to block cipher modes.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
 ## CBC
-Oldie but goldie!
+Oldie but ~~goldie~~ typically okay!
 
 ## XTS
-Commonly used for FDE.
+Most commonly used for
+**F**ull **D**isk **E**ncryption.
 
 ### GCM
 Fast and integrity protected,
@@ -199,6 +209,10 @@ Most are in practice okay - avoid ECB!
 
 Typically require a randomly generated
 **I**nitialization **V**ector that
-should not be reused.
+should not be lost or reused
+(AKA "nonce").
+
+Except for lab purposes,
+don't roll your own crypto!
 
 ![bg right:30%](images/08-mesh_head.jpg)

@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Symmetric encryption tools"
@@ -51,7 +51,7 @@ I didn't shoot the sheriff...
 - Standard for encryption at the block layer
 - "Full Disk Encryption" on Linux
 - Supports multiple "keyslots"
-- Typically used via the "cryptsetup" utility
+- Typically used via the "cryptsetup" CLI utility
 
 ![bg right:30%](images/07-train.jpg)
 
@@ -105,7 +105,7 @@ I didn't shoot the sheriff...
 ## VeraCrypt
 - Fork of ["TrueCrypt"](https://en.wikipedia.org/wiki/TrueCrypt)
 - FOSS and publicly audited
-- Cross-platform
+- Cross-platform/Multi OS support
 - Supports encryption of boot\*, data drives and "virtual devices"
 
 ![bg right:30%](images/07-cyborg.jpg)
