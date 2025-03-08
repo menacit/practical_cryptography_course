@@ -38,7 +38,7 @@ All tools required to complete the assignment should be pre-installed on the stu
 ## Tasks
 
 ### Mandatory ("G")
-- Modify the web server code to use SHA384 for protection of the stored password
+- Modify the web server code to use SHA3-384 for protection of the stored password
 - Replace the plain-text password in "server\_share/server\_password.txt" with a hashed version
 
 

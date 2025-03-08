@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Proof of Knowledge"
@@ -43,7 +43,7 @@ people tweet or toot out a hash?**
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jesse James (CC BY 2.0)" -->
 ```
-$ echo "${SALT} Looptroop killed Palme" | sha1sum
+$ echo "${SALT} Looptroop killed Palme" | shasum
 
 f2f095c3b414335fdf98ed96f128e37705dca7ce
 ```
@@ -62,7 +62,8 @@ and publish the key when time arrives?**
 Most cryptographically secure hashes
 are fixed-length.  
   
-Knowledge of terabytes can be proven with a short string that fits inside a toot/tweet/SMS.
+Knowledge of terabytes can be proven with
+a short string that fits inside a toot/tweet/SMS.
 
 ![bg right:30%](images/15-boat_sundown.jpg)
 
@@ -110,8 +111,8 @@ $one_time_code = sha256($time + $password)
 login($username, $one_time_code)
 ```
 
-(A common practical example is the
-"**T**ime-based **O**ne-**t**ime **P**assword"-standard,
+(somewhat similar to the
+"**T**ime-based **O**ne-**t**ime **P**assword" standard,
 used by applications like Google Authenticator)
 
 ![bg right:30%](images/15-atomic_clock.jpg)

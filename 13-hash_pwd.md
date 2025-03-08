@@ -168,11 +168,15 @@ root:$y$j9T$P.lVRC/J.KNiBHMob7uli[...]
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
 ### Choosing the right hash function
-Guessing the password that matches a hash ("hash cracking") should require lots of compute.  
+Guessing the password that matches a hash
+("hash cracking") should require lots of compute.  
   
-The same hash function can be used multiple times ("rounds") to increase cost.  
+The same hash function can be used multiple times
+("rounds") to increase cost.  
   
-Consider using a purpose built solution like [bcrypt](https://en.wikipedia.org/wiki/Bcrypt).
+Consider using a purpose built solution,
+like [Argon2](https://en.wikipedia.org/wiki/Argon2) or
+[yescrypt](https://en.wikipedia.org/wiki/Yescrypt).
 
 ![bg right:30%](images/13-cave_stairs.jpg)
 

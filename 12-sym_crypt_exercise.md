@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Symmetric encryption exercise"
@@ -30,7 +30,7 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jan Hrdina (CC BY-SA 2.0)" -->
 ## [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
-Manually decrypt ciphertext **"DACFDBBDEFEC"**
+**Manually decrypt** ciphertext **"DACFDBBDEFEC"**
 using the key **"BAD"**
   
 |     |     |     |     |     |     |     |

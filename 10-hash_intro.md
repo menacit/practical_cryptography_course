@@ -106,13 +106,20 @@ Used to attack data authenticity controls.
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Mauricio Snap (CC BY 2.0)" -->
-Cryptographic hash functions are like checksums, but designed to never collide in practice.  
-  
-Hash shouldn't be predictable, unless fully computed.    
+Cryptographic hash functions are like checksums,
+but designed to **never collide** in practice.  
 
-The output hash will be the same size regardless if input data is 1kB or 10TB.  
+Produces a **digest** as output,
+more commonly called "hash".
   
-Sometimes called "one-way encryption".
+Output shouldn't be predictable,
+unless fully computed.  
+
+Output shouldn't help you guess
+contents of input data.
+
+The output digest will be the same size
+regardless if input data is 1kB or 10TB.  
 
 ![bg right:30%](images/10-eye.jpg)
 
@@ -154,7 +161,7 @@ $ head --bytes 5G /dev/zero | sha256sum
 ![bg right:30%](images/10-eye.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Mauricio Snap (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Elly Jonez (CC BY 2.0)" -->
 Like other cryptography methods, hashing algorithms have a best-before date.  
   
 Check out ["SHAttered"](https://shattered.io/):
@@ -170,18 +177,18 @@ $ shasum shattered-2.pdf
 If you wanna learn more about collision techniques and play with them, have a look at:
 [github.com/corkami/collisions](https://github.com/corkami/collisions).
 
-![bg right:30%](images/10-eye.jpg)
+![bg right:30%](images/10-caution.jpg)
 
 <!--
 https://shattered.io/static/shattered.png
 -->
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Mauricio Snap (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Elly Jonez (CC BY 2.0)" -->
 ## TL;DR
 Avoid MD4, MD5 and SHA-1.
 
-SHA-2, SHA-3 and BLAKE\* are fine!
+SHA-2 _(AKA SHA256)_, SHA-3 _(AKA Keccak)_
+and BLAKE\* are fine!
 
-
-![bg right:30%](images/10-eye.jpg)
+![bg right:30%](images/10-caution.jpg)
