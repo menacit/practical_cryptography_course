@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Asymmetric introduction"
@@ -35,17 +35,6 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% RoboticSpider (CC BY 4.0)" -->
-This is not a math course.  
-
-We won't cover how the
-algorithms actually works.  
-
-Neither do we need to, thankfully!
-
-![bg right:30%](images/19-robot.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Greg Lloy (CC BY 2.0)" -->
 Also known as "**public-key cryptography**".  
   
 Spooks and researches have been
@@ -54,37 +43,83 @@ using it since the late 70s.
 Requires usage of electronic computers
 (sorry, humans!).
 
+![bg right:30%](images/19-robot.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Greg Lloy (CC BY 2.0)" -->
+This is not a math course.  
+
+We won't cover how the
+algorithms actually work
+under the hood.  
+
+Neither do we need to,
+thankfully!
+
 ![bg right:30%](images/19-computer.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Greg Lloy (CC BY 2.0)" -->
-Doesn't require a **pre-shared key**.  
+A **key pair** consists of a
+**private key** and a **public key**.
   
-Holder of the **private key** can decrypt and sign/authenticate data.  
+Holder of the **private key**
+can decrypt and sign/authenticate data.  
   
-The corresponding **public key** can be used to encrypt and verify authenticity of signed data.  
+The corresponding **public key**
+can be used to encrypt data and
+verify authenticity of signed data.  
+
+The ability to sign/decrypt data
+can be used for authentication
+(prove "ownership" of private key).
 
 ![bg right:30%](images/19-computer.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Greg Lloy (CC BY 2.0)" -->
-[**RSA**](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) is a
-commonly used cryptosystem.  
+<!-- _footer: "%ATTRIBUTION_PREFIX% Marcin Wichary (CC BY 2.0)" -->
+[**RSA**](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) is a commonly
+used asymmetric algorithm.  
 
-Rivest, Shamir and Adleman.  
+Created by Rivest, Shamir and Adleman.  
   
 ~~Not to be~~ confused with
 the company "RSA Security".
 
 Patented in 1983,
 freely usable since 2000.
-  
-Typically 512, 1024... 4096 bits large keys.
 
-![bg right:30%](images/19-computer.jpg)
+Algorithm/Implementation guidance described
+in **P**ublic-**K**ey **C**ryptography **S**tandards \#1.
+  
+Typically key size is between 512 bit (weak)
+and 8192 bit (overkill).
+
+![bg right:30%](images/19-80s_room.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Greg Lloy (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
+Wait a second, those are much
+larger than the keys used
+for symmetric algorithms!  
+
+Unlike when used by symmetric ciphers,
+not all combinations of bits are
+possible to use as keys.  
+
+To get a better idea, we can check out
+[NIST's table of "security levels"](https://en.wikipedia.org/wiki/Security_level).  
+
+TL;DR: 2048 bits OK-ish, \>=3072 recommended.
+
+![bg right:30%](images/19-abandoned_stair.jpg)
+
+<!--
+https://www.keylength.com/en
+-->
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Nick Watts (CC BY-SA 2.0)" -->
 **D**igital **S**ignature **A**lgorithm.  
 
 Standardized by NIST in 1994,
@@ -96,16 +131,19 @@ not encryption.
 Several design flaws and
 insufficient key size - avoid it!
 
-![bg right:30%](images/19-computer.jpg)
+![bg right:30%](images/19-dome_bridge.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Steve Jurvetson (CC BY 2.0)" -->
-[Elliptic-curve cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography) (**ECC**)
-is replacing RSA.  
+Solutions based on
+[**E**lliptic-**C**urve **C**ryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography)
+are steadily replacing RSA.  
+
+**ECDSA**, for example.
   
 It's faster, requires smaller keys and
 is generally considered easier
-to safely implement.  
+to correctly/safely implement.  
   
 RSA still has better
 software/hardware support.
@@ -115,10 +153,14 @@ software/hardware support.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Steve Jurvetson (CC BY 2.0)" -->
 ```
-$ time ssh-keygen -q -N '' -t rsa -f /tmp/key_rsa
+$ time ssh-keygen -q -N '' \
+  -t rsa -f /tmp/key_rsa
+
 real	0m1.022s
 
-$ time ssh-keygen -q -N '' -t ed25519 -f /tmp/key_ed
+$ time ssh-keygen -q -N '' \
+  -t ed25519 -f /tmp/key_ed
+
 real	0m0.008s
 ```
 
@@ -143,13 +185,14 @@ AAAAC3NzaC1lZDI1NTE5AAAAIFmgY7uVLZqx/tOLPJ22JBi7TAJwmmClu66+mb2sOfUA
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Steve Jurvetson (CC BY 2.0)" -->
 Several different "**curves**" can be utilized.  
-(\~think different ciphers).  
+(\~think different algorithms).  
   
 Common examples are
 **NIST P-256/P-384** and
 **Curve25519**.  
   
-For guidance, checkout the ["SafeCurves" project](https://safecurves.cr.yp.to/).
+For some (biased) guidance,
+checkout the ["SafeCurves" project](https://safecurves.cr.yp.to/).
 
 ![bg right:30%](images/19-arch.jpg)
 

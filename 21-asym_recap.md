@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Asymmetric recap"
@@ -45,22 +45,31 @@ Different keys are used for encryption and decryption.
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
-An **asymmetric key pair** consist of a **public key** and a **private key**.  
+An **asymmetric key pair** consists of a
+**public key** and a **private key**.  
   
-The **public key** can be used by **anyone** to **encrypt** and **verify signed** data.  
+The **public key** can be used by
+**anyone** to **encrypt** and
+**verify signed** data.  
   
-The **private key** can be used by the **key holder** to **decrypt** and **digitally sign** data.
+The **private key** can be used by
+the **key holder** to **decrypt** and
+**digitally sign** data.
 
 ![bg right:30%](images/21-chip.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
-A certificate (typically) contains a **public key** and **metadata**.  
+A certificate (typically) contains
+a **public key** and **metadata**.  
   
-Examples of metadata are expiry time and "identities" tied to the key,
+Examples of metadata are expiry time
+and "identities" tied to the key,
 such as an email address or a DNS hostname.  
   
-Certificates are typically cryptographically signed by third-parties, depending on trust model.
+They are cryptographically signed
+by one or more third-parties,  
+depending on trust model.
 
 ![bg right:30%](images/21-chip.jpg)
 
@@ -69,9 +78,13 @@ Certificates are typically cryptographically signed by third-parties, depending 
 The two most common solutions are **RSA** and
 **elliptic-curve cryptography (ECC)**.  
   
-RSA keys bigger than 2024 bits are usually considered safe.  
+RSA keys bigger than 2048 bits are
+usually considered acceptable,
+but NIST recommends 3072.
   
-ECC is more resource efficient/easier to safely implement than RSA and is thereby replacing it.
+ECC is more resource efficient and
+easier to correctly/safely implement
+than RSA - thereby replacing it.
 
 ![bg right:30%](images/21-chip.jpg)
 

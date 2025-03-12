@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Course recap"
@@ -35,8 +35,9 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Brendan J (CC BY 2.0)" -->
-**Cryptography** helps us ensure
-**confidentiality and integrity** of information.  
+Cryptography helps us ensure
+**confidentiality, authenticity** and **integrity**
+of information.  
   
 **Steganography** is a related practice in which information is **hidden/obscured**.  
   
@@ -46,12 +47,13 @@ These have historically been used in unison.
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Austin Design (CC BY-SA 2.0)" -->
-**AES** and **ChaCha** are good options.  
+## Symmetric ciphers
+**AES** and **ChaCha20** are good options.  
   
 Stay away from **(3)DES** and **RC4**.  
   
-[Key derivation functions](https://en.wikipedia.org/wiki/Key_derivation_function) (KDFs) are used
-to generate fixed-size keys from passwords.
+[**K**ey **D**erivation **F**unctions](https://en.wikipedia.org/wiki/Key_derivation_function) are 
+used to generate fixed-size keys from passwords.
 
 ![bg right:30%](images/18-tower.jpg)
 
@@ -59,44 +61,48 @@ to generate fixed-size keys from passwords.
 <!-- _footer: "%ATTRIBUTION_PREFIX% Filippo Valsorda (CC BY-SA 4.0)" -->
 AES and other block-ciphers
 supports several different
-["**cipher modes**"](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation).  
+[**"cipher modes"**](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation).  
   
 The "**ECB**" mode is generally considered insecure.  
   
 In addition to a key and plain-/cipher-text, most
-modes require an ["**initialization vector**"](https://en.wikipedia.org/wiki/Initialization_vector)
+modes require an [**"initialization vector"**](https://en.wikipedia.org/wiki/Initialization_vector)
 for secure operations.
 
 ![bg right:30%](images/18-ecb_tux.jpg)
 
+<!--
+https://upload.wikimedia.org/wikipedia/commons/d/d6/ECB_encryption.svg
+https://upload.wikimedia.org/wikipedia/commons/8/80/CBC_encryption.svg
+-->
+
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% ESA (CC BY 3.0 IGO)" -->
 Cryptographic hash functions are like checksums,
-but designed to never collide in practice.  
-  
-Hash shouldn't be predictable, unless computed
-(not possible to guess plain-text from hash).    
+but designed to **never collide** _in practice_
+(different inputs shouldn't produce same output).
+
+A **digest** (AKA "hash") shouldn't help an
+attacker guess the input/"plain text" data.
 
 The output hash will be the same size regardless
 if input data is 1kB or 10TB.  
-  
-Sometimes called "one-way encryption".
 
 ![bg right:30%](images/18-satellite_photo.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Rod Waddington (CC BY-SA 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Cory Doctorow (CC BY-SA 2.0)" -->
 The "**S**ecure **H**ash **A**lgorithm"-family
 of hash functions are standardized by NIST.  
 
-SHA-2 (AKA "SHA256") is widely used.  
-SHA-3 (AKA "SHA384") is recommended
+SHA-2 (AKA "SHA256") is still widely used.  
+SHA-3 (AKA "Keccak") is recommended
 for new sensitive applications.  
 
-Avoid SHA-1 and especially the MD5 algorithm
+Avoid SHA-1 and especially MD\* algorithms
 as they suffer from known security flaws.
 
-![bg right:30%](images/18-cabling.jpg)
+![bg right:30%](images/18-watch_out.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Brendan J (CC BY 2.0)" -->
@@ -104,16 +110,16 @@ Hashes are commonly used for
 ensuring the integrity of data
 (detect manipulation).  
 
-Commonly used by
-**F**ile **I**ntegrity **M**onitoring-systems
-and "software allow-listing"-applications.
+Some examples are
+**F**ile **I**ntegrity **M**onitoring systems
+and "software allow-listing" applications.
 
 ![bg right:30%](images/18-wallcrack.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Fredrik Rubensson (CC BY-SA 2.0)" -->
-**Password hashes** are used to avoid
-storing passwords in plaintext.
+**Password hashing** is used to avoid
+**storing** passwords in plaintext.
   
 Users using the same password will
 have the generated same hash.  
@@ -122,10 +128,10 @@ Hashes can be pre-calculated
 ("**rainbow tables**").  
   
 To mitigate these issues, passwords are **salted**
-(mixed with other data) before being hashed.  
+(mixed with other data) **before** being hashed.  
   
 In order to avoid handling users "real passwords",
-"**client-side hashing**" may be utilized.
+"**client-side hashing**" may be utilized in unison.
 
 ![bg right:30%](images/18-razorwire.jpg)
 
@@ -138,7 +144,7 @@ Provide proof that you know
 something without disclosing it.  
 
 Commonly used in authentication protocols,
-like "**T**ime-based **O**ne-**t**ime **P**assword".
+similar to "**T**ime-based **O**ne-**t**ime **P**assword".
 
 ![bg right:30%](images/18-payphone.jpg)
 
@@ -149,7 +155,7 @@ Hashes can be used for
   
 Perform computationally-expensive 
 hashing to find a digest containing
-a peer-specified pattern.  
+some peer-specified data/pattern.  
   
 Costly to produce, cheap to verify.  
   
@@ -159,10 +165,31 @@ rate-limiting and cryptocurrencies.
 ![bg right:30%](images/18-factory.jpg)
 
 ---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
+### Challenge
+Find some input data with the prefix
+"quite\_r4ndom" that produces a
+hex digest ending with "4e".
+
+### Attempts
+```
+hash(quite_r4ndom-abc123) == 3e64[...]ca
+hash(quite_r4ndom-abc124) == 910c[...]1c
+[...]
+hash(quite_r4ndom-abc982) == aad6[...]4e
+```
+
+### Result
+859 rounds of hashing to solve challenge,
+1 round to verify it.
+
+![bg right:30%](images/18-factory.jpg)
+
+---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Pelle Sten (CC BY 2.0)" -->
-**Cryptography solutions won't hold
-their promises forever.**  
+Cryptography tools won't hold
+their promises forever.  
   
-**There are always "best-before" dates.**
+There are always "best-before" dates.
 
 ![bg right:30%](images/18-locks.jpg)
