@@ -118,7 +118,8 @@ Recipient: age1yubikey1q0[...]q6
 ---
 ## Encrypt and decrypt data using YubiKey
 ```
-$ age-keygen -y my_yubikey.plugin > my_yubikey.pub
+$ age-plugin-yubikey \
+	--identity --slot $SLOT > my_yubikey.pub
 
 $ cat secret.txt | \
 	age --encrypt --recipients-file my_yubikey.pub \
