@@ -44,22 +44,48 @@ Different keys are used for encryption and decryption.
 ![bg right:30%](images/21-chip.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
 An **asymmetric key pair** consists of a
 **public key** and a **private key**.  
-  
-The **public key** can be used by
-**anyone** to **encrypt** and
-**verify signed** data.  
   
 The **private key** can be used by
 the **key holder** to **decrypt** and
 **digitally sign** data.
+  
+The **public key** can be used by
+**anyone** to **encrypt** and
+**verify signed** data.  
 
-![bg right:30%](images/21-chip.jpg)
+![bg right:30%](images/21-big_ben.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
+The most common solutions are **RSA** and
+those based on **E**lliptic-**C**urve **C**ryptography.  
+  
+RSA keys bigger than 2048 bits are
+usually considered acceptable,
+but NIST recommends 3072.
+  
+ECC is more resource efficient and
+easier to correctly/safely implement
+than RSA - thereby replacing it.
+
+![bg right:30%](images/21-parallel_pipes.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Stig Nygaard (CC BY 2.0)" -->
+Several different **curves** are available for ECC.  
+  
+Common examples are
+**NIST P-256/P-384** and **Curve25519**.  
+  
+For guidance, checkout the ["SafeCurves" project](https://safecurves.cr.yp.to/).
+
+![bg right:30%](images/21-curly_purple.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
 A certificate (typically) contains
 a **public key** and **metadata**.  
   
@@ -71,29 +97,10 @@ They are cryptographically signed
 by one or more third-parties,  
 depending on trust model.
 
-![bg right:30%](images/21-chip.jpg)
+![bg right:30%](images/21-east_side_gallery.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
-The two most common solutions are **RSA** and
-**elliptic-curve cryptography (ECC)**.  
-  
-RSA keys bigger than 2048 bits are
-usually considered acceptable,
-but NIST recommends 3072.
-  
-ECC is more resource efficient and
-easier to correctly/safely implement
-than RSA - thereby replacing it.
+<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+Any questions? :-)
 
-![bg right:30%](images/21-chip.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
-Several different **curves** are available for ECC.  
-  
-Common examples are **NIST P-256/P-384** and **Curve25519**.  
-  
-For guidance, checkout the ["SafeCurves" project](https://safecurves.cr.yp.to/).
-
-![bg right:30%](images/21-chip.jpg)
+![bg right:30%](images/21-sphere.jpg)

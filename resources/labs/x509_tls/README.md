@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 X-Context: Practical cryptography course - X.509/TLS lab
 -->
@@ -22,12 +22,18 @@ Practical knowledge of using a X.509 certificate authority and TLS to secure net
 ## Lab overview
 The lab consist of a bash script that runs the [curl HTTP client](https://curl.se/) in a loop to
 continuously request the quote page from a [nginx web server](https://nginx.org/en/). Both of these
-software components (and a quote generation script) are packaged as Docker/OCI container images and
-run using [Docker Compose](https://docs.docker.com/get-started/08_using_compose/).  
+software components (and a motivational quote generation script) are packaged as Docker/OCI container
+images run using [Docker Compose](https://docs.docker.com/get-started/08_using_compose/).  
   
 In order to complete the lab, the student should setup a X.509 certificate authority, modify the
 client script/web server configuration to use HTTPS and mutual TLS authentication. All tools
 required to complete the assignment should be pre-installed on the student's lab system. 
+
+No modification of the following lab files are necessary to complete the lab:
+- client.dockerfile
+- content-generator.dockerfile
+- docker-compose.yml
+- README.md
 
 
 ## Tasks

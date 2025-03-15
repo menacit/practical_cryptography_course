@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: PGP basics"
@@ -41,12 +41,12 @@ developed by Phil Zimmermann
 in the early 90s.  
   
 "OpenPGP" acts as the umbrella for
-attempts to standardize PGP.
+attempts to formally standardize PGP.
 
 ![bg right:30%](images/23-lamps.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Indrora (CC BY 2.0)" -->
 ### Common use-cases for PGP
 Securing message-based communication
 methods, such as E2E for email.  
@@ -55,7 +55,7 @@ File encryption.
   
 Software authenticity validation on Linux.
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-defcon_room.jpg)
 
 ---
 ## Used for package metadata signing
@@ -66,30 +66,30 @@ deb [signed-by=/etc/keys/github.pub] https://cli.github.com/packages stable main
 ```
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
 OpenPGP certificates are signed ("**certified**")
-by the key holder and potentially others.  
+by the "key holder" and potentially others.  
   
 Pioneered the "**Web of Trust** model for
 identity/certificate validation.
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-london_bridge_station.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
 ## Implementations
 - **GnuPG**: Swiss army knife, AKA "GPG"
 - **Sequoia**: Modern CLI tools and Rust libraries
 - **GopenPGP**: PGP in your Go applications
 - **OpenPGP.js**: Client- and server-side library
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-utah_freight.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
 ## 'Nuff talk, more demos.
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-utah_freight.jpg)
 
 ---
 ### Let me introduce you to "sq"!
@@ -97,7 +97,8 @@ identity/certificate validation.
 $ sq --help
 
 sq 0.25.0 (sequoia-openpgp 1.7.0)
-A command-line frontend for Sequoia, an implementation of OpenPGP
+A command-line frontend for Sequoia,
+an implementation of OpenPGP
 [...]
 ```
 
@@ -113,7 +114,7 @@ $ sq key extract-cert test.private --output test.cert
 ```
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
 ### Basic file encryption
 ```
 $ cat todo.md 
@@ -127,10 +128,10 @@ $ cat todo.md | sq encrypt \
 	> todo.md.pgp
 ```
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-surveying_equipment.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
 ### Basic file decryption
 ```
 $ cat todo.md.pgp | \
@@ -145,12 +146,17 @@ Compressed using ZIP
 - [ ]: Conquer the world
 ```
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-surveying_equipment.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
 ### Digitally signing a message
 ```
+$ cat proclamation.txt
+
+I hereby promise to never put
+meatballs in my nose again!
+
 $ cat proclamation.txt | \
 	sq sign \
 	--cleartext-signature \
@@ -158,11 +164,11 @@ $ cat proclamation.txt | \
 	> proclamation.txt.pgp
 ```
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-brick_lane_sculpture.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
-### Digitally signing a message
+<!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
+### Digitally signed message
 ```
 $ cat proclamation.txt.pgp
 
@@ -181,10 +187,10 @@ EY3QZRMCQZ8S5CwDUgEAqtSrWEvEa[...]
 -----END PGP SIGNATURE-----
 ```
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-brick_lane_sculpture.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
 ### Verifying signed message
 ```
 $ cat proclamation.txt.pgp | \
@@ -198,7 +204,7 @@ I hereby promise to never put
 meatballs in my nose again!
 ```
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-brick_lane_sculpture.jpg)
 
 ---
 ### Let's create some more test keys
@@ -215,14 +221,20 @@ done
 ```
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Stig Nygaard (CC BY 2.0)" -->
 ### Multi-signing a message
 ```
+$ cat the_truth.txt
+
+Oceania was at war with Eastasia
+
 $ cat the_truth.txt | \
 	sq sign \
 	--signer-key alice.private \
 	> the_truth.txt.pgp
+```
 
+```
 $ cat the_truth.txt.pgp | \
 	sq sign \
 	--signer-key bob.private \
@@ -230,10 +242,10 @@ $ cat the_truth.txt.pgp | \
 	sponge the_truth.txt.pgp
 ```
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-faces_statue.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Stig Nygaard (CC BY 2.0)" -->
 ### Verify multi-signed message
 ```
 $ cat the_truth.txt.pgp | \
@@ -249,10 +261,10 @@ Good signature from 5CF0C96FD9C6DC05
 Oceania was at war with Eastasia
 ```
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-faces_statue.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Stig Nygaard (CC BY 2.0)" -->
 ### Verify multi-signed message
 ```
 $ cat the_truth.txt.pgp | \
@@ -268,10 +280,10 @@ Good signature from 5CF0C96FD9C6DC05
 Error: Verification failed
 ```
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-faces_statue.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Cory Doctorow (CC BY-SA 2.0)" -->
 ### Certify third-party key
 ```
 $ sq certify \
@@ -288,7 +300,7 @@ $ sq certify \
 	sponge charlie.cert
 ```
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-graffiti_keypad.jpg)
 
 ---
 ### Peaking at the certificate
@@ -303,7 +315,7 @@ Public-key algo: EdDSA Edwards-curve Digital Signature Algorithm
 UserID: charlie <charlie@example.com>
 Alleged certifier: D36E658BA221819AD35F80484047E2EF12270FAD
 Alleged certifier: 06FE1C00440DD227E7EAE81B1B2D8E573AD890CF
-Note: Certifications have NOT been verified!
+[...]
 ```
 
 ---
@@ -319,36 +331,40 @@ $ sq keyring list alice.keyring
 ```
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Jan Helebrant (CC0 1.0)" -->
 But wait a minute, how do I know
 that a key for test@example.com
 belongs to the real **Test Labsson**?
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-bear_sculpture.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Jan Helebrant (CC0 1.0)" -->
 ### Strategies for key verification 
 - Praying / hoping for the best
 - Key signing _parties_
 - Web of Trust
 - [DOIP / Keyoxide](https://docs.keyoxide.org/)
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-bear_sculpture.jpg)
 
 ---
 ![bg center 65%](images/23-keyoxide_example.png)
 
+<!--
+https://keyoxide.org/2c364aa0ede8b0d744ec22e7225f62af3f13c95f
+-->
+
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
 Just for cool cats/terminal dwellers?  
   
 Let me introduce you to **Gpg4win**.
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-climatron_jungle.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
 ## Gpg4win
 - **GnuPG**: Where the magic happens
 - **Kleopatra**: GUI for management/encryption
@@ -357,7 +373,7 @@ Let me introduce you to **Gpg4win**.
   
 FOSS with [professional support available](https://gnupg.com/gnupg-desktop.html).
 
-![bg right:30%](images/23-lamps.jpg)
+![bg right:30%](images/23-climatron_jungle.jpg)
 
 ---
 ![bg center 70%](images/23-gpg4win_file_to_sign.png)
@@ -396,6 +412,7 @@ Hope this piqued your interest.
 All tools (_except the original PGP_) described
 are freely available for you to play with.  
 
-Grab a few classmates and set up a WoT.
+Grab a few classmates and
+try creating a "Web of Trust".
 
 ![bg right:30%](images/23-lamps.jpg)

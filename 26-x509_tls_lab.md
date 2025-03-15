@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: X.509/TLS lab"
@@ -30,11 +30,10 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Rising Damp (CC BY 2.0)" -->
 ## Lab description
-Graded exercise to setup X.509 certificate authority and protect web server using mTLS.
+Graded exercise to setup a X.509 CA
+and protect a web server using mTLS.
   
 For detailed instructions, see:  
 ["resources/labs/x509\_tls/README.md"](%RESOURCES_ARCHIVE%).  
-  
-**Remember to download latest version of resources archive! ("crypto.zip")**
 
 ![bg right:30%](images/26-phone_pole.jpg)
