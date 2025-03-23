@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Password cracking lab"
@@ -35,6 +35,6 @@ Graded exercise to recover cleartext passwords from stored hashes.
 For detailed instructions, see:  
 ["resources/labs/pwd\_crack/README.md"](%RESOURCES_ARCHIVE%).  
   
-**Remember to download latest version of resources archive! ("crypto.zip")**
+**Remember to read the guidance!**
 
 ![bg right:30%](images/32-plot.jpg)

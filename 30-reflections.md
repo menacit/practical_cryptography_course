@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Reflections exercise"
@@ -30,10 +30,10 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Steve Jurvetson (CC BY 2.0)" -->
 ## Answer the following questions
-- Why is PoW used to combat spam?
+- How could PoW be used to combat spam?
 - Why do some backup solutions make use of public key cryptography?
 - Why do software devs publish file hashes?
-- Why is asymmetric cryptography used for "COVID vaccination certificates"?
+- Why is asymmetric cryptography used for "COVID vaccination certificates" printed on paper?
   
 Take the chance to be a bit --verbose!  
   
