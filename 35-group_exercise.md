@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Group exercise"
@@ -35,30 +35,67 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Martin Fisch (CC BY 2.0)" -->
-## Exercise: Help Exemplum Press
-Participants are split into two or more groups.  
+## Exercise: Sell 'em crypto!
+Participants are split into four or more groups.  
   
 Group members should discuss how cryptography
-could be used to help "**Exemplum Press**",
-a fictional company working with
-**investigate journalism**.
+could be used to help a fictional organization.  
+  
+Focus on the specific organization's needs and
+challenges. Try involving as much cryptography
+as possible, modify the scenario if needed.
+Suggest use of specific tools, if applicable.
 
-Try involving as much cryptography as possible - add challenges to the scenario if it helps.
-
-After presentation, send slides to
+After presentation, send your fancy slides to
 **[courses+crypto_013501@%EMAIL_DOMAIN%](mailto:courses+crypto_013501@%EMAIL_DOMAIN%)**
 
 ![bg right:30%](images/35-bees.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Martin Fisch (CC BY 2.0)" -->
-## Exercise: Help Exemplum Press
-- Traveling journalists/Sources all over the world, including hostile countries
-- Publishes news/flashes using many different channels (Twitter, TikTok, etc.)
-- Wants to offer the ability for anonymous whistleblowers to share sensitive information 
-
-[...]
-
-**[courses+crypto_013501@%EMAIL_DOMAIN%](mailto:courses+crypto_013501@%EMAIL_DOMAIN%)**
+## Fictional organizations
+1. **Exemplum Press**
+2. **Xample Industries**
+3. **Department of Examples**
+4. **Examplify Inc.**
 
 ![bg right:30%](images/35-bees.jpg)
+
+---
+## Org. 1: Exemplum Press
+- Works with investigative journalism, focusing on rich and politically powerful individuals
+- Has journalists and sources spread all over the world, including in "hostile countries"
+- Publishes their news and "news flashes" using many different channels (X, TikTok, etc.)
+- Wants to help readers from "hostile countries" to access their news safely
+- Wants to offer the ability for anonymous whistleblowers to share sensitive information 
+
+_(feel free to extend fictional scenario!)_
+
+---
+## Org. 2: Xample Industries
+- Well-established company in "heavy-manufacturing"
+- Designs and builds digital equipment for the mining industry
+- Relies on legacy IT systems spread over multiple sites for the manufacturing line
+- Utilizes software from third-party vendors in their products
+- Worries about industrial espionage and intrusions affecting production capacity
+
+_(feel free to extend fictional scenario!)_
+
+---
+## Org. 3: Department of Examples
+- Spy agency working with intelligence gathering
+- Provides sensitive information to governmental agencies, diplomats and foreign allies
+- Has agents and sources spread all over the world that need to report information securely
+- May only utilize free software due to budget restraints enforce by CATZ
+
+_(feel free to extend fictional scenario!)_
+
+---
+## Org. 4: Examplify Inc.
+- Consultancy company with employees spread all over the world
+- Works with software development and maintenance of IT systems for payroll management
+- Needs remote access to customer environments for support
+- Has many employees in sales and support roles with limited technical skills
+- Worries about economically motivated hackers and insider threats
+
+_(feel free to extend fictional scenario!)_

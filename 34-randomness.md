@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Randomness"
@@ -35,127 +35,189 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-We rely on randomness to keep games
-fun and fair (and "legal").
+We rely on randomness to keep competitions
+fun and fair (and legal, in some cases).
+
+**Predictable** VS **Random**.  
+
+Human actions/choices are quite predictable,
+tools like dice and tombolas can help us. 
 
 ![bg right:30%](images/34-dice.jpg)
 
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-Security often relies on it as well.
-
-![bg right:30%](images/34-dice.jpg)
+<!--
+https://i.redd.it/w4gz0wzz1i821.png
+-->
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-**Predictability** VS **Randomness**
+<!-- _footer: "%ATTRIBUTION_PREFIX% Marcin Wichary (CC BY 2.0)" -->
+The security of computer systems
+often rely on it as well.  
 
-![bg right:30%](images/34-dice.jpg)
+Generation of salt/IV,
+site-unique passwords,
+asymmetric private keys,
+ephemeral symmetric keys...
 
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-Turns out that humans are very predictable.
+Digital computers are however
+designed to be very predictable.
 
-![bg right:30%](images/34-dice.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-Computers are designed to be very predictable.
-
-![bg right:30%](images/34-dice.jpg)
+![bg right:30%](images/34-golden_cogwheels.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-Yet we can run **Math.random()**.
+<!-- _footer: "%ATTRIBUTION_PREFIX% Marcin Wichary (CC BY 2.0)" -->
+Yet we can run **Math.random()**. But how?  
 
-![bg right:30%](images/34-dice.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-...which is good because we use it to generate all sorts of keys.
-
-![bg right:30%](images/34-dice.jpg)
+![bg right:30%](images/34-golden_cogwheels.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-Random Number Generators or
-**RNGs**, for short.  
+<!-- _footer: "%ATTRIBUTION_PREFIX% Marcin Wichary (CC BY 2.0)" -->
+To help us fight predictability,
+we rely on **R**andom **N**umber **G**enerators.  
 
-![bg right:30%](images/34-dice.jpg)
+Despite their name, they often produce
+(more or less) random bits.  
+
+RNGs are typically divided into a few
+different categories, depending on their
+implementation and security promises...
+
+![bg right:30%](images/34-random_numbers.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Jusotil_1943 (CC0 1.0)" -->
 ### PRNG
 Pseudo-random _AKA_
 "Not really but let's pretend".  
   
-Can be implemented in pure software.
+Can be implemented in pure software.  
 
-![bg right:30%](images/34-dice.jpg)
+Fast and useful to make things fun,
+unsuitable for security applications.
+
+![bg right:30%](images/34-rusted_cards.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Mike Grauer Jr (CC BY 2.0)" -->
 ### CSPRNG
 Cryptographically secure pseudo-randomness.  
   
-Relies on multiple inputs, such as mouse movement, CPU temperature and WiFi signal.
+Relies on multiple semi-unpredictable inputs,
+such as mouse movement, CPU temperature,
+disk latency and WiFi signal strength.  
 
-![bg right:30%](images/34-dice.jpg)
+\~AKA "sources of **entropy**".
+
+Guessing the state of one input may
+be trivial, but not all at the same time.
+
+![bg right:30%](images/34-abstracts_cubes.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Yellowcloud (CC BY 2.0)" -->
 ### HWRNG
-Basically the same, but let some external device provide randomness.
+Hardware Random Number Generator.
 
-![bg right:30%](images/34-dice.jpg)
+Let some external device provide
+us with those random bits.  
 
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
+Provided by modern chipsets/CPUs,
+typically quite fast!
+
 ### TRNG
-Generates measuring/observing something very near truly random, like radioactive decay.
+Measuring something we think is
+"**t**ruly random", like radioactive decay.
 
-![bg right:30%](images/34-dice.jpg)
+Purpose-built peripherals,
+some available as "open hardware".
 
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-Many PRNGs need an initial **seed** to get started.  
-  
-We can use this to create "predictable randomness" :S
+![bg right:30%](images/34-chip_with_probes.jpg)
 
-![bg right:30%](images/34-dice.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-Many PRNGs need an initial **seed** to get started.  
-  
-We can use this to create "predictable randomness" :S
-
-![bg right:30%](images/34-dice.jpg)
+<!--
+https://leetronics.de/en/shop/infinite-noise-trng/
+https://opentrng.org/
+-->
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-You want some decent randomness on Linux?  
-
-Use **/dev/random**
-or **/dev/urandom**.
-
-![bg right:30%](images/34-dice.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-Sometimes you need a bit of extra help.  
-  
-Checkout "RNG forwarding", Pollinate and Haveged.
-
-![bg right:30%](images/34-dice.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
-### You got an RNG in your pocket!
+<!-- _footer: "%ATTRIBUTION_PREFIX% Yubinerd (CC BY-SA 4.0)" -->
+### You got a HWRNG in your pocket!
 ```
 $ gpg-connect-agent --hex "SCD RANDOM 1000" /bye
 
 D[0000]  63 F8 73 4A 25 32 35 B0  21 3F 57 [...]
 ```
+
+![bg right:30%](images/34-yubikey.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Cory Doctorow (CC BY-SA 2.0)" -->
+In practice, we typically utilize a
+HWRNG as an entropy input to a CSPRNG.  
+
+The more sources of unpredictable
+input, the better output randomness!
+
+![bg right:30%](images/34-one_world_trade.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Stig Nygaard (CC BY 2.0)" -->
+Many PRNGs need an **initial seed**
+to get started producing output.  
+  
+(what we use our multiple inputs for)   
+
+We can abuse this to generate
+"deterministic randomness"! _:S_
+
+Useful for key derivation and creating
+easily sharable worlds in Minecraft!
+
+![bg right:30%](images/34-goose.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Ninara (CC BY 2.0)" -->
+You want some decent randomness on Linux?  
+
+Use **/dev/random** or **/dev/urandom**.
+
+```
+$ head \
+    --bytes 1000 /dev/random \
+    > /tmp/unpredictable_bytes
+```
+
+/dev/random may (temporarily) run out
+of random data - unless you're very
+paranoid, utilize /dev/urandom instead.
+
+![bg right:30%](images/34-ahmedabad.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
+Sometimes your CSPRNG need a bit of
+extra help gathering its initial seed.  
+
+Freshly spawned virtual machines in
+the public cloud are a common example.
+
+Checkout "RNG forwarding",
+[Pollinate](https://github.com/dustinkirkland/pollinate) and
+[Haveged](https://www.issihosts.com/haveged/).
+
+![bg right:30%](images/34-chemical_plant.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Julie Cotinaud (CC BY-SA 2.0)" -->
+## Wrapping up
+Unpredictable randomness is a key
+component in computer security.  
+
+Don't rely on a home-grown RNG,
+unless you're doing it for fun!  
+
+Standard libraries in programming
+languages typically provide both
+a PRNG and a CSPRNG - make sure
+you know which one you're using!
 
 ![bg right:30%](images/34-dice.jpg)
