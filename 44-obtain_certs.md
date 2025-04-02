@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Obtaining certificates"
@@ -72,6 +72,12 @@ Here is (hopefully) a certificate!
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
+Does that sound a bit fragile?
+
+![bg right:30%](images/44-cave_stairs.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
 ## Introducing "Let's Encrypt"
 Publicly-trusted CA launched in 2014
 with the goal of providing certificates
@@ -80,20 +86,23 @@ to every website for free (as in beer).
 Developed and run by the nonprofit
 **I**nternet **S**ecurity **R**esearch **G**roup.  
   
-Supports wild-card certificates
-(\*.example.com).  
-
 Invented and uses the
 [ACME protocol](https://en.wikipedia.org/wiki/Automatic_Certificate_Management_Environment) to
 validate CSRs.
 
 ![bg right:30%](images/44-cave_stairs.jpg)
 
+<!--
+https://www.manageengine.com/key-manager/what-is-automated-certificate-management-environment-acme.html
+-->
+
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
 ## The limitations
 No email (S/MIME) or
 code signing certificates (yet).  
+
+([Sigstore](https://www.sigstore.dev/) may help you with the latter)
 
 Not trusted in very old/outdated
 trust stores (which you probably

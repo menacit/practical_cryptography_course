@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Cryptography in Bitcoin"
@@ -36,7 +36,8 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Bill Badzo (CC BY-SA 2.0)" -->
 ## What is Bitcoin?
-Decentralized currency and payment network.  
+Digital currency and
+decentralized payment network.  
   
 First widely used example of cryptocurrency.  
 
@@ -55,7 +56,7 @@ No registration or
 "**k**now **y**our **c**ustomer"-process is required
 to perform transactions on the network.  
 
-Relies on user-generated asymmetric key-pairs.
+Relies on user-generated asymmetric key pairs.
 
 The public key acts as the participant's
 "account number", known in Bitcoin as "address".  
@@ -87,9 +88,9 @@ To minimize the risk of theft, utilize
 ## Initializing transactions
 James wanna pay Ross for some "consulting".  
 
-James gets hold of by copying Ross's address
+James gets hold of Ross' address
 from an email/instant messaging chat,
-scanning a QR code or similar.  
+by scanning a QR code or similar.  
 
 James opens his "wallet application" and
 commands it to sign a transaction:  
@@ -125,7 +126,7 @@ current/historic transactions.
 ## Validating transactions
 Every \~few minutes, nodes save the
 observed and validated transactions,
-sort them and calculates a hash of the data.  
+sorts them and calculates a hash of the data.  
 
 The hash digest of transactions is hashed
 together with the previous link
@@ -150,8 +151,8 @@ adjusted by nodes in the network to
 account for available compute power.  
 
 Once the challenge has been solved by a
-node, it signs solution and distributes
-it to the network.  
+node, it signs the solution and
+distributes it to the network.  
 
 ![bg right:30%](images/45-resistors.jpg)
 
@@ -168,9 +169,9 @@ included in the hash chain.
 
 To incentivize nodes for properly
 verifying transactions and PoW,
-**X** Bitcoins are awarded
-to the address of the
-solving node.
+**X** Bitcoins are awarded to
+the address (public key)
+of the solving node.
 
 ![bg right:30%](images/45-cubes.jpg)
 
