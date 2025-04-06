@@ -76,12 +76,12 @@ Checkout [NCC's "cryptopals"](https://www.cryptopals.com/)!
   
 Take the chance to be a bit --verbose!  
   
-**[courses+crypto_014801@%EMAIL_DOMAIN%](mailto:courses+crypto_014601@%EMAIL_DOMAIN%)**
+**[courses+crypto_014801@%EMAIL_DOMAIN%](mailto:courses+crypto_014801@%EMAIL_DOMAIN%)**
 
 ![bg right:30%](images/48-beer_tap.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Helsinki Hacklab (CC BY 2.0)" -->
-# DE\_END
+# DE\_END2
 
 ![bg right:30%](images/48-beer_tap.jpg)
