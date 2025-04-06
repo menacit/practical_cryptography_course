@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Future of cryptography"
@@ -71,7 +71,8 @@ are currently being implemented in
 cryptography libraries/toolkits.  
 
 Most solutions opt to use them
-in unison with "traditional ciphers".
+in unison with "traditional ciphers",
+like "ECDHE-MLKEM" (X25519MLKEM768).
 
 ![bg right:30%](images/43-fusion_equipment.jpg)
 
@@ -84,7 +85,10 @@ have been the norm for a long time.
 Moving towards demand for
 open/publicly auditable implementations.  
   
-Affects both software and hardware.
+Affects both software and hardware.  
+
+[OpenTitan](https://opentitan.org/) and the [TKey](https://tillitis.se/)
+are interesting examples.
 
 ![bg right:30%](images/43-lock.jpg)
 

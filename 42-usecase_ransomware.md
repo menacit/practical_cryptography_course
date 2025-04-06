@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Cryptography in ransomware"
@@ -39,11 +39,9 @@ style: |
 Malware that makes files/data inaccessible, typically using encryption.  
   
 Intruders demand payment to release files/data.  
-  
-> Global ransomware damages are estimated
-> to exceed $30 billion by 2023.
-  
-— [Acronis 22](https://dl.acronis.com/u/rc/White-Paper-Acronis-Cyber-Threats-Report-2022-EN-US.pdf)
+
+Hard to estimate total global damages,  
+[some](https://ransomwarecost.com/) predict it to reach 50B USD in 2025.
 
 ![bg right:30%](images/42-broken_hdd.jpg)
 
@@ -88,22 +86,30 @@ One is to steal or fraudulently obtain code-signing certificates.
 ### Increasing recovery cost
 Delete/corrupt backup archives.  
   
-Steal sensitive/embarrassing information for "double extortion".  
+Steal sensitive/embarrassing information
+for "double extortion".  
   
-Target firmware/lower-level code that is tricky to recover from.
+Target firmware/lower-level code that is tricky
+to detect/recover from, especially with
+"secure boot" or "measured boot".
 
 ![bg right:30%](images/42-outdoors_pcb.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Mike Grauer Jr (CC BY 2.0)" -->
 ### Encrypting the data
-Symmetric encryption of (all) files.  
+Symmetric encryption of (all) files
+with randomly generated key.  
   
-(En|De)cryption key is encrypted against intruder's public key.  
+Randomly generated symmetric key is
+encrypted against intruder's public key.  
   
-Commonly use established standards such as AES and RSA.
+Commonly use established standards,
+such as AES and RSA.
   
-Commonly use the same cryptography libraries as everyone else - crypto is hard.
+Often relies on the same cryptography
+libraries as everyone else, because
+it is hard to get right.
 
 ![bg right:30%](images/42-cube_wave.jpg)
 
@@ -125,17 +131,19 @@ Ransom must typically be paid in a cryptocurrency.
   
 Bitcoin and Monero are the most common options.  
   
-Cashing out safely is not easy, requires tumbling and trickery.
+Cashing out safely is not trivial,
+may require tumbling and trickery.
 
 ![bg right:30%](images/42-bitcoin.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Dennis van Zuijlekom (CC BY-SA 2.0)" -->
-### Things are getting... better?
-Organizations take security and disaster recovery way more serious these days.  
+## Wrapping up
+Organizations take security and disaster
+recovery way more seriously these days.  
   
-RaaS is enabling specialization.  
+"RaaS" is enabling specialization.  
   
-Cyber insurance has interesting side-effects.
+"Cyber insurance" has... interesting side-effects.
 
 ![bg right:30%](images/42-broken_hdd.jpg)
