@@ -117,8 +117,10 @@ since you ruined their haircut?
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jeena Paradies (CC BY 2.0)" -->
 Enter the [**"Caesar cipher"**](https://en.wikipedia.org/wiki/Caesar_cipher):
 
+Should we be happy with using only one mode of obfuscation? **Nine**! Of course not.
+This is a far more *base*d way to do it
 ```
-F  T F I I  Y X H B  X  Z X H B
+dNONaNuXa8ZAXcN8Vct8Vcp6dNONaNuXa5==
 ```
 
 ![bg right:30%](images/01-frosty_lion.jpg)
@@ -155,9 +157,10 @@ Ciphertext: J X H B  F Q  P L L K  M I B X P B
 Probably confusing at first,
 but quite easily broken.  
   
-Largely **security through obscurity**.
+Largely **you only have to step 3 spaces in the regular english alphabet**. 
 
-![bg right:30%](images/01-frosty_lion.jpg)
+![f22770ca2d05642d0aa722866eaa85e3](https://github.com/user-attachments/assets/f0565c4e-3e28-4216-b4d8-d10695a22033)
+
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
