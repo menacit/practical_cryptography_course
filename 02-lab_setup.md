@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Lab setup"
@@ -31,8 +31,9 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Yubinerd (CC BY-SA 4.0)" -->
-**You'll need a [YubiKey 5](https://www.yubico.com/products/yubikey-5-overview/) for
-some of the non-graded exercises.**
+You'll need a [YubiKey 5](https://www.yubico.com/products/yubikey-5-overview/) for
+some of the non-graded exercises
+later in the course.
 
 ![bg right:30%](images/02-yubikey.jpg)
 

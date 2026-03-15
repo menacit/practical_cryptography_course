@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: History/Basics"
@@ -58,7 +58,9 @@ style: |
 ### Neat things about the written word
 Allows preservation of complex information.  
   
-Enables conversions and relaying of detailed information/instructions over vast distances.  
+Enables relaying of detailed instructions
+over vast distances and between
+multiple parties.  
   
 _(Kinda necessary for ruling an empire)_
 
@@ -70,11 +72,6 @@ Perhaps you want to keep some things a secret?
 
 ![bg right:30%](images/01-contrails.jpg)
 
-<!--
-Histiaeus (Greece, 500 BC):
-https://www.tattoolife.com/wp-content/uploads/2021/11/Detail-of-an-illustration-by-Giorgio-De-Gaspari.jpeg
--->
-
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Miguel Discart (CC BY-SA 2.0)" -->
 Let's hide the information!  
@@ -83,6 +80,10 @@ We call this practice [**steganography**](https://en.wikipedia.org/wiki/Steganog
 
 ![bg right:30%](images/01-tree_woman.jpg)
 
+<!--
+Histiaeus (Greece, 500 BC):
+https://www.tattoolife.com/wp-content/uploads/2021/11/Detail-of-an-illustration-by-Giorgio-De-Gaspari.jpeg
+-->
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Miguel Discart (CC BY-SA 2.0)" -->
@@ -97,6 +98,8 @@ We call this practice [**steganography**](https://en.wikipedia.org/wiki/Steganog
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Miguel Discart (CC BY-SA 2.0)" -->
 ## The downsides
+If someone find it, you're screwed!
+
 Often requires **trust** in
 courier(s) of the message.  
   
@@ -154,8 +157,8 @@ Ciphertext: J X H B  F Q  P L L K  M I B X P B
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jeena Paradies (CC BY 2.0)" -->
 Probably confusing at first,
 but quite easily broken.  
-  
-Largely **security through obscurity**.
+
+Can we do something less predictable?  
 
 ![bg right:30%](images/01-frosty_lion.jpg)
 
@@ -203,13 +206,15 @@ codes/ciphers are called
 < J X H B  F Q  P L L K  M I B X P B
 ```
 
-**F** and **X** appear on their own,
-probably **a** and **i**.  
+**F** and **X** appear on their own, probably **a** or **i**.  
 
 **FQ** is a two-letter word, limited options.
   
 Four words begin with a different letter
 but end with **XHB**.  
+
+**I** and **L** appears two times in a row,
+not all letter may be combined this way.
 
 **B** appears five times in the messages,
 probably **e**, **o** or **t**.
@@ -543,8 +548,8 @@ We call this **metadata**.
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Raphaël Vinot (CC BY 2.0)" -->
-Cryptography became too
-complex for _most_ humans.  
+Cryptography became too complex
+and slow for _most_ humans.  
   
 If machines maketh,
 let machine breaketh.
@@ -572,8 +577,8 @@ Let me introduce you to
 Same key is used for encryption and decryption.
 
 ## Asymmetric
-Different keys are used for encryption and decryption
-("public key" and "private key").
+Different keys are used for encryption and
+decryption ("public key" and "private key").
 
 ![bg right:30%](images/01-led_triangles.jpg)
 
@@ -597,9 +602,12 @@ an author, not only their confidentiality.
 <!-- _footer: "%ATTRIBUTION_PREFIX% Edenpictures (CC BY 2.0)" -->
 Did I mention **"cryptographic hash functions"**?  
   
+Also known as "one-way encryption".
+  
 Wide range of use-cases, including:
 - Integrity validation
-- "One-way encryption"
+- Password storage
+- Proof-of-Knowledge
 - Proof-of-Work
 
 \+ a lot of other exciting things we
@@ -624,14 +632,16 @@ have you relied on cryptography today?
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Gobi (CC BY 2.0)" -->
+## Wrapping up
 Cryptography helps us ensure
-confidentiality and integrity
-of information.  
+confidentiality, authenticity
+and integrity of information.  
 
 Should be **infeasible** to break,
-but it's never **impossible**.  
+but it's never **impossible** -
+cost _VS_ risk analysis.
 
-Modern cryptography operates
-on bits, not letters.
+(Modern cryptography operates
+on bits, not letters!)
 
 ![bg right:30%](images/01-cyborg.jpg)

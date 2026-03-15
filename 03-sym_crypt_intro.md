@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Symmetric encryption introduction"
@@ -38,7 +38,7 @@ Used primarily for protecting **confidentiality**
 of information **at rest** and **in transit**.
 
 How does symmetric encryption of
-binary data work?
+binary data (like an image file) work?
 
 ![bg right:30%](images/03-reflective_lake.jpg)
 
@@ -296,6 +296,13 @@ Plaintext:   0  1 >0< ?  ?  ?  ?  ?
 <!-- _footer: "%ATTRIBUTION_PREFIX% Stig Nygaard (CC BY 2.0)" -->
 Not that hard, right?  
 
+Tedious for humans, but computers
+can do it reaaaaaaally fast!
+
+![bg right:30%](images/03-canaima.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Stig Nygaard (CC BY 2.0)" -->
 A side effect of using XOR this way is
 that we can recover (parts of) the key
 if we know (parts of) the plaintext.  

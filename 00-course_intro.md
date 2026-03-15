@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Introduction"
@@ -45,7 +45,9 @@ Segue: In this part of the course we'll talk about cryptography...
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% ESA (CC BY-SA 3.0 IGO)" -->
 ## What we will cover
-How cryptography makes the modern world go round and how you can practically utilize it.
+Why cryptography makes the world go round,
+how you can practically utilize it and
+when it can fail/be exploited.
 
 ![bg right:30%](images/00-satellite_photo.jpg)
 
@@ -119,7 +121,7 @@ on the most relevant areas
 -->
 
 ---
-For detailed notes, glossary, labs and similar, see:   
+For notes, labs and similar, see:   
 **[%RESOURCES_DOMAIN%/crypto.zip](%RESOURCES_ARCHIVE%)**.  
   
 These resources should be seen as a complement to an instructor lead course, not a replacement.
@@ -179,6 +181,7 @@ Create an issue or submit a pull request to
 - [Joel Rangsmo](https://github.com/doctor-love)
 - Kristin Karlsson
 - [Patrik Gäfvert](https://github.com/patrikgafvert)
+- [redf0x](https://github.com/redf0x-dev)
 
 ![bg right:30%](images/00-sloth.jpg)
 
