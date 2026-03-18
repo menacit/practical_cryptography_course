@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Basics recap"
@@ -38,7 +38,8 @@ style: |
 **confidentiality**, **authenticity** and **integrity**
 of sensitive information.  
   
-**Steganography** is a related practice in which information is **hidden/obscured**.  
+**Steganography** is a related practice in
+which information is **hidden/obscured**.  
   
 These have historically been used in unison.
 
@@ -294,8 +295,8 @@ Ciphertext:  D  A  C >F<
 Same key is used for encryption and decryption.
 
 ### Asymmetric cryptography
-Different keys are used for
-encryption and decryption.
+Different keys are used forencryption and
+decryption ("public" and "private" key).
 Can also be used for "digital signatures".
 
 ### Cryptographic hash functions
@@ -312,7 +313,7 @@ should not be reversable to plaintext
 Used primarily for protecting **confidentiality**
 of information **at rest** and **in transit**.
 
-Modern ciphers operators on bits,
+Modern ciphers/algorithms operators on bits,
 not letters (typically using **XOR operator**).
 
 Most symmetric ciphers are categorized
@@ -365,6 +366,20 @@ are commonly audited/chosen through
 international competitions.
 
 ![bg right:30%](images/06-llama.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
+Cryptographic algorithms should be **infeasible**
+to break, but it's never **impossible**.
+
+Cost (computation spent on legitimate usage)
+_VS_
+Risk (sensitivity \* likelihood of breakage).
+
+The devices used to encrypt and decrypt data
+must still be trusted to ensure confidentiality.  
+
+![bg right:30%](images/24-penstock_bridge.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jonathan Torres (CC BY 4.0)" -->

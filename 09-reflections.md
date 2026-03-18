@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Reflections exercise"
@@ -46,7 +46,8 @@ Already finished all other labs/tasks?
 Attach an additional (virtual) disk to
 your lab system and utilize **cryptsetup**
 to setup **F**ull **D**isk **E**ncryption
-with keyslots for a password and a "key file".  
+with keyslots for a password, a "key file"
+and a FIDO2 token (for example, a YubiKey).  
   
 Format volume as EXT4 and send lab notes to
 **[courses+crypto_010902@%EMAIL_DOMAIN%](mailto:courses+crypto_010902@%EMAIL_DOMAIN%)**

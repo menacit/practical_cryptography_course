@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Symmetric security"
@@ -29,18 +29,19 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Scott Skippy (CC BY-SA 2.0)" -->
-## We want our encryption to be...
-- Fast to use, slow to break
+## We want our algorithms to be...
+- Fast/cheap to use, slow/expensive to break
 - Safe against "known-plaintext" attacks  
 - Immune to frequency analysis
+- Publicly auditable
 
 ![bg right:30%](images/08-dice.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Brendan J (CC BY 2.0)" -->
 ## Keys are key
-Symmetric ciphers depend on a key for
-encryption and decryption.  
+Symmetric ciphers depend on a key
+for encryption and decryption.  
 
 Fixed size(s) in bits,
 defined per algorithm.
@@ -118,7 +119,7 @@ Got a gaming rig at home?
 An Nvidia 4090 GPU can try 
 ~six billion keys per second.  
 
-The ten-year old ["crack.sh-system"](https://crack.sh/).
+The \+ten-year old ["crack.sh-system"](https://crack.sh/).
 can try ~seven-and-a-half trillion
 keys per second.  
   
@@ -134,22 +135,47 @@ twenty-six hours! \o/
 ![bg right:30%](images/08-mannequin.jpg)
 
 ---
+<!-- _footer: "%ATTRIBUTION_PREFIX% D. Essl / ESO (CC BY 4.0)" -->
+That is old \~off-the-shelf hardware.
+
+Who knows what _\[REDACTED\]_
+have in their basements?
+
+![bg right:30%](images/08-eso_headquarters.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Joel Rangsmo (CC BY-SA 4.0)" -->
+But what key size is "good enough"?
+
+It depends!™
+
+Let's have a look at what [BSI](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TG02102/BSI-TR-02102-1.pdf?__blob=publicationFile&v=14),
+[NCA SA](https://nca.gov.sa/ncs_en.pdf) and [NIST](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf) have to say.
+
+![bg right:30%](images/08-sleeping_statue_on_rock.jpg)
+
+<!--
+BSI: Section 1.1
+NCA SA: Section 1.2 and 2.1.2
+NIST: Section 5.6.3
+-->
+
+---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Marcin Wichary (CC BY 2.0)" -->
 ## Size doesn't matter (that much)
-Larger keys are nice,
-but with diminishing returns
-and performance penalties.  
+Larger keys are nice, but with diminishing
+returns and performance penalties.  
 
-How much more secure is AES 256
-compared to AES 128?  
-
-Design issues in algorithms and
-faulty implementations are the
-primary ways modern cryptography
-is broken.  
+Design issues in algorithms and faulty
+implementations are the primary ways
+modern cryptography is broken.  
 
 3DES keys are 168 bits, but in
-practice only provides 112 bits.
+practice only provides 112 bits
+of security due to design flaws.
+
+How much more secure is AES 256
+compared to AES 128? \\\_o\_/
 
 ![bg right:30%](images/08-abandoned_factory.jpg)
 
@@ -197,7 +223,7 @@ Most commonly used for
 
 ### GCM
 Fast and integrity protected,
-but tricky to implement from scratch.
+but tricky to implement safely.
 
 ![bg right:30%](images/08-boarded_windows.jpg)
 
@@ -208,11 +234,19 @@ Many block cipher modes exist.
 Most are in practice okay - avoid ECB!  
 
 Typically require a randomly generated
-**I**nitialization **V**ector that
-should not be lost or reused
-(AKA "nonce").
-
-Except for lab purposes,
-don't roll your own crypto!
+**I**nitialization **V**ector (AKA **"nonce"**)
+that should not be reused or lost.
 
 ![bg right:30%](images/08-mesh_head.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Darkday (CC BY 2.0)" -->
+## Wrapping up
+If you don't wanna think about it,
+use AES with \>=192 bits keys and
+a mode that's not ECB.
+  
+Don't roll your own crypto,
+except for learning purposes!
+
+![bg right:30%](images/08-burnt_and_abandoned_computer.jpg)

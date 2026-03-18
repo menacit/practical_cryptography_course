@@ -1,11 +1,11 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Symmetric encryption tools"
 author: "Joel Rangsmo <joel@menacit.se>"
 footer: "© Course authors (CC BY-SA 4.0)"
-description: "Demonstration of symmetrical encryption tools"
+description: "Demonstration of symmetric encryption tools"
 keywords:
   - "cryptology"
   - "cryptography"
@@ -32,16 +32,23 @@ style: |
 ## Simple file encryption
 ```
 $ cat my_secrets.txt 
-I didn't shoot the sheriff...
 
-$ ccrypt --encrypt --key "hunter2" my_secrets.txt 
-$ file my_secrets.txt.cpt 
-my_secrets.txt.cpt: data
-
-$ ccrypt --decrypt --key "hunter2" my_secrets.txt.cpt
-$ cat my_secrets.txt 
 I didn't shoot the sheriff...
 ```
+```
+$ ccrypt --encrypt --key "hunter2" my_secrets.txt 
+$ file my_secrets.txt.cpt 
+
+my_secrets.txt.cpt: data
+```
+```
+$ ccrypt --decrypt --key "hunter2" my_secrets.txt.cpt
+$ cat my_secrets.txt 
+
+I didn't shoot the sheriff...
+```
+
+— [_\$ man crypt(1)_](https://ccrypt.sourceforge.net/ccrypt.html)
 
 ![bg right:30%](images/07-abstract_chip.jpg)
 
@@ -52,6 +59,7 @@ I didn't shoot the sheriff...
 - "Full Disk Encryption" on Linux
 - Supports multiple "keyslots"
 - Typically used via the "cryptsetup" CLI utility
+- GUIs exist to help the novice and/or lazy!
 
 ![bg right:30%](images/07-train.jpg)
 
@@ -73,9 +81,11 @@ I didn't shoot the sheriff...
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
 ## BitLocker
+- Windows' built-in FDE solution
 - Introduced in Windows Vista (2007)
-- Not available in "Home" editions\*
 - Supports encryption of boot and data drives
+- Optional backup of "recovery key" to Active Directory or Microsoft Online account
+- Not available in "Home" editions\*
 
 ![bg right:30%](images/07-red_windows.jpg)
 
@@ -213,9 +223,10 @@ I didn't shoot the sheriff...
 <!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
 ## Up1
 - Web-based file hosting service
-- FOSS!
+- FOSS: modify/host it yourself!
 - Try it at ["Riseup Share"](https://share.riseup.net/)
-- Performs cryptography tasks in the browser ("client-side")
+- Encryption in the browser ("client-side")
+- No handling of plaintext "server-side"
 
 ![bg right:30%](images/07-full_moon.jpg)
 
@@ -236,7 +247,26 @@ I didn't shoot the sheriff...
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
-share.riseup.net/**#6nV4VONZwLr7nhBkd5gML**
+share.riseup.net/#6nV4VONZwLr7nhBkd5gMLQ
+
+_(the file ID and encryption key is
+embeded in the URL "fragment")_
+
+![bg right:30%](images/07-full_moon.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
+Apps like [CryptPad](https://cryptpad.org/) work the same way. 
+  
+Services such as ["Proton Mail"](https://proton.me/)
+and "Bitwarden" use similar tricks
+(deriving a key from the user's password).
+  
+Beware that it is the web server who
+provides the client-side JavaScript code
+that is utilized for cryptographic operations.
+
+(you still need trust Proton, but a bit less!)
 
 ![bg right:30%](images/07-full_moon.jpg)
 
@@ -263,3 +293,35 @@ share.riseup.net/**#6nV4VONZwLr7nhBkd5gML**
 
 ---
 ![bg center 70%](images/07-yubikey_manager_static_output.png)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% RoboticSpider (CC BY 4.0)" -->
+...or if you prefer a CLI:
+
+```
+$ ykman --help
+Usage: ykman [OPTIONS] COMMAND [ARGS]...
+
+Configure your YubiKey via the command line.
+
+Commands:
+  info     show general information
+  list     list connected YubiKeys
+  script   run a python script
+  config   enable or disable applications
+  fido     manage the FIDO applications
+  hsmauth  manage the YubiHSM Auth application
+  oath     manage the OATH application
+  openpgp  manage the OpenPGP application
+  otp      manage the YubiOTP application
+  piv      manage the PIV application
+[...]
+```
+
+![bg right:30%](images/07-sad_robot.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Dan Rademacher (CC BY 2.0)" -->
+## Wrapping up
+
+![bg right:30%](images/07-wooden_space_station.jpg)
