@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Hashing for integrity validation"
@@ -47,11 +47,8 @@ Background services continuously checking hashes of executables, configuration f
   
 Commonly used as a detection mechanism for malicious/unapproved systems changes.  
   
-Wanna give it a try? Take a look at:
-
-- [Samhain](https://www.la-samhna.de/samhain/manual/)
-- [osquery](https://osquery.readthedocs.io/en/stable/deployment/file-integrity-monitoring/)
-- [IMA](https://www.redhat.com/en/blog/how-use-linux-kernels-integrity-measurement-architecture)
+Wanna give it a try? Take a look at
+[Samhain](https://www.la-samhna.de/samhain/manual/) or [osquery](https://osquery.readthedocs.io/en/stable/deployment/file-integrity-monitoring/).
 
 ![bg right:30%](images/11-lion.jpg)
 
@@ -98,6 +95,7 @@ $ docker pull hashicorp/vault:1.12.4@sha256:03d1[...]5cda
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kojach (CC BY 2.0)" -->
+## Wrapping up
 A small sample of how cryptographic hashing
 can be utilized to protect data integrity.
 

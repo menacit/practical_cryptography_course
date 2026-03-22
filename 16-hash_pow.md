@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Proof of Work"
@@ -35,7 +35,7 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% ORNL (CC BY 2.0)" -->
-What enables email spam,
+What enables email spam
 and how could we solve it?
 
 ![bg right:30%](images/16-server_rack.jpg)
@@ -132,7 +132,7 @@ time while true; do
 	INPUT_DATA="${RANDOM}-${RANDOM}-${RANDOM}"
 
 	# Hash specified seed together with random input data, only include hash from output
-	HASH="$(echo -n ${PREFIX_SEED} ${INPUT_DATA} | sha256sum | cut -d ' ' -f 1)"
+	HASH="$(echo -n ${PREFIX_SEED}${INPUT_DATA} | sha256sum | cut -d ' ' -f 1)"
 
 	# If the suffix of the generated hash matches the specified suffix, challenge is solved
 	if [[ "${HASH}" == *${EXPECTED_SUFFIX} ]]; then
@@ -168,8 +168,7 @@ real	1m23.770s
 <!-- _footer: "%ATTRIBUTION_PREFIX% Marco Verch (CC BY 2.0)" -->
 ## Other use-cases
 - Online rate-limiting 
-- Alternative to captcha
-- Anti-scraping
+- Anti-scraping, like [Anubis](https://anubis.techaro.lol/)
 - "Mining" in cryptocurrencies
 
 Whatever you can imagine!
@@ -178,6 +177,10 @@ Whatever you can imagine!
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Fritzchens Fritz (CC0 1.0)" -->
+## Wrapping up
+Cool, but wasteful! Some people are
+working on ["Proof of Useful Work"](https://eprint.iacr.org/2025/685.pdf).
+
 Done with your other tasks
 and wanna try implementing PoW?  
 

@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Hashing introduction"
@@ -61,7 +61,8 @@ https://simplycalc.com/luhn-validate.php
   
 Detect if information/files have been corrupted during network transfer or disk storage.  
   
-The same input data should always result in the same output checksum.
+The **same input** data should always result in
+the **same output** checksum.
   
 [CRCs](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) are commonly utilized.
 
@@ -70,11 +71,15 @@ The same input data should always result in the same output checksum.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Gytis B (CC BY-SA 2.0)" -->
 ```
-$ cksum /etc/passwd
-1530034959 1930 /etc/passwd
+$ crc32 /etc/passwd
 
-$ echo "Polar bears are cool" | cksum
-3234477472 21
+87525b78
+```
+
+```
+crc32 <(echo "Polar bears are cool")
+
+f4303b33
 ```
 
 ![bg right:30%](images/10-vechicle_graveyard.jpg)
@@ -82,32 +87,56 @@ $ echo "Polar bears are cool" | cksum
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Gytis B (CC BY-SA 2.0)" -->
 ```
-$ echo "Polar bears are cool" | cksum
-3234477472 21
+$ crc32 <(echo "Polar bears are cool")
 
-$ echo "Polar beers are cool" | cksum
-3688108819 21
+f4303b33
+```
+
+```
+$ crc32 <(echo "Polar beers are cool")
+
+348951a5
 ```
 
 ![bg right:30%](images/10-vechicle_graveyard.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Dennis van Zuijlekom (CC BY-SA 2.0)" -->
-## The downsides
-Different input values may produce the same output checksum.  
-  
-Not likely a problem, unless someone actively tries to find collisions.  
-  
-Used to attack data authenticity controls.  
-  
-[Cryptographic hashing](https://en.wikipedia.org/wiki/Cryptographic_hash_function) to the rescue!
+```
+$ crc32 <(echo "plumless")
+
+799e09d8
+```
+
+```
+$ crc32 <(echo "buckeroo")
+
+799e09d8
+```
 
 ![bg right:30%](images/10-gnome.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Mauricio Snap (CC BY 2.0)" -->
-Cryptographic hash functions are like checksums,
-but designed to **never collide** in practice.  
+<!-- _footer: "%ATTRIBUTION_PREFIX% Dennis van Zuijlekom (CC BY-SA 2.0)" -->
+## The downsides
+Different input values may produce
+the same output checksum.  
+    
+Not likely a problem, unless someone
+actively tries to find collisions.
+
+Used to attack data integrity
+and authenticity controls.
+
+What to do?! 
+
+![bg right:30%](images/10-gnome.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Jakub Kapusnak (CC0 1.0)" -->
+Cryptographically secure hash functions
+are like checksums, but _designed_ to
+never collide **in practice**.  
 
 Produces a **digest** as output,
 more commonly called "hash".
@@ -115,54 +144,101 @@ more commonly called "hash".
 Output shouldn't be predictable,
 unless fully computed.  
 
-Output shouldn't help you guess
-contents of input data.
+In other words, the output shouldn't
+help you guess content of the input data.
 
-The output digest will be the same size
-regardless if input data is 1kB or 10TB.  
-
-![bg right:30%](images/10-eye.jpg)
+![bg right:30%](images/10-fruit_in_blender.jpg)
 
 ---
 ```
 $ echo "Polar bears are cool" | sha256sum
-09c123f289f05677dbfa38dad697ae86ab2f3ef25c8935cfc8cd68a59f2f4d0a
 
+09c123f289f05677dbfa38dad697ae86ab2f3ef25c8935cfc8cd68a59f2f4d0a
+```
+
+```
 $ echo "Polar beers are cool" | sha256sum
 f170488bc43c691d3b9055567952d05d1cd43fbebd54c2098a0d5d7685d2eaa1
+```
 
+```
 $ head --bytes 5G /dev/zero | sha256sum
 7f06c62352aebd8125b2a1841e2b9e1ffcbed602f381c3dcb3200200e383d1d5
 ```
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Mauricio Snap (CC BY 2.0)" -->
+The output digest will be the same size
+regardless if input data is 1kB or 10TB.  
+
+Useful in **K**ey **D**erivation **F**functions!  
+
+```
+key = hash(password)
+```
+
+("Real" KDFs do a bit more stuff,
+more about that later in the course!)
+
+![bg right:30%](images/10-eye.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Mauricio Snap (CC BY 2.0)" -->
 ## Use-cases for hashing
 - Data integrity checking
 - Password storage/validation
-- Authentication
-- Fingerprinting
 - Pseudo-random number generators
-- Append-only databases/ledgers
+- Append-only data structures
 - Proof of Knowledge
 - Proof of Work
+- Fingerprinting
 
 ....
 
 ![bg right:30%](images/10-eye.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Mauricio Snap (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Michael Garlick (CC BY-SA 2.0)" -->
 ## Notable families
 - **MD:** Historically common, now broken
-- **SHA:** Standards specified by [NIST](https://en.wikipedia.org/wiki/NIST)
 - **BLAKE:** Commonly used in [KDFs](https://en.wikipedia.org/wiki/Key_derivation_function)
+- **SHA:** Standards specified by [NIST](https://en.wikipedia.org/wiki/NIST)
 
-![bg right:30%](images/10-eye.jpg)
+![bg right:30%](images/10-leonardslee_gardens_man_statue.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Brocken Inaglory (CC BY-SA 3.0)" -->
+Let's talk a bit more about NIST's
+**S**ecure **H**ash **A**lgorithms.
+
+SHA-1 and SHA-2 _(AKA "SHA256")_
+were designed by NSA.
+
+SHA-3 _(AKA "\~Keccak")_ was chosen
+through an international competition.
+
+(not without some drama!)
+
+![bg right:30%](images/10-yellowstone_canyon.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Brocken Inaglory (CC BY-SA 3.0)" -->
+SHA-1 digests are 160 bits long.
+
+SHA-2 and SHA-3 digests are
+224, 256, 384 or 512 bits long.
+
+SHA-2 256 and SHA-3 384
+are the most common.
+
+Usage of SHA-1 is discouraged...
+
+![bg right:30%](images/10-yellowstone_canyon.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Elly Jonez (CC BY 2.0)" -->
-Like other cryptography methods, hashing algorithms have a best-before date.  
+Like all things within cryptography,
+hashing algorithms have a best-before date.  
   
 Check out ["SHAttered"](https://shattered.io/):
 
@@ -184,11 +260,14 @@ https://shattered.io/static/shattered.png
 -->
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Elly Jonez (CC BY 2.0)" -->
-## TL;DR
+<!-- _footer: "%ATTRIBUTION_PREFIX% Joel Rangsmo (CC BY-SA 4.0)" -->
+## Wrapping up
 Avoid MD4, MD5 and SHA-1.
+  
+SHA-2, SHA-3 and BLAKE\* are fine!
+  
+Hash digests are binary data,
+most commonly presented as
+hexadecimal or base64.
 
-SHA-2 _(AKA SHA256)_, SHA-3 _(AKA Keccak)_
-and BLAKE\* are fine!
-
-![bg right:30%](images/10-caution.jpg)
+![bg right:30%](images/10-face_statue_on_stone_with_moss.jpg)

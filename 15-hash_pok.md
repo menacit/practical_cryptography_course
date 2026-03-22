@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Proof of Knowledge"
@@ -35,8 +35,8 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% David Revoy (CC BY 3.0)" -->
-**Why do we sometimes see
-people tweet or toot out a hash?**
+Why do we sometimes see mysterious
+people tweet or toot out a hash?
 
 ![bg right:30%](images/15-airship.jpg)
 
@@ -52,8 +52,8 @@ f2f095c3b414335fdf98ed96f128e37705dca7ce
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
-**Why not just use symmetric encryption
-and publish the key when time arrives?**
+Why not just use symmetric encryption
+and publish the key when time arrives?
 
 ![bg right:30%](images/15-pyramids.jpg)
 
@@ -82,7 +82,7 @@ One-time/rolling passwords.
 ### Pseudo-code for hash authentication
 ```
 $challenge = get_auth_challenge($username)
-$response = sha256($challenge + $password)
+$response = hash($challenge + $password)
 
 login($challenge, $response)
 ```
@@ -94,7 +94,7 @@ login($challenge, $response)
 ## Rolling password (counter-based)
 ```
 $counter = $counter + 1
-$one_time_code = sha256($counter + $password)
+$one_time_code = hash($counter + $password)
 
 login($username, $one_time_code)
 ```
@@ -105,8 +105,8 @@ login($username, $one_time_code)
 <!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
 ## Rolling password (time-based)
 ```
-$time = get_current_minute()
-$one_time_code = sha256($time + $password)
+$time = get_current_date_and_time()
+$one_time_code = hash($time + $password)
 
 login($username, $one_time_code)
 ```
@@ -118,9 +118,31 @@ used by applications like Google Authenticator)
 ![bg right:30%](images/15-atomic_clock.jpg)
 
 ---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Joel Rangsmo (CC BY-SA 4.0)" -->
+That's quite neat - but it comes with a
+security trade-off. Did you notice it?
+
+![bg right:30%](images/15-printing_shop_colors.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Joel Rangsmo (CC BY-SA 4.0)" -->
+We can't utilize hashes to safely
+store passwords server-side, since the
+server must have access to the plaintext.
+
+Is it worth it? That depends!
+
+These days we have better ways
+to protect data in-transit -
+more about that later!
+
+![bg right:30%](images/15-printing_shop_colors.jpg)
+
+---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Lars Juhl Jensen (CC BY 2.0)" -->
-**Many other use-cases exist -
-this is just an appetizer.**  
+## Wrapping up
+Many other use-cases exist -
+this is just an appetizer.  
   
 If you wanna play around
 and got the time, check out

@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 X-Context: Practical cryptography course - Password hashing lab
 -->
@@ -19,7 +19,7 @@ Someone needs to fix this issue and that someone seems to be you.
 
 
 ## Learning objectives
-Practical knowledge of one-way hash functions for storage/validation of passwords.
+Practical knowledge of cryptographic hash functions for storage/validation of passwords.
 
 
 ## Lab overview
@@ -38,7 +38,7 @@ All tools required to complete the assignment should be pre-installed on the stu
 ## Tasks
 
 ### Mandatory ("G")
-- Modify the web server code to use SHA3-384 for protection of the stored password
+- Modify the web server code to use SHA-3 384 for protection of the stored password
 - Replace the plain-text password in "server\_share/server\_password.txt" with a hashed version
 
 
@@ -47,10 +47,14 @@ All tools required to complete the assignment should be pre-installed on the stu
 - Add additional rounds of hashing in the server code to strengthen password protection
 
 
+### Bonus (just for fun!)
+- Implement client-side password hashing with the target server address as salt
+
+
 ## Lab report/documentation
 Each student should submit a lab report containing **at least** the following information ("G"):
 - Documentation of changes made in the web server's source code to implement password hashing
-- Demonstration of how the implemented changes improve security of the service ("before and after")
+- Documentation of code/commands used to replace the stored plain-text password.
 
 For "VG", describe the security benefits of password salting in 500 characters or more.  
   
@@ -80,13 +84,6 @@ The web server and client application are packaged as containers and executed us
 changes and monitor execution status (logs, error codes, etc.) of code/configuration, students can
 execute the "docker compose up --build" command, review output and press Ctrl+C to stop the
 containers/exit.
-
-
-### Monitoring network traffic
-In order to aid the process of debugging or producing demonstrations of implement changes, network
-traffic between the client and bridge can be sniffed/intercepted. Docker Compose creates a
-dedicated network bridge called "lab-pwd\_hash". Traffic on the bridge can be displayed using CLI
-tools or recorded for analysis in a GUI program such as [Wireshark](https://www.wireshark.org/).
 
 
 ### Links

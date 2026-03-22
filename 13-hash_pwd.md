@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Hashing for password storage"
@@ -44,6 +44,9 @@ What happens when we login to a website?
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Nicholas A. Tonelli (CC BY 2.0)" -->
 Okay, so the server must store all passwords.  
+
+That sounds bad if the server gets hacked
+or a backup archive is lost/leaked.
   
 Can't we just symmetrically encrypt them?
 
@@ -54,9 +57,9 @@ Can't we just symmetrically encrypt them?
 Server needs plaintext passwords
 to enable comparison.  
   
-Encrypted data must be "unlocked",
+Encrypted data must be decryptable,
 which means that the key is typically
-stored on disk or in memory.  
+stored on disk or in memory on the server.  
   
 Sounds scary.
 
@@ -77,8 +80,8 @@ Wasn't a nick-name for hashing
 ### Pseudo-code for password hashing
 ```
 if (
-sha256($submitted_password) ==
-$stored_password_hash) {
+hash($submitted_password)
+== $stored_password_hash) {
 
 	accept_login()
 
@@ -95,14 +98,48 @@ Boom! Let's call it day, shall we?
   
 Not quite.
 
+Let's talk a bit about "hash cracking"!
+
+![bg right:30%](images/13-spheres.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Jennifer Morrow (CC BY 2.0)" -->
+## Basics of hash cracking  
+1. Calculate hash for password candidate
+2. Compare computed hash with stored hash
+3. If equal, you've (likely) found the password, if not repeat with new candidate.
+
+![bg right:30%](images/13-spheres.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Jennifer Morrow (CC BY 2.0)" -->
+### Pseudo-code for password hashing
+```
+$stolen_hash = "d3b07384d113edec49eaa60"
+$candidates = ["god", "love", "foobar"]
+
+for $candidate in $candidates {
+  $candidate_hash = hash($candidate)
+  if ($candidate_hash == $stolen_hash) {
+    print($candidate)
+    break
+  }
+}
+```
+
 ![bg right:30%](images/13-spheres.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jennifer Morrow (CC BY 2.0)" -->
 ### Problems with basic password hashing
-Users using the same password will have the generated same hash.  
+Users using the same password will
+have the same stored hash.  
   
-Hashes can be pre-calculated ("rainbow tables").
+Hashes can be pre-calculated ("rainbow tables"),
+which means that an attacker needs to spend
+less computing resources on breaking them.
+
+(more about cracking later in the course!)
 
 ![bg right:30%](images/13-spheres.jpg)
 
@@ -111,16 +148,13 @@ Hashes can be pre-calculated ("rainbow tables").
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jennifer Morrow (CC BY 2.0)" -->
-### Problems with basic password hashing
-Users using the same password will have the same hash.  
-  
-Hashes can be pre-calculated ("rainbow tables").
+What can we do to make cracking harder?
 
 ![bg right:30%](images/13-spheres.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
-Let me introduce you to **salting**!  
+Let me introduce you to **salting**:
   
 Random data mixed into the password hashing.
 
@@ -131,8 +165,8 @@ Random data mixed into the password hashing.
 ### Pseudo-code for password hashing
 ```
 if (
-sha256($stored_salt + $submitted_password) ==
-$stored_password_hash) {
+hash($stored_salt + $submitted_password)
+== $stored_password_hash) {
 
 	accept_login()
 
@@ -153,48 +187,55 @@ $stored_password_hash) {
 ![bg right:30%](images/13-exposed_road.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Fandrey (CC BY 2.0)" -->
-## Operating systems use it too
-```
-$ sudo head --lines 1 /etc/shadow
-
-root:$y$j9T$P.lVRC/J.KNiBHMob7uli[...]
-```
-
-[_$ man shadow_](https://man.archlinux.org/man/shadow.5.en)
-
-![bg right:30%](images/13-console_beastie.jpg)
-
----
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
 ### Choosing the right hash function
 Guessing the password that matches a hash
-("hash cracking") should require lots of compute.  
-  
-The same hash function can be used multiple times
-("rounds") to increase cost.  
-  
+should require lots of computing resources
+(calculations, memory, storage, etc).  
+
+The same hash function can be used multiple
+times ("rounds") to increase cost:
+
+```
+hash(hash(hash(hash(hash($password)))))
+```
+
 Consider using a purpose built solution,
-like [Argon2](https://en.wikipedia.org/wiki/Argon2) or
-[yescrypt](https://en.wikipedia.org/wiki/Yescrypt).
+like [Argon2](https://en.wikipedia.org/wiki/Argon2) or [yescrypt](https://en.wikipedia.org/wiki/Yescrypt).
 
 ![bg right:30%](images/13-cave_stairs.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Bruno Cordioli (CC BY 2.0)" -->
+## Client-side hashing
+Before a user sends a password to the
+server, make their browser hash it
+(using JavaScript or similar).
+
+The server never see the user's
+real plaintext password.
+
+Could potentially minimize the
+consequences of breach.  
+
+Should be used in unison with server-side
+hashing, otherwise you're just storing
+complex plaintext passwords.
+
+![bg right:30%](images/13-newton.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Andrew Hart (CC BY-SA 2.0)" -->
 Doesn't fully mitigate the risks of password theft.  
   
-An attacker with system access may be able to modify the application to log password input.
+An attacker with system access to the server
+may be able to modify the application to
+leak the user's password input.
 
 ![bg right:30%](images/13-broken_glass.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Bruno Cordioli (CC BY 2.0)" -->
-## Client-side hashing
-Effectively turns generated hash into a password.
-  
-Allows server to never gain access to plaintext password, minimizing consequences of breach.  
-  
-Beware that the client-side code can be modified by a compromised server in web apps.
+<!-- _footer: "%ATTRIBUTION_PREFIX% Joel Rangsmo (CC BY-SA 4.0)" -->
+## Wrapping up
 
-![bg right:30%](images/13-newton.jpg)
+![bg right:30%](images/13-painted_brick_wall_with_saxophone.jpg)
