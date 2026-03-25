@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Course recap"
@@ -29,41 +29,38 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jesse James (CC BY 2.0)" -->
 # Course recap
-### Basics, symmetric crypto and hashing
+### Symmetric crypto and hashing
 
 ![bg right:30%](images/18-party.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Brendan J (CC BY 2.0)" -->
-Cryptography helps us ensure
-**confidentiality, authenticity** and **integrity**
-of information.  
-  
-**Steganography** is a related practice in which information is **hidden/obscured**.  
-  
-These have historically been used in unison.
-
-![bg right:30%](images/18-red_plants.jpg)
-
----
 <!-- _footer: "%ATTRIBUTION_PREFIX% Austin Design (CC BY-SA 2.0)" -->
-## Symmetric ciphers
-**AES** and **ChaCha20** are good options.  
-  
-Stay away from **(3)DES** and **RC4**.  
-  
+## Symmetric security  
+We need large/long keys (computers are fast) -
+\>=192 bits are commonly considered sufficient.
+
 [**K**ey **D**erivation **F**unctions](https://en.wikipedia.org/wiki/Key_derivation_function) are 
-used to generate fixed-size keys from passwords.
+used to generate fixed-size keys from passwords:
+
+```
+key = slow_expensive_hash(password)
+```
+
+Key size ain't everything - design and
+implementation issues are the most likely
+vector for breaking encryption algorithms.
 
 ![bg right:30%](images/18-tower.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Filippo Valsorda (CC BY-SA 4.0)" -->
-AES and other block-ciphers
+AES and other block ciphers
 supports several different
 [**"cipher modes"**](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation).  
   
-The "**ECB**" mode is generally considered insecure.  
+The "**ECB**" mode is generally considered insecure,
+as blocks that contains the same plaintext data
+will result in the same ciphertext.  
   
 In addition to a key and plain-/cipher-text, most
 modes require an [**"initialization vector"**](https://en.wikipedia.org/wiki/Initialization_vector)
@@ -92,12 +89,12 @@ if input data is 1kB or 10TB.
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Cory Doctorow (CC BY-SA 2.0)" -->
-The "**S**ecure **H**ash **A**lgorithm"-family
+The "**S**ecure **H**ash **A**lgorithms"-family
 of hash functions are standardized by NIST.  
 
 SHA-2 (AKA "SHA256") is still widely used.  
-SHA-3 (AKA "Keccak") is recommended
-for new sensitive applications.  
+They recommend SHA-3 (AKA "Keccak") for
+new sensitive applications.  
 
 Avoid SHA-1 and especially MD\* algorithms
 as they suffer from known security flaws.
@@ -112,7 +109,7 @@ ensuring the integrity of data
 
 Some examples are
 **F**ile **I**ntegrity **M**onitoring systems
-and "software allow-listing" applications.
+and "software download mirrors".
 
 ![bg right:30%](images/18-wallcrack.jpg)
 
@@ -124,7 +121,7 @@ and "software allow-listing" applications.
 Users using the same password will
 have the generated same hash.  
   
-Hashes can be pre-calculated
+Hashes can be pre-calculated using a dictionary.
 ("**rainbow tables**").  
   
 To mitigate these issues, passwords are **salted**
@@ -141,10 +138,12 @@ Hashes can be used for
 **P**roof **o**f **K**nowledge.  
 
 Provide proof that you know
-something without disclosing it.  
+something without disclosing it (right now).  
 
 Commonly used in authentication protocols,
 similar to "**T**ime-based **O**ne-**t**ime **P**assword".
+
+(can't be combined with server-side hashing!)
 
 ![bg right:30%](images/18-payphone.jpg)
 
@@ -160,7 +159,7 @@ some peer-specified data/pattern.
 Costly to produce, cheap to verify.  
   
 Enables things like bot/spam protection,
-rate-limiting and cryptocurrencies.
+rate-limiting and many cryptocurrencies.
 
 ![bg right:30%](images/18-factory.jpg)
 
@@ -192,4 +191,18 @@ their promises forever.
   
 There are always "best-before" dates.
 
+How long do you require the information
+to remain confidential, etc?
+
+How skilled/rich are your adversaries?
+
+(or just keep up-to-date with recommendations
+from NIST/BSI/your preferred trusted authority)
+
 ![bg right:30%](images/18-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Brendan J (CC BY 2.0)" -->
+Shall we move on?
+
+![bg right:30%](images/18-red_plants.jpg)

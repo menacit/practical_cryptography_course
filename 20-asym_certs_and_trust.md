@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Certificates and trust models"
@@ -41,11 +41,12 @@ without a shared secret key.
 But how do we get hold of the
 public key of our peer?
 
-_(both other humans and network services)_
+_(for both other humans and network services)_
 
 ![bg right:30%](images/20-dummy.jpg)
 
 ---
+## On the client
 ```
 $ ssh 141.95.102.166
 
@@ -56,6 +57,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
 ---
+## On the server (before connecting)
 ```
 $ for KEY in /etc/ssh/ssh_host_*_key.pub; do ssh-keygen -l -f "${KEY}"; done
 
@@ -124,13 +126,12 @@ $ ssh -o StrictHostKeyChecking=accept-new 141.95.102.166
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Elly Jonez (CC BY 2.0)" -->
 ## What are "certificates"?
-`sign(public key + metadata)`
+`certificate = sign(public key + metadata)`
 
-Only requires us to know the
-signer's public key in advance.
+Only requires us to know and trust
+the signer's public key in advance.
 
 Examples of metadata:
-
 - Identity (hostname, email, etc)
 - Portrait photo
 - Expiry date
@@ -164,9 +165,10 @@ and how much risk they are willing to take.
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
-We'll re-visit this topic and
+## Wrapping up
+We shall explore this topic and
 take a deeper look at how X.509
-utilize certificate authorities
-to establish trust.
+utilize CAs to establish trust
+and how OpenPGP provides WoT.
 
 ![bg right:30%](images/20-dummy.jpg)

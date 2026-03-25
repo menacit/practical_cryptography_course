@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Asymmetric introduction"
@@ -38,10 +38,13 @@ style: |
 Also known as "**public-key cryptography**".  
   
 Spooks and researches have been
-using it since the late 70s.  
+fiddling with it since the late 70s -
+the rest of us since the \~90s.
   
 Requires usage of electronic computers
 (sorry, humans!).
+
+Before we dig into this, a gentle reminder...
 
 ![bg right:30%](images/19-robot.jpg)
 
@@ -59,22 +62,65 @@ thankfully!
 ![bg right:30%](images/19-computer.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Greg Lloy (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
 A **key pair** consists of a
-**private key** and a **public key**.
+**public key** and a **private key**.
   
-Holder of the **private key**
-can decrypt and sign/authenticate data.  
-  
-The corresponding **public key**
-can be used to encrypt data and
-verify authenticity of signed data.  
+Anyone with access to the **public key**
+can use it to encrypt information,
+but not decrypt it.
 
-The ability to sign/decrypt data
-can be used for authentication
-(prove "ownership" of private key).
+Only the _holder_ of its matching **private key**
+can decrypt the information.
 
-![bg right:30%](images/19-computer.jpg)
+...which means that we don't need to use
+a sensitive **P**re-**S**hared **K**ey to
+protect our communication!
+
+![bg right:30%](images/19-bandoned_archway.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Shiv's fotografia (CC BY 4.0)" -->
+The _holder_ of a **private key** can
+use it to "encrypt" information.
+
+Anyone with access to its matching
+**public key** can "decrypt" the information.
+
+If it can be "decrypted" using the public key,
+it must have been "encrypted" by the private key.
+
+We utilize this trick for **digital signatures**.
+
+![bg right:30%](images/19-green_magpie_branch.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Shiv's fotografia (CC BY 4.0)" -->
+> If I "decrypt" \$CIPHERTEXT with
+> a public key that I know is held
+> by Bob, I get the "plaintext":
+>
+> "Bob promised to buy Eve's house"
+
+![bg right:30%](images/19-green_magpie_branch.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Shiv's fotografia (CC BY 4.0)" -->
+The _holder_ of a **private key** can
+use it to "sign" information.
+
+Anyone with access to its matching
+**public key** can "verify" the information.
+
+![bg right:30%](images/19-green_magpie_branch.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Joel Rangsmo (CC BY-SA 4.0)" -->
+That's quite neat!
+
+Let's have a look at some algorithms!
+
+![bg right:30%](images/19-dirty_ceiling_domes_top.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Marcin Wichary (CC BY 2.0)" -->
@@ -90,7 +136,7 @@ Patented in 1983,
 freely usable since 2000.
 
 Algorithm/Implementation guidance described
-in **P**ublic-**K**ey **C**ryptography **S**tandards \#1.
+in [**P**ublic-**K**ey **C**ryptography **S**tandards](https://en.wikipedia.org/wiki/PKCS) \#1.
   
 Typically key size is between 512 bit (weak)
 and 8192 bit (overkill).
@@ -110,7 +156,8 @@ possible to use as keys.
 To get a better idea, we can check out
 [NIST's table of "security levels"](https://en.wikipedia.org/wiki/Security_level).  
 
-TL;DR: 2048 bits OK-ish, \>=3072 recommended.
+TL;DR: \>=3072 is recommended
+(for now, more about that later)!
 
 ![bg right:30%](images/19-abandoned_stair.jpg)
 
@@ -126,7 +173,7 @@ Standardized by NIST in 1994,
 usable without license trouble.  
 
 Focused on signatures/authentication,
-not encryption.  
+not generalized encryption.  
 
 Several design flaws and
 insufficient key size - avoid it!
@@ -141,12 +188,12 @@ are steadily replacing RSA.
 
 **ECDSA**, for example.
   
-It's faster, requires smaller keys and
-is generally considered easier
+They're faster, require smaller keys
+and is generally considered easier
 to correctly/safely implement.  
   
-RSA still has better
-software/hardware support.
+(RSA has better support in
+legacy software/hardware!)
 
 ![bg right:30%](images/19-arch.jpg)
 
@@ -154,10 +201,12 @@ software/hardware support.
 <!-- _footer: "%ATTRIBUTION_PREFIX% Steve Jurvetson (CC BY 2.0)" -->
 ```
 $ time ssh-keygen -q -N '' \
-  -t rsa -f /tmp/key_rsa
+  -t rsa -b 3072 -f /tmp/key_rsa
 
 real	0m1.022s
+```
 
+```
 $ time ssh-keygen -q -N '' \
   -t ed25519 -f /tmp/key_ed
 
@@ -183,27 +232,35 @@ AAAAC3NzaC1lZDI1NTE5AAAAIFmgY7uVLZqx/tOLPJ22JBi7TAJwmmClu66+mb2sOfUA
 ```
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Steve Jurvetson (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Joel Rangsmo (CC BY-SA 4.0)" -->
 Several different "**curves**" can be utilized.  
 (\~think different algorithms).  
   
 Common examples are
 **NIST P-256/P-384** and
-**Curve25519**.  
+[**Curve25519**](https://en.wikipedia.org/wiki/Curve25519).  
   
 For some (biased) guidance,
 checkout the ["SafeCurves" project](https://safecurves.cr.yp.to/).
 
-![bg right:30%](images/19-arch.jpg)
+![bg right:30%](images/19-strapped_pipes_and_bushes.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% RoboticSpider (CC BY 4.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Stig Nygaard (CC BY 2.0)" -->
 Asymmetric cryptography
-is relatively slow.  
+is relatively slow!  
   
 Most often combined with
 hashing (digital signatures) and
-symmetric cryptography (key exchange).  
+symmetric cryptography (key exchange).
+
+![bg right:30%](images/19-little_gunver.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% RoboticSpider (CC BY 4.0)" -->
+## Wrapping up
+A lot of new stuff that we'll dig
+deeper into - don't be scared!
 
 Curious about how these type of
 algorithms actually work?

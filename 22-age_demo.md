@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: age tool demo"
@@ -30,10 +30,10 @@ style: |
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jonathan Miske (CC BY-SA 2.0)" -->
 ## What is ["age"](https://age-encryption.org/)?
-- FOSS tool (and format) for symmetric and **asymmetric file encryption**
+- FOSS tool (and format) for symmetric and **asymmetric** file encryption
 - Fast and modern (\~secure)
 - Compatible with (some) SSH keys
-- Support for [key storage on hardware token](https://github.com/str4d/age-plugin-yubikey)
+- Support for [key storage on hardware tokens](https://github.com/str4d/age-plugin-yubikey)
 
 ![bg right:30%](images/22-silo.jpg)
 
