@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: PGP basics"
@@ -39,11 +39,21 @@ style: |
 Tool suite for asymmetric cryptography
 developed by Phil Zimmermann
 in the early 90s.  
+
+(Side-track: export restrictions
+and "the cypherpunks")
   
 "OpenPGP" acts as the umbrella for
 attempts to formally standardize PGP.
 
 ![bg right:30%](images/23-lamps.jpg)
+
+<!--
+https://en.wikipedia.org/wiki/Cypherpunk
+https://en.wikipedia.org/wiki/Export_of_cryptography_from_the_United_States
+https://news.ycombinator.com/item?id=9140569
+https://en.wikipedia.org/wiki/Bernstein_v._United_States
+-->
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Indrora (CC BY 2.0)" -->
@@ -71,14 +81,19 @@ OpenPGP certificates are signed ("**certified**")
 by the "key holder" and potentially others.  
   
 Pioneered the "**Web of Trust** model for
-identity/certificate validation.
+identity/certificate validation:
+
+> I trust Alice and Bob.
+> Both have said that this
+> certificate belongs to Cindy,
+> hence I choose to trust it.
 
 ![bg right:30%](images/23-london_bridge_station.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
 ## Implementations
-- **GnuPG**: Swiss army knife, AKA "GPG"
+- **GnuPG**: Crufty Swiss army knife, AKA "GPG"
 - **Sequoia**: Modern CLI tools and Rust libraries
 - **GopenPGP**: PGP in your Go applications
 - **OpenPGP.js**: Client- and server-side library

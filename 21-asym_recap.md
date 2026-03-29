@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Asymmetric recap"
@@ -77,12 +77,31 @@ than RSA - thereby replacing it.
 <!-- _footer: "%ATTRIBUTION_PREFIX% Stig Nygaard (CC BY 2.0)" -->
 Several different **curves** are available for ECC.  
   
+Some are fast, require small keys,
+provide good HW/SW support and/or suspicious.
+  
 Common examples are
 **NIST P-256/P-384** and **Curve25519**.  
   
 For guidance, checkout the ["SafeCurves" project](https://safecurves.cr.yp.to/).
 
 ![bg right:30%](images/21-curly_purple.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Timothy J Toal (CC BY 4.0)" -->
+In order to encrypt/verify some data,
+we need the "correct" public key.
+
+How do I know which one belongs to
+bob@example.com or www.example.com?
+
+Common "trust models":
+- None ("YOLO!")
+- **T**rust **O**n **F**irst **U**se (TOFU)
+- Certificates and **C**ertificate **A**uthorities (CA)
+- **W**eb **o**f **T**rust (WoT)
+
+![bg right:30%](images/21-m2_mirror_and_cell.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Loco Steve (CC BY-SA 2.0)" -->
@@ -96,6 +115,11 @@ such as an email address or a DNS hostname.
 They are cryptographically signed
 by one or more third-parties,  
 depending on trust model.
+
+You only need to know/trust the
+signer's public key beforehand.
+
+(They're a bit like passports!)
 
 ![bg right:30%](images/21-east_side_gallery.jpg)
 

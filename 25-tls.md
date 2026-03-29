@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Introduction to TLS"
@@ -42,6 +42,9 @@ spy on sensitive communication.
   
 How can we protect it?
 
+We'll explore a few ways during the
+course, but let's start with **SSL/TLS**!
+
 ![bg right:30%](images/25-cyberpunk.jpg)
 
 ---
@@ -67,7 +70,7 @@ OSI model's ["presentation layer"](https://en.wikipedia.org/wiki/OSI_model)
 <!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
 ## TLS typically use...
 - X.509 for "identity validation"
-- Asymmetric cryptography for key exchange
+- Asymmetric cryptography for "key exchange"
 - Symmetric encryption for confidentiality
 - Hashing for integrity protection
 
@@ -278,8 +281,8 @@ for wrapping clear text protocols
 in a "layer of encryption" and
 enables mutual authentication.  
 
-Supports different combinations of
-algorithms using "cipher suites".
+When using mTLS, both peers should use
+CRL/OCSP to check for revocation.
 
 Several different versions exist,
 avoid SSL and TLS version \<1.2.
