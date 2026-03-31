@@ -92,17 +92,6 @@ can execute the "docker compose up --build" command, review output and press Ctr
 containers/exit.
 
 
-### Validating compose file
-Docker Compose declares its environment configuration in a file called "docker-compose.yml".
-During the lab, students will be required to change this file in order to mount certificates/keys
-in containers and similar.  
-  
-The [YAML format](https://en.wikipedia.org/wiki/YAML) used in the configuration file is notoriously
-picky about indentation levels (tabs and spaces). In order to detect faulty syntax and formatting
-issues, the "yamllint" program/command can be utilized. A text editor that helps with indentation
-is also highly recommended.
-
-
 ### Monitoring network traffic
 In order to aid the process of debugging or producing demonstrations of implement changes, network
 traffic between the client and bridge can be sniffed/intercepted. Docker Compose creates a
