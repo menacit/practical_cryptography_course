@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Forward secrecy"
@@ -33,10 +33,10 @@ When protecting network communication,
 we typically combine symmetric and
 asymmetric cryptography.
 
-Client connects to a target server,
-extracts public key from verified certificate,
-generates a random symmetric key,
-encrypts it against the extracted public key.
+A client can connect to a target server,
+extract public key from verified certificate,
+generate a random symmetric key and
+encrypt it against the extracted public key.
 
 Once the symmetric key (AKA **"session key"**)
 has been sent to the server, both peers can
@@ -58,9 +58,9 @@ of historic communication?
 <!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
 An attacker who has recorded historic
 network traffic could use the private key
-to decrypt the exchanged session key.  
+to decrypt the exchanged session keys.  
   
-With access to the session key,
+With access to the session keys,
 they could decrypt all transferred data.   
 
 The described method for key exchange does
@@ -118,7 +118,7 @@ establish trust, not for confidentiality.
 ![bg right:30%](images/46-knippelsbro.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% Stig Nygaard (CC BY 2.0)" -->
+<!-- _footer: "%ATTRIBUTION_PREFIX% Joel Rangsmo (CC BY-SA 4.0)" -->
 In practice, we typically do this using
 **E**phemeral **D**iffie-**H**ellman key exchange  
 (sometimes turned around and called "**DHE**").
@@ -129,4 +129,22 @@ well, key exchange!
 Enable two parties to derive the same
 key without sending it over the network.
 
-![bg right:30%](images/46-knippelsbro.jpg)
+![bg right:30%](images/46-orange_lens_on_rock.jpg)
+
+<!--
+https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange
+-->
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
+## Wrapping up
+The goal of forward secrecy is to protect
+historic communication even if the server's
+private key get leaked/stolen.
+
+A cipher suites in TLS 1.3 provides
+forward secrecy, yay!
+
+Any questions? :-)
+
+![bg right:30%](images/46-squirrel_noms.jpg)

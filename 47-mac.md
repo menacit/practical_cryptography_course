@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Message authentication codes"
@@ -22,7 +22,7 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Stig Nygaard (CC BY 2.0)" -->
-## "Message authentication codes"
+## "Message Authentication Codes"
 
 ![bg right:30%](images/47-holmen_crane.jpg)
 
@@ -32,8 +32,8 @@ We've talked about how tools like
 cryptographic hashing can be used
 to protect the integrity of data.  
 
-Would be neat to make sure that
-network traffic hasn't been
+Would be neat if we could make sure
+that network traffic hasn't been
 maliciously manipulated.  
 
 But how is it done in practice?
@@ -41,6 +41,17 @@ We can't simply send the expected
 digest in plain-text over the wire.
 
 ![bg right:30%](images/47-holmen_crane.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
+Couldn't we just encrypt the data?
+
+In general, no - modified ciphertext could
+result in modified cleartext once decrypted.
+
+(Remember XOR?)
+
+![bg right:30%](images/47-cherry_trees.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
@@ -62,12 +73,16 @@ Another option would be
 Hmm, yes - but there is another
 option just based on hashing...
 
+(Save a few CPU cycles!)
+
 ![bg right:30%](images/47-cherry_trees.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Halfrain (CC BY-SA 2.0)" -->
 What if we would simply
 `hash($data + $secret)`?  
+
+(Using the "session key", for example)
 
 The receiver of traffic could
 do something checking like:

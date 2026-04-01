@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Onion routing"
@@ -44,7 +44,12 @@ Things are not that simple, as we've talked about.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Dan Revoy (CC BY 4.0)" -->
 Hmmm... can't we just run a VPN tunnel
-inside another VPN tunnel?  
+inside another VPN tunnel?
+
+Yes, that would help a bit and some
+providers offer it as a feature.
+
+There are still some things to worry about.
 
 ![bg right:30%](images/29-adventure.jpg)
 
@@ -99,17 +104,17 @@ Ada encrypts the encrypted message for Charlie against Bob's public key with a m
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Quinn Dombrowski (CC BY-SA 2.0)" -->
-### Inner layer
-Encrypted against Dan's public key:  
-> I know what you did last summer.
+### Outer layer
+Encrypted against Bob's public key:  
+> Please forward this to Charlie!
 
 ### Middle layer
 Encrypted against Charlie's public key:  
 > Please forward this to Dan!
 
-### Outer layer
-Encrypted against Bob's public key:  
-> Please forward this to Charlie!
+### Inner layer
+Encrypted against Dan's public key:  
+> I know what you did last summer.
 
 ![bg right:30%](images/29-skeleton.jpg)
 
@@ -133,10 +138,11 @@ Dan knows that he got an encrypted message from Charlie.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Quinn Dombrowski (CC BY-SA 2.0)" -->
 Bob can't tell that he is "first" in
-the forwarding chain.  
+the forwarding chain (that Ada is the author).  
   
-Granted that chain members aren't gossiping with each other, Ada's involvement remains unknown
-to Charlie and Dan.  
+Granted that chain members aren't gossiping
+with each other, Ada's involvement remains
+unknown to Charlie and Dan.  
   
 We could lower the risk by involving
 Erin and Frank.
@@ -152,11 +158,13 @@ Erin and Frank.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kenny Cole (CC BY 2.0)" -->
 ## Meet the "Tor project"
-Largest onion routing network.  
+Largest public onion routing network.  
   
-Thousands of relays run by volunteers forward encrypted traffic around the globe.  
+Thousands of relays run by volunteers forward
+encrypted traffic around the globe.  
   
-Provides anonymous access to the Internet and "hidden/onion services".  
+Provides anonymous access to the Internet and
+"onion services" (masked destination address).  
   
 Best enjoyed with [Tails](https://tails.boum.org/) or [Whonix](https://www.whonix.org/).
 
@@ -171,3 +179,9 @@ Best enjoyed with [Tails](https://tails.boum.org/) or [Whonix](https://www.whoni
 - It is damn slow!
 
 ![bg right:30%](images/29-penguins.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Dan Revoy (CC BY 4.0)" -->
+Thoughts and/or questions?
+
+![bg right:30%](images/29-adventure.jpg)
