@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: © 2023 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 X-Context: Practical cryptography course - Password cracking lab
 -->
@@ -17,11 +17,11 @@ Super Sensitive Production Database. A shell on that server would surely mean ga
 You peruse through the backup data and find "etc/shadow", a file used to store passwords for the
 system's users. When scrolling through the list your heart suddenly stops for a second and the PTSD
 hits. With a shattered voice, the cat in your lap hears a silent whisper:
-"It can't be - it can't possible be. Oscar, freaking Oscar."  
+"It can't be - it can't possibly be. Oscar, freaking Oscar!"  
   
 A quick search on LinkedIn confirms your worst suspicion. Oscar, your childhood tormentor, has
 started working as a developer at Xample Industries - the very same company you're auditing. The
-stressful feeling is steadily replaced by a huger for revenge. You've been given the chance to
+stressful feeling is steadily replaced by a hunger for revenge. You've been given the chance to
 both impress the customer by hacking their crown jewel and in a subtle way get back at Oscar.  
   
 What are you waiting for? Let's get cracking.
@@ -41,6 +41,7 @@ In order to aid the password cracking process, the student should obtain and use
 popular "RockYou" dictionary/wordlist, which contains a large amount of leaked password.  
   
 All tools required to complete the assignment should be pre-installed on the student's lab system. 
+If correctly configured, the cracking process shouldn't take more than a couple of minutes.
 
 
 ## Tasks
@@ -49,7 +50,7 @@ All tools required to complete the assignment should be pre-installed on the stu
 - Obtain a copy of the "RockYou" password list (MD5 hash: 9076652d8ae75ce713e23ab09e10d9ee)
 - Determine which hash types are used to store passwords in the file "shadow.bak"
 - Use JtR ("john.sh") and the password list to crack Oscar's password
-- Crack Bob's password by extending/permutating the password list (ends with =2022= or =2023=)
+- Crack Bob's password by extending/permutating the password list (should end with =2022= or =2023=)
 
 
 ### Meritorious ("VG")
@@ -65,10 +66,11 @@ Each student should submit a lab report containing **at least** the following in
 - Documentation of which hash types were stored in the "shadow" file
 - Description of which programs/commands/arguments were used to crack the password hashes
   
-Optionally, describe three techniques/tricks that could be used to minimize the number of attempts
-and increase likelihood of successful password recovery in 1000 characters or more ("VG").  
+For "VG", describe three techniques/tricks that could be used to minimize the number of attempts
+and increase likelihood of successful password recovery in 1000 characters or more.
   
 The lab report should be provided as a plain text file (".txt"), Markdown document or PDF file.
+
 
 ## Guidance and resources
 
@@ -80,6 +82,7 @@ when researching the tool and how it should be utilized.
 The JtR version included in the lab container image is called "Jumbo". Make sure to include this
 term when searching for information.
 
+
 ### Argument separation in JtR CLI
 JtR supports many different command-line options. Options that support/require positional arguments
 (such as "--config" which requires that the user specify a file) typically use the "equal"
@@ -88,11 +91,13 @@ character (or in rare cases the colon character) to separate these.
 This means that an option such as "--wordlist" must be specified as "--wordlist=path/to/file" and
 not "--wordlist path/to/file".
 
+
 ### Simple permutation of wordlists
 JtR Jumbo supports a feature called "mask" to generate passwords on the fly based on a user
 specified pattern, such as "three letters followed by a number". This feature can be combined with
 the "wordlist" mode to easily create new permutations/versions of passwords stored in a password
 list. When used in unison, it is typically called "stacked mask" or "hybrid stacked mask".
+
 
 ### File paths and the "john.sh" wrapper 
 For ease of use, the JtR Jumbo version has been packaged in a container image in this lab. It can

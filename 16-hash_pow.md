@@ -108,7 +108,7 @@ handover that email, will you?
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Martin Fisch (CC BY 2.0)" -->
 **Costly to find proof,
-but cheap to very!\***
+but cheap to verify!\***
 
 ![bg right:30%](images/16-otter.jpg)
 

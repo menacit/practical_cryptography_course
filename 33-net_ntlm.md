@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Attacking Net-NTLM"
@@ -28,7 +28,7 @@ style: |
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
-# Attacking Net-NTLM
+# Attacking "Net-NTLM"
 ### Abusing protocol design flaws 
 
 ![bg right:30%](images/33-mural.jpg)
@@ -46,12 +46,14 @@ SSL/TLS became commonly used.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Guilhem Vellut (CC BY 2.0)" -->
 ## Meet NTLMv1 / NTLMv2
-Authentication mechanism popular in
-Windows environments.  
+Authentication mechanisms used
+in Windows environments.  
   
-Provides seamless authentication for access to file shares, internal web applications, etc.  
+Provides seamless authentication for access
+to file shares, internal web applications, etc.  
   
-Relies on challenge/response to avoid sending credentials in clear-text.
+Relies on challenge/response to avoid
+sending credentials in clear-text.
 
 ![bg right:30%](images/33-seyssel_abandoned_house.jpg)
 
@@ -66,7 +68,7 @@ Relies on challenge/response to avoid sending credentials in clear-text.
 <!-- _footer: "%ATTRIBUTION_PREFIX% Guilhem Vellut (CC BY 2.0)" -->
 Well, yes. It's confusing.  
   
-**NTMLM / NTHash**: Password storage.  
+**NTLM / NTHash**: Password storage.  
   
 **NTLMv1 / NTLMv2**: Network authenticaiton.  
   
@@ -76,15 +78,30 @@ To keep things simple, usually called
 ![bg right:30%](images/33-seyssel_abandoned_house.jpg)
 
 ---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Guilhem Vellut (CC BY 2.0)" -->
+Net-NTLMv1 was removed in Windows 11.
+
+Microsoft [recently announced](https://techcommunity.microsoft.com/blog/windows-itpro-blog/advancing-windows-security-disabling-ntlm-by-default/4489526) that they'll
+disable Net-NTLMv2 by default in the
+next version of Windows server.
+  
+Let's try to understand why!
+
+![bg right:30%](images/33-seyssel_abandoned_house.jpg)
+
+---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Adam Lusch (CC BY-SA 2.0)" -->
 ### Authentication flow: Net-NTLMv1
 1. User connects to network server
 2. Server responds with eight random bytes as an authentication challenge 
-3. User takes their password hash, splits it up and use it as keys to DES encrypt the challenge
+3. User takes their password hash, splits it up and use it as keys to DES encrypt challenge
 4. Server takes stored password hash for user and performs the same procedure
 5. If client challenge response matches server generated result, consider user authenticated
 
 ![bg right:30%](images/33-power_lines_pole.jpg)
+
+---
+![bg center 100%](images/33-net-ntlm_simplified.png)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Egill Egilsson (CC BY 2.0)" -->
@@ -92,22 +109,22 @@ To keep things simple, usually called
 1. User connects to network server
 2. Server responds with eight random bytes as a "server challenge"
 3. User generates eight random bytes as a "client challenge" 
-3. User responds with ~md5(password hash + server/client challenge) and client challenge
-4. Server calculate ~md5(stored password hash + server/client challenge)
-5. If client response matches server generated result, consider user authenticated
+4. User responds with \~md5(password hash \+ server/client challenge) and client challenge
+5. Server calculate \~md5(stored password hash \+ server/client challenge)
+6. If client response matches server generated result, consider user authenticated
 
 ![bg right:30%](images/33-esbjerg_street.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Guilhem Vellut (CC BY 2.0)" -->
-**Hmmm, doesn't seem right?**
+**Hmmm, that doesn't seem ideal?**
 
 ![bg right:30%](images/33-seyssel_abandoned_house.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Guilhem Vellut (CC BY 2.0)" -->
-We just turned the password hash into a
-password equivalent.
+We just turned the password hash
+into a password equivalent.
 
 ![bg right:30%](images/33-seyssel_abandoned_house.jpg)
 
@@ -142,8 +159,8 @@ Server challenge doesn't actually contain any information about the server's ide
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Cory Doctorow (CC BY-SA 2.0)" -->
 ### NTLM relaying attack
-1. Attacker sets up malicious website
-2. Victim user connects to malicious site
+1. Attacker sets up malicious server
+2. Victim user connects to malicious server
 3. Attacker connects to target server
 4. Target server returns challenge
 
@@ -152,15 +169,18 @@ Server challenge doesn't actually contain any information about the server's ide
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Cory Doctorow (CC BY-SA 2.0)" -->
 ### NTLM relaying attack
-5. Attacker website returns the same challenge to the victim user
+5. Attacker server returns the same challenge to the victim user
 6. Victim user generates challenge response
 7. Attacker takes response from victim user and reuse it against the target server
-8. Target server validates that challenge response, attacker is authenticated as victim user.
+8. Target server validates that challenge response and attacker is authenticated as the victim user.
 
 ![bg right:30%](images/33-book_statue.jpg)
 
 ---
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+![bg center 100%](images/33-net-ntlm_relaying_simplified.svg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Cory Doctorow (CC BY-SA 2.0)" -->
 Doesn't necessarily require user interaction -
 Windows ~~loves~~ likes to do it by itself!  
 
@@ -169,5 +189,11 @@ but usually not enforced!
   
 If you wanna play around, check out
 ["responder" on GitHub](https://github.com/lgandx/Responder).
+
+![bg right:30%](images/33-book_statue.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+## Wrapping up
 
 ![bg right:30%](images/33-mural.jpg)

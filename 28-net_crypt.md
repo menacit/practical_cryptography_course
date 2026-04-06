@@ -92,7 +92,7 @@ We've talked about TLS, let's have a look at the other network layers.
 | **2:** Data link   | **1:** Link          |
 | **3:** Network     | **2:** Internet      |
 | **4:** Transport   | **3:** Transport     |
-| **5:** Application | **4:** Application   |
+| **7:** Application | **4:** Application   |
 
 **OCI model still acts as Interlingua.**
 
