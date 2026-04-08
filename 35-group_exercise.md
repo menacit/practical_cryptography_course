@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Group exercise"
@@ -86,7 +86,7 @@ _(feel free to extend fictional scenario!)_
 - Spy agency working with intelligence gathering
 - Provides sensitive information to governmental agencies, diplomats and foreign allies
 - Has agents and sources spread all over the world that need to report information securely
-- May only utilize free software due to budget restraints enforce by CATZ
+- May only utilize free software due to budget restraints enforce by "CATZ"
 
 _(feel free to extend fictional scenario!)_
 

@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: SSSS"
@@ -54,17 +54,24 @@ decrypt the message on their own.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Steve Jurvetson (CC BY 2.0)" -->
 Let's say that you write a will.  
-Maybe you do have a favorite child?  
   
-You sign it and symmetrically encrypt it.  
-  
-**Now what?**
+Mayhaps you have a favorite child or
+special plans for the family house?  
+
+You sign and encrypt it.  
+
+Your offspring should be able to
+decrypt it together, but not by
+themselves and preferably not
+before your tragic passing.
 
 ![bg right:30%](images/37-drones.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Steve Jurvetson (CC BY 2.0)" -->
-Perhaps we could use a **HSM**?  
+Perhaps we could buy an expensive HSM
+that requires multiple physical key
+to use for decryption?  
   
 Hmmm, yes - but there is another option...
 

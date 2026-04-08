@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2024 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Key management and HSM"
@@ -40,43 +40,28 @@ We talk about Alice, Bob and Charlie.
 They are merely key holders
 (and hopefully the only ones).
 
-![bg right:30%](images/36-monkey.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
-Revocation is not perfect.  
-  
-May not be a practical option.  
-  
-How do you even know that a key has been compromised?
+How do we protect private keys?
 
 ![bg right:30%](images/36-monkey.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
-Let's slap some symmetric encryption on the asymmetric private key!  
+Let's slap some symmetric encryption
+on the asymmetric private key!  
   
 Key may still be stolen by malware
-once decrypted.
-
-![bg right:30%](images/36-monkey.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
-Should we change key every time a team member or sysadmin leaves/becomes untrusted?  
-  
-Should we really trust everyone equally?
+once decrypted (in-use by a system).
 
 ![bg right:30%](images/36-monkey.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
 ## Meet the CAB!
-[CA/Browser Forum](https://cabforum.org/).  
+[**CA**/**B**rowser Forum](https://cabforum.org/).  
   
 Sets baseline security/policy requirements for CAs that want to be included in trust stores.  
   
-If you're a public CA and the forum doesn't like you, you're in big trouble.
+If you're a public CA and the forum doesn't like what you're doing, that means big trouble.
 
 ![bg right:30%](images/36-monkey.jpg)
 
@@ -86,8 +71,40 @@ If you're a public CA and the forum doesn't like you, you're in big trouble.
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
-Some try to push things a bit further,
-like Google with [Certificate Transparency](https://www.rfc-editor.org/rfc/rfc9162).
+Yet, they sometimes fail.
+
+It would be very bad if some
+evil state were able to issue
+trusted certificates for popular
+websites and use them to MITM
+their citizens' Internet traffic.
+
+_\*COUGH COUGH\*_
+
+How do you even know that a
+key has been compromised?
+
+![bg right:30%](images/36-monkey.jpg)
+
+<!--
+https://en.wikipedia.org/wiki/DigiNotar
+-->
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+One way to identify abuse of CA keys
+is to enforce usage of something like
+["**C**ertificate **T**ransparency"](https://www.rfc-editor.org/rfc/rfc9162).
+
+CAs publish all certificates they've
+issued - if you receive one that is
+not on the list, their privat keys
+may have been stolen.
+
+Required for CAs included in
+Google Chrome's truststore since 2018!
+
+(Nice for OSINT as well)
 
 ![bg right:30%](images/36-monkey.jpg)
 
@@ -96,6 +113,28 @@ like Google with [Certificate Transparency](https://www.rfc-editor.org/rfc/rfc91
 
 ---
 ![bg center 65%](images/36-ct_2.png)
+
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+Revocation is not perfect.  
+  
+May not be a practical option,
+what about devices that aren't
+online but still needs to use
+certificates for validation?  
+
+![bg right:30%](images/36-monkey.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+Should we change key every time a team
+member or sysadmin becomes "untrusted"?  
+  
+Is there any way to ensure that a key
+may only be used and not copied?
+
+![bg right:30%](images/36-monkey.jpg)
 
 ---
 ## "Hardware Security Module"
@@ -114,13 +153,17 @@ Comes in many shapes and sizes:
 
 ---
 ## Security promise
-**Keys that are generated and/or stored in HSM may never leave.**
+Keys that are generated and/or
+stored in HSM may never leave.
 
 ![bg right:30%](images/36-crypto_keys.jpg)
 
 ---
 ## Secure key storage 
 Device should be tamper resistant.  
+
+You shouldn't be able to extract keys,
+even with physical access to the HSM.
   
 Device should not leak key material through
 side-channels (see ["TEMPEST"](https://en.wikipedia.org/wiki/Tempest_(codename))).
@@ -141,20 +184,21 @@ Logging of all usage.
 ![bg right:30%](images/36-crypto_keys.jpg)
 
 ---
-### They may even be quite fast!
+They may even be quite fast!
 
 ![bg right:30%](images/36-crypto_keys.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Yubinerd (CC BY-SA 4.0)" -->
 ## YubiKey
-Continuously improved for ~15 years.  
+Continuously improved since 2008.  
   
 Built to survive on your keyring.
 
 Manufactured in Sweden and USA.  
   
-Well-supported by applications and community.
+Well-supported by applications,
+both proprietary and FOSS.
 
 ![bg right:30%](images/36-yubikey.jpg)
 
@@ -169,7 +213,30 @@ Upgradable firmware.
 ![bg right:30%](images/36-nitrokey.jpg)
 
 ---
-## Let's try 'em out!
+<!-- _footer: "%ATTRIBUTION_PREFIX% Pixelmenschen (CC BY 2.0)" -->
+Maybe you've heard about
+**T**rusted **P**latform **M**odules
+and **S**ecurity **P**rocessors?
+
+They are HSMs, but can usually do
+other exciting things as well.
+
+You likely got one built-in to
+your computer and phone already!
+
+(more about these later...)
+
+![bg right:30%](images/36-lock_screen.jpg)
+
+---
+'Nuff talk, more demos!
+
+Let's use a YubiKey to generate
+a keypair and protect network
+communication with mTLS!
+
+(All without sensitive key
+material leaving the device)
 
 ![bg right:30%](images/36-crypto_keys.jpg)
 
@@ -217,13 +284,13 @@ gGoUBZGw01hmq8[...]+ZxCLc2dmO7bTcYro
 ---
 ### Import CSR and issue certificate
 ```
-$ e import-req ada.csr ada
+$ easyrsa import-req ada.csr ada
 
 [...]
 The request has been successfully
 imported with a short name of: ada
 
-$ e sign-req client ada
+$ easyrsa sign-req client ada
 
 [...]
 Request subject, to be signed as a
@@ -258,7 +325,6 @@ $ ykman piv info
 
 PIV version: 5.4.3
 PIN tries remaining: 3/3
-Management key algorithm: TDES
 CHUID:	3019d4e73a[...]739ced39ce739d83
 CCC: 	No data available.
 Slot 9a:
@@ -281,12 +347,12 @@ Slot 9a:
 ---
 That's quite neat. But how do you use it?  
   
-Several different "interfaces" and "protocols" exist for usage of a HSM/smart-card.  
-  
-In this case,
-the application (or cryptography library) uses
+Several different "interfaces" and "protocols"
+exist for management/usage of a HSM.  
+
+Many applications/libraries support
 the standardized [**PKCS #11**](https://en.wikipedia.org/wiki/PKCS_11) interface
-for access to cryptographic operations.
+for access to its cryptographic operations.
 
 ![bg right:30%](images/36-crypto_keys.jpg)
 
@@ -321,31 +387,22 @@ $ curl \
 Status: NUKES ARMED AND READY! :-O
 ```
 
-![bg right:30%](images/36-crypto_keys.jpg)
-
 ---
-Works in many web browsers as well.  
+Works in many "regular" browsers as well.  
+
+Many other use-cases, like storage/usage
+of sensitive CA signing keys.  
   
-Use PKCS #11 to store your CA/email signing key more securely.  
-  
-Play around with "ykman" to configure touch/physical interaction policies for key usage.  
-  
-Supports other cryptographic interfaces,
-such as "[OpenPGP card](https://en.wikipedia.org/wiki/OpenPGP_card)".
+Supports other interfaces as well, such as
+["CTAP"](https://developers.yubico.com/CTAP/) and ["OpenPGP card"](https://en.wikipedia.org/wiki/OpenPGP_card).
+
+(more about that in the next lab!)
 
 ![bg right:30%](images/36-crypto_keys.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Pixelmenschen (CC BY 2.0)" -->
-## Moving on...
-
-![bg right:30%](images/36-lock_screen.jpg)
-
----
-<!-- _footer: "%ATTRIBUTION_PREFIX% Pixelmenschen (CC BY 2.0)" -->
-## TPMs / Secure enclaves
-Used for a wide variety of tasks,
-including "verified boot" and FDE.
+Let's talk a bit about some "strange" HSMs!
 
 ![bg right:30%](images/36-lock_screen.jpg)
 
@@ -354,19 +411,23 @@ including "verified boot" and FDE.
 ## HSMaaS
 Offered in most public clouds.  
   
-Some argue against its value, but usage is required by security standards such as
-[PCI DSS](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard).  
+Some argue against its value,
+but usage of HSMs are required by
+compliance frameworks such as [PCI DSS](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard).  
   
-Some legal jurisdictions make it appealing.
+(Some legal jurisdictions also make
+it quite appealing for providers!)
 
 ![bg right:30%](images/36-arecibo.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% A. Gerst, ESA (CC BY-SA 2.0)" -->
 ## SoftHSM and emulated TPMs
-Perhaps you want to play around without access to real hardware?  
+Perhaps you want to ensure software
+compatibility without access
+to real hardware?  
   
-Useful in CI/CD pipelines and for testing.
+Useful in CI pipelines for testing.
 
 ![bg right:30%](images/36-space_face.jpg)
 
@@ -377,6 +438,9 @@ Your HSM may require a PIN, physical interaction and/or biometrics to perform op
   
 But what are you actually
 signing / decrypting / authenticating?  
+
+Malware could be feeding it other things,
+hard to know without a screen or similar.
 
 ![bg right:30%](images/36-crypto_wallets.jpg)
 
@@ -390,5 +454,11 @@ What about malware, key backups and
 [bad randomness](https://en.wikipedia.org/wiki/ROCA_vulnerability)?  
   
 Mayhaps both or neither.
+
+![bg right:30%](images/36-monkey.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% William Warby (CC BY 2.0)" -->
+## Wrapping up
 
 ![bg right:30%](images/36-monkey.jpg)

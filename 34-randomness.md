@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Randomness"
@@ -87,7 +87,7 @@ implementation and security promises...
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Jusotil_1943 (CC0 1.0)" -->
 ### PRNG
-Pseudo-random _AKA_
+**P**seudo-**R**andom _AKA_
 "Not really but let's pretend".  
   
 Can be implemented in pure software.  
@@ -100,7 +100,7 @@ unsuitable for security applications.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Mike Grauer Jr (CC BY 2.0)" -->
 ### CSPRNG
-Cryptographically secure pseudo-randomness.  
+**C**ryptographically **S**ecure **P**seudo-**R**andomness.  
   
 Relies on multiple semi-unpredictable inputs,
 such as mouse movement, CPU temperature,
@@ -116,7 +116,7 @@ be trivial, but not all at the same time.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Yellowcloud (CC BY 2.0)" -->
 ### HWRNG
-Hardware Random Number Generator.
+**H**ardware **R**andom **N**umber **G**enerator.
 
 Let some external device provide
 us with those random bits.  
@@ -126,10 +126,12 @@ typically quite fast!
 
 ### TRNG
 Measuring something we think is
-"**t**ruly random", like radioactive decay.
+"**T**ruly random", like radioactive decay.
 
 Purpose-built peripherals,
 some available as "open hardware".
+
+(We really want it to be inspectable)
 
 ![bg right:30%](images/34-chip_with_probes.jpg)
 
@@ -157,6 +159,8 @@ HWRNG as an entropy input to a CSPRNG.
 The more sources of unpredictable
 input, the better output randomness!
 
+(Minimizes risk of nasty backdoors)
+
 ![bg right:30%](images/34-one_world_trade.jpg)
 
 ---
@@ -167,10 +171,10 @@ to get started producing output.
 (what we use our multiple inputs for)   
 
 We can abuse this to generate
-"deterministic randomness"! _:S_
+"reproducable randomness"! _:S_
 
-Useful for key derivation and creating
-easily sharable worlds in Minecraft!
+Useful for recoverable key derivation and
+creating easily sharable worlds in Minecraft!
 
 ![bg right:30%](images/34-goose.jpg)
 
