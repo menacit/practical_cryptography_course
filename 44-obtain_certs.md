@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Obtaining certificates"
@@ -46,33 +46,48 @@ is a whole other deal.
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
 Most operating systems ship with a 
-trust store containing CA certificates.  
+truststore containing CA certificates.  
 
-The **CA/B**rowser Forum agree on
+The **CA**/**B**rowser Forum agree on
 what it takes to be included\*.  
 
 How do we get our CSR signed by
 a publicly-trusted CA?
+
+Furthermore, how do they validate the
+"identity" (hostname, for example)
+in our submitted CSR?
 
 ![bg right:30%](images/44-cave_stairs.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
 ## The dark ages
+Upload your CSR to their website.
+  
 Fork up a few (hundred) USD
 and specify the email address
 (admin|administrator|webmaster|
-hostmaster|postmaster)@\$YOUR\_DOMAIN.  
+hostmaster|postmaster)@\$YOUR\_DOMAIN.
+  
+Take the random code they emailed
+you and enter it on their website.
 
-Wait...  
+Download a signed certificate!
 
-Here is (hopefully) a certificate!
+(Once expired, repeat process)
 
 ![bg right:30%](images/44-cave_stairs.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
-Does that sound a bit fragile?
+Sounds annoying, quite expensive
+and not all that secure!
+
+No wonder most web sites weren't
+available over HTTPS.
+
+(which hackers and spooks loved!)
 
 ![bg right:30%](images/44-cave_stairs.jpg)
 
@@ -88,7 +103,7 @@ Developed and run by the nonprofit
   
 Invented and uses the
 [ACME protocol](https://en.wikipedia.org/wiki/Automatic_Certificate_Management_Environment) to
-validate CSRs.
+validate CSRs and issue certificates.
 
 ![bg right:30%](images/44-cave_stairs.jpg)
 
@@ -98,26 +113,36 @@ https://www.manageengine.com/key-manager/what-is-automated-certificate-managemen
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
-## The limitations
-No email (S/MIME) or
-code signing certificates (yet).  
-
-([Sigstore](https://www.sigstore.dev/) may help you with the latter)
-
-Not trusted in very old/outdated
-trust stores (which you probably
-shouldn't be trusting anyway!).
+The limitation: Just server certificates
+with 90 days expiry time (soon 45 days).
+  
+Need software to automatically handle
+renewal, like [Certbot](https://certbot.eff.org/), or a web server
+that has built-in support, such as [Caddy](https://caddyserver.com/).
 
 ![bg right:30%](images/44-cave_stairs.jpg)
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
 The certificate aims to
-prove control over a domain,
+prove control over a domain/email address,
 not a brand/company/organization.  
 
 "**E**xtended **V**alidation certificates"
 were introduced in 2005 to
 address the problem.
+
+Required for code-signing of drivers
+in Microsoft Windows and similar.
+
+![bg right:30%](images/44-cave_stairs.jpg)
+
+<!--
+https://en.wikipedia.org/wiki/Extended_Validation_Certificate
+-->
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
+## Wrapping up
 
 ![bg right:30%](images/44-cave_stairs.jpg)

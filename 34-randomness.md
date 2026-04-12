@@ -171,7 +171,7 @@ to get started producing output.
 (what we use our multiple inputs for)   
 
 We can abuse this to generate
-"reproducable randomness"! _:S_
+"reproducible randomness"! _:S_
 
 Useful for recoverable key derivation and
 creating easily sharable worlds in Minecraft!
