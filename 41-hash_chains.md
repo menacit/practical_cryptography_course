@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Hash chains"
@@ -141,7 +141,11 @@ not hyperlinks.
   
 Each link in our chain consists of 
 `hash($PREVIOUS_LINK_HASH + $DATA)`.  
-
+  
+Due to this dependency, we can tell
+what historic data has been manipulated
+(if any, that is).
+  
 Confusing? Let's look at an example.
 
 ![bg right:30%](images/41-locks.jpg)
@@ -179,9 +183,6 @@ for LOG_ENTRY_FILE in *.log; do
   echo "Digest of last link \"${LAST_LINK_DATA}\" is \"${LAST_LINK_HASH}\""
   
 done
-
-echo "Hash digest to store:"
-echo "${LAST_LINK_HASH}" | tee hash_chain.txt
 ```
 
 ---
@@ -190,9 +191,6 @@ Digest of last link "<nothing> + INFO: μBank process started" is "f7d6[...]c280
 Digest of last link "f7d6[...]c280 + INFO: Alice deposit 1000€" is "2c11[..]7e26"
 Digest of last link "2c11[...]7e26 + INFO: Alice transfer 500€ to Bob" is "ac5b[...]fd0e"
 Digest of last link "ac5b[...]fd0e + INFO: Alice's account balance is 500€" is "c075[...]8b5d"
-
-Hash digest to store:
-c075e5268bacae128f7ee1c897a6f15f3980d02f3ff2aa3d72583cf36ad08b5d
 ```
 
 ---
@@ -245,7 +243,6 @@ Confused? Let's look at some examples.
 
 (`c075[...]8b5d` is the expected digest of the last link)
 
-
 ---
 ## Removing a log entry
 | Previous link digest | Log entry                             |
@@ -258,6 +255,42 @@ Confused? Let's look at some examples.
 
 (`c075[...]8b5d` is the expected digest of the last link)
 
+
+---
+What if we wanna append a new log entry?
+
+```
+$ echo "c075[...]8b5d + INFO: Alice transfer 250€ to Dan" \
+  | sha256sum | cut -d ' ' -f 1
+
+6a22[...]4F71
+```
+
+...and another one:
+
+```
+$ echo "6a22[...]4F71 + ERROR: Alice tried to transfer 1000€ to Eve" \
+  | sha256sum | cut -d ' ' -f 1
+
+34bf[...]aca1
+```
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+Why is this neat?
+
+If we save/publish each link hash and
+"replay" the log, we can tell if log
+events have been removed, shuffled,
+modified or added.
+
+If we only choose to save a link hash
+every hour/day/week, we can make sure
+that nothing before point that has
+been modified at a future date.
+
+![bg right:30%](images/41-locks.jpg)
+
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
 Any limitations with our approach?  
@@ -265,15 +298,39 @@ Any limitations with our approach?
 Can only prevent manipulation of
 previous links in the chain,
 a fraudulent transaction
-could be appended.  
+could still be appended.  
   
-Requires the latest link digest
-and all previous log entries
-for proper validation.  
+Requires at least the last link digest
+and all previous log entries for
+proper validation.  
 
-Gotta be careful with storage of
-the last link hash, as a thief may
-be able to "crack" the last entry.
+![bg right:30%](images/41-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+How could this help in a customer dispute
+regarding account balance manipulation
+by an evil bank insider?
+
+The link hashes could be publicly available,
+posted each day for everyone to see. 
+
+The logs could be kept secret, but
+relevant log events (draining transactions)
+could be disclosed during a court trial.
+
+By disclosing the plaintext log entry,
+the chain position of its hash digest
+may be proven without disclosing everything.
+
+![bg right:30%](images/41-locks.jpg)
+
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
+...just be aware that someone may try
+to crack our chain links to disclose
+the transaction log entries.
 
 ![bg right:30%](images/41-locks.jpg)
 
@@ -332,7 +389,10 @@ and the previous link digests can validate the log.
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Christian Siedler (CC BY-SA 2.0)" -->
-Can we make it more efficient?  
+Can we make it more efficient so we
+don't need go through every single
+link digest to validate that a
+log entry exist in the chain?
   
 Yes, using a [**Merkle tree**](https://en.wikipedia.org/wiki/Merkle_tree).
 
@@ -351,6 +411,8 @@ Guardtime digests in newspapers
 are one example.  
   
 The chain part of blockchain.
+
+...oh, and "certificate transparency"!
 
 ![bg right:30%](images/41-locks.jpg)
 
@@ -375,3 +437,9 @@ If you see the term
 some type of hash chaining is likely used.
 
 ![bg right:30%](images/41-locks.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Cory Doctorow (CC BY-SA 2.0)" -->
+## Wrapping up
+
+![bg right:30%](images/41-one_world_trade.jpg)

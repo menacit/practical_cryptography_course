@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Cryptography in ransomware"
@@ -90,7 +90,7 @@ Steal sensitive/embarrassing information
 for "double extortion".  
   
 Target firmware/lower-level code that is tricky
-to detect/recover from, especially with
+to detect/recover from, especially without
 "secure boot" or "measured boot".
 
 ![bg right:30%](images/42-outdoors_pcb.jpg)
@@ -104,8 +104,8 @@ with randomly generated key.
 Randomly generated symmetric key is
 encrypted against intruder's public key.  
   
-Commonly use established standards,
-such as AES and RSA.
+These days, they commonly use established
+standards, such as AES and RSA.
   
 Often relies on the same cryptography
 libraries as everyone else, because
@@ -130,6 +130,9 @@ Typically contains an .onion-link for more details, payment information and "cus
 Ransom must typically be paid in a cryptocurrency.  
   
 Bitcoin and Monero are the most common options.  
+
+Great for attackers, since there is no
+option for victims to revert a payment.
   
 Cashing out safely is not trivial,
 may require tumbling and trickery.

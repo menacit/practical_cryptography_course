@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Cryptography in Bitcoin"
@@ -53,13 +53,15 @@ Let's have a peak at how it works
 <!-- _footer: "%ATTRIBUTION_PREFIX% Austin Design (CC BY-SA 2.0)" -->
 ## Addresses and keys
 No registration or
-"**k**now **y**our **c**ustomer"-process is required
+"**K**now **Y**our **C**ustomer"-process is required
 to perform transactions on the network.  
 
 Relies on user-generated asymmetric key pairs.
 
 The public key acts as the participant's
 "account number", known in Bitcoin as "address".  
+These days something like check digits are used
+to minimize risk of catastrophic typos.  
 
 The private key is used to sign transactions.  
 An analogy would be a physical wallet with cash.
@@ -116,10 +118,16 @@ associated with the specified source address
 and keep track of historic transactions to
 validate "account balance".
 
+(Basically a big distributed spreadsheet)
+
 Anyone can setup a node and monitor
 current/historic transactions.
 
 ![bg right:30%](images/45-server_rack.jpg)
+
+<!--
+https://mempool.space
+-->
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Marcin Wichary (CC BY 2.0)" -->
@@ -173,7 +181,15 @@ verifying transactions and PoW,
 the address (public key)
 of the solving node.
 
+(You typically need a warehouse full
+of ASICs to have a chance of winning)
+
 ![bg right:30%](images/45-cubes.jpg)
+
+<!--
+https://i0.wp.com/www.texastribune.org/wp-content/uploads/2024/11/Afton20Crypto20Farm20TrT20TT2005-3-scaled.jpg
+https://earthjustice.org/wp-content/uploads/2023/08/gp0stwjvm_web_size-1.jpg
+-->
 
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% Kurayba (CC BY-SA 2.0)" -->
