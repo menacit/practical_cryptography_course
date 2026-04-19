@@ -1,5 +1,5 @@
 ---
-SPDX-FileCopyrightText: © 2025 Menacit AB <foss@menacit.se>
+SPDX-FileCopyrightText: © 2026 Menacit AB <foss@menacit.se>
 SPDX-License-Identifier: CC-BY-SA-4.0
 
 title: "Practical cryptography course: Future of cryptography"
@@ -46,7 +46,8 @@ insights into what may be next.
 <!-- _footer: "%ATTRIBUTION_PREFIX% IAEA (CC BY 2.0)" -->
 ## Post-quantum cryptography 
 Theoretically possible to efficiently break
-**asymmetric** encryption/signing.  
+**asymmetric** encryption/signing using
+some like [Shor's algorithm](https://en.wikipedia.org/wiki/Shor%27s_algorithm).  
   
 Hard to know ~~exactly~~ how close we are,
 but sunsetting cryptography solutions
@@ -58,11 +59,16 @@ but not always a good option.
 
 ![bg right:30%](images/43-fusion_equipment.jpg)
 
+<!--
+https://quantumai.google/static/site-assets/downloads/cryptocurrency-whitepaper.pdf
+https://arxiv.org/abs/2603.28627
+-->
+
 ---
 <!-- _footer: "%ATTRIBUTION_PREFIX% IAEA (CC BY 2.0)" -->
 ## Post-quantum cryptography 
-**NIST** and other actors are working on
-new publicly-audited standards
+**NIST** and other actors have worked
+on new publicly-audited standards
 for quantum-resistant ciphers.  
 
 "**CRYSTALS-Kyber**" (encryption) and
@@ -102,6 +108,21 @@ lots of very interesting cryptography.
 Starting to slowly and sensibly be
 cherry-picked into other solutions.
 
+["Zero-knowledge proofs"](https://en.wikipedia.org/wiki/Zero-knowledge_proof) are one example...
+
+![bg right:30%](images/43-smokey_man.jpg)
+
+---
+<!-- _footer: "%ATTRIBUTION_PREFIX% Austin Design (CC BY-SA 2.0)" -->
+With a digital ID card, you could
+prove that you're:
+- Over 18 without revealing your birth date
+- A member of an EU state without revealing which one exactly
+- A unique individual with revealing your SSN
+
+...all without a trusted third-party
+and "linkability" for verifiers.
+
 ![bg right:30%](images/43-smokey_man.jpg)
 
 ---
@@ -112,7 +133,8 @@ usage of cryptography.
   
 Focus on jurisdiction to enable
 lawful interception through
-endpoint backdoors and CSS.  
+endpoint backdoors and
+"client-side scanning".  
 
 Targeting "crime-supporting" functions,
 like cryptocurrency exchanges/tumblers. 
